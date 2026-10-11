@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Cinco mapas do swing eleitoral de 2022 para 2026 nos 5.570 municípios brasileiros, com leitura e cuidados de interpretação.">
+<title>Geografia do Voto 2026</title>
+<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: coluna de leitura de 70ch, mapas em largura total do contêiner; faixa de números no topo, navegação fixa por mapa. */
+:root{
+  --bg:#f1f3f4; --surface:#ffffff; --ink:#13181c; --ink2:#4b5761; --rule:#d3d9dd;
+  --perdeu:#8c510a; --ganhou:#01665e; --neutro:#6f7b84; --link:#01665e; --tint:#e8eef0;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;padding-inline:16px}
+.wrap{max-width:1080px;margin-inline:auto}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+
+header.top{padding-block:40px 28px;border-bottom:1px solid var(--rule)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin:0 0 12px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,58px);line-height:1.04;margin:0 0 16px;max-width:18ch;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.45;color:var(--ink2);max-width:62ch;margin:0}
+
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-block:28px 0}
+.num{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;min-width:0}
+.num b{display:block;font-family:var(--display);font-size:clamp(26px,3.4vw,36px);line-height:1.1;font-variant-numeric:tabular-nums;font-weight:700}
+.num span{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
+.num.p b{color:var(--perdeu)} .num.g b{color:var(--ganhou)} .num.n b{color:var(--neutro)}
+.nota-num{font-size:13px;color:var(--ink2);margin:12px 0 0;max-width:80ch}
+
+nav.indice{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+nav.indice ul{list-style:none;margin:0 auto;max-width:1080px;padding:0;display:flex;gap:4px;overflow-x:auto}
+nav.indice a{display:block;padding:12px 12px;font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.indice a:hover,nav.indice a.on{color:var(--ink);border-bottom-color:var(--ganhou)}
+
+section.mapa{padding-block:44px 8px;border-bottom:1px solid var(--rule);scroll-margin-top:52px}
+section.mapa h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 8px;text-wrap:balance;max-width:26ch}
+.pergunta{font-size:15px;color:var(--ink2);margin:0 0 20px;max-width:70ch}
+figure{margin:0 0 28px}
+.moldura{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:6px;cursor:zoom-in;display:block;width:100%}
+.moldura img{display:block;width:100%;height:auto;border-radius:3px}
+figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
+
+.texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;margin-bottom:36px}
+.texto h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px;font-weight:600}
+.texto ul{margin:0;padding-left:1.1em}
+.texto li{margin-bottom:10px;max-width:62ch}
+.texto p{margin:0 0 10px;max-width:62ch}
+.texto strong{font-weight:600}
+.cuidado{background:var(--tint);border-radius:6px;padding:14px 16px;font-size:14px;color:var(--ink2);grid-column:1/-1;margin-top:4px}
+.cuidado b{color:var(--ink)}
+
+section.sintese{padding-block:48px 24px}
+section.sintese h2,section.limites h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.col{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.col h3{font-family:var(--display);font-size:20px;margin:0 0 8px;line-height:1.2}
+.col p{margin:0;font-size:15px}
+.aviso{font-size:14px;color:var(--ink2);max-width:72ch;margin:0 0 12px}
+section.limites{padding-block:32px 56px;border-top:1px solid var(--rule)}
+section.limites ul{padding-left:1.1em;margin:0;max-width:78ch}
+section.limites li{margin-bottom:10px;font-size:15px}
+footer{font-size:13px;color:var(--ink2);padding-block:0 40px}
+
+dialog#zoom{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
+#zoom .caixa{width:100%;height:100%;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+#zoom img{background:#fff;width:min(1800px,200%);max-width:none;height:auto;border-radius:4px;cursor:zoom-out}
+#zoom button{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;font:600 14px var(--ui);padding:8px 14px;border-radius:6px;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+
+@media (max-width:820px){
+  .numeros{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .texto{grid-template-columns:minmax(0,1fr)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  #zoom img{width:240%}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <p class="kicker">Eleições presidenciais · 1º turno 2022 → 2026</p>
+  <h1>Onde Lula perdeu votos e onde a direita os ganhou</h1>
+  <p class="lede">Cinco mapas comparam o resultado de 2022 com o de 2026 nos 5.570 municípios. A perda de Lula se concentra no Sudeste e no Sul. Em Goiás e no Ceará, candidatos regionais mudam o desenho do mapa. A abstenção quase não explica a queda.</p>
+
+  <div class="numeros">
+    <div class="num p"><b>−3,28</b><span>p.p. de votos válidos de Lula</span></div>
+    <div class="num g"><b>+3,84</b><span>p.p. de votos válidos de Jair → Flávio Bolsonaro</span></div>
+    <div class="num n"><b>−0,56</b><span>p.p. dos demais candidatos</span></div>
+    <div class="num"><b>2,24 mi</b><span>votos de vantagem de Flávio (47,04% contra 45,16%)</span></div>
+  </div>
+  <p class="nota-num">Variações em pontos percentuais do total de votos válidos. Somam os 5.570 municípios e não incluem o voto no exterior. Segundo turno em 25 de outubro de 2026.</p>
+</header>
+
+<nav class="indice" aria-label="Mapas">
+  <ul>
+    <li><a href="#diferenca">Troca direta ou terceiros</a></li>
+    <li><a href="#abstencao">Abstenção</a></li>
+    <li><a href="#dispersao">Dispersão</a></li>
+    <li><a href="#cartograma">Cartograma</a></li>
+    <li><a href="#votos">Votos absolutos</a></li>
+    <li><a href="#sintese">Síntese</a></li>
+    <li><a href="#limites">Limites</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="mapa" id="diferenca">
+  <h2>Troca direta ou terceiros?</h2>
+  <p class="pergunta">Quando Lula perde e a direita ganha, os votos passaram de um para o outro ou vieram de terceiros candidatos?</p>
+  <figure>
+    <button class="moldura" type="button" data-zoom><img src="img/diferenca.png" width="2000" height="1920" alt="Mapa coroplético dos municípios com a variação da soma do percentual de Lula e dos Bolsonaros. Cinza em quase todo o país; roxo intenso em Goiás; verde no Ceará, no Pará, no Amapá e no Acre." loading="eager"></button>
+    <figcaption>Variação, em p.p., de Lula + Jair/Flávio. Equivale ao oposto da variação dos demais candidatos. Clique para ampliar.</figcaption>
+  </figure>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>Em <strong>3.227 municípios</strong> a soma muda menos de 1 p.p. Ali a perda de Lula e o ganho da direita são, em boa parte, o mesmo voto trocando de lado.</li>
+        <li>Em <strong>1.404 municípios</strong> os terceiros encolheram (verde). O caso mais visível é o Ceará, onde Ciro Gomes teve 6,8% em 2022, contra 3,0% no país.</li>
+        <li>Em <strong>939 municípios</strong> os terceiros cresceram (roxo). Goiás se destaca: Caiado tem 12,3% em 2026, contra 2,2% no país.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>Nacionalmente, os demais candidatos passam de 8,4% para 7,8%, e a soma Lula + Bolsonaros vai de 91,6% para 92,2%. A disputa está mais polarizada, mas a troca entre os dois campos é maior que a soma sugere, porque parte do ganho da direita vem de quem votou em terceiros em 2022.</p>
+      <p>Em Goiás, a queda de Lula não pode ser lida como migração direta para a direita: parte dela foi para Caiado.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> A soma Lula + direita é o oposto da variação dos demais. O mapa mostra onde os terceiros mudaram, não quem votou em quem.</p>
+  </div>
+</section>
+
+<section class="mapa" id="abstencao">
+  <h2>A abstenção explica a perda?</h2>
+  <p class="pergunta">Se eleitores de Lula deixaram de votar, a abstenção deveria subir onde ele mais perdeu.</p>
+  <figure>
+    <button class="moldura" type="button" data-zoom><img src="img/abstencao.png" width="2000" height="1920" alt="Mapa da variação da abstenção por município. Azul no Nordeste e no Mato Grosso, vermelho no Sul e em Mato Grosso do Sul. Maranhão, Pará, Acre, Amapá, Rondônia, Roraima e quase todo o Amazonas aparecem hachurados, sem dado." loading="lazy"></button>
+    <figcaption>Variação da abstenção, em p.p. do eleitorado apto. Áreas hachuradas não têm dado no arquivo de origem.</figcaption>
+  </figure>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>Nos 5.051 municípios com dado, a abstenção vai de <strong>20,71% para 20,99%</strong> (+0,29 p.p.).</li>
+        <li>Ela <strong>sobe no Sul (+1,12 p.p.) e no Sudeste (+0,75)</strong> e <strong>cai no Nordeste (−0,96)</strong>.</li>
+        <li>A correlação entre a variação da abstenção e o swing de Lula é de <strong>0,09</strong>. Onde Lula perdeu mais, a abstenção não subiu de forma sistemática.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>A perda de Lula está mais ligada a mudança de voto do que a ausência de eleitores. Isso reduz o peso de uma estratégia baseada só em levar de volta quem não compareceu.</p>
+      <p>O padrão regional é nítido: a abstenção subiu no Sul e no Sudeste, onde Lula mais perdeu votos, e caiu no Nordeste.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> Faltam eleitorado apto e abstenção em <b>519 municípios</b> (MA, PA, AC, AP, RO, RR e 53 do AM), cerca de 11% dos votos válidos. A leitura vale para os 89% restantes.</p>
+  </div>
+</section>
+
+<section class="mapa" id="dispersao">
+  <h2>Cada ponto, um município</h2>
+  <p class="pergunta">Quanto do que Lula perde aparece como ganho da direita, e isso muda de região para região?</p>
+  <figure>
+    <button class="moldura" type="button" data-zoom><img src="img/dispersao.png" width="3100" height="2120" alt="Seis gráficos de dispersão, um nacional e um por macrorregião, com a variação de Lula no eixo horizontal e a da direita no vertical, com reta de ajuste e reta de troca perfeita." loading="lazy"></button>
+    <figcaption>Variação de Lula (x) contra a da direita (y), em p.p. Reta de ajuste ponderada pelos votos válidos de 2026.</figcaption>
+  </figure>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>No país, a inclinação é de <strong>−0,64</strong> (r = −0,76). Para cada ponto que Lula perde, a direita ganha em média 0,64.</li>
+        <li>No <strong>Sul (−0,90)</strong> e no <strong>Norte (−0,81)</strong> a relação se aproxima de um para um: troca quase direta.</li>
+        <li>No Nordeste a inclinação é de −0,74, e no Sudeste, −0,65.</li>
+        <li>O <strong>Centro-Oeste foge (−0,33)</strong> por causa de Goiás, onde parte dos votos foi para Caiado.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>Onde a inclinação é próxima de −1, a campanha de Lula disputa o mesmo eleitor com a direita. Onde é menor, há um terceiro grupo de eleitores que decide o resultado e que pode ser alcançado por outros argumentos.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> A correlação vale para municípios, não para pessoas. Dois municípios com a mesma variação podem ter chegado a ela por caminhos diferentes (falácia ecológica).</p>
+  </div>
+</section>
+
+<section class="mapa" id="cartograma">
+  <h2>O peso do eleitorado</h2>
+  <p class="pergunta">Um mapa de área esconde as cidades grandes. Como fica o swing quando cada município vale o seu número de votos?</p>
+  <figure>
+    <button class="moldura" type="button" data-zoom><img src="img/cartograma.png" width="3200" height="1920" alt="Dois cartogramas de Dorling lado a lado, para Lula e para Jair e Flávio Bolsonaro. Cada município é um círculo proporcional aos votos válidos de 2026, colorido pela variação em pontos percentuais." loading="lazy"></button>
+    <figcaption>Cartograma de Dorling: a área do círculo é proporcional aos votos válidos de 2026. Posições aproximadas.</figcaption>
+  </figure>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>A perda de Lula se concentra no <strong>eixo São Paulo, Minas, Rio, Paraná e Rio Grande do Sul</strong>, onde estão os maiores círculos.</li>
+        <li>Mudaram de vencedor <strong>713 municípios, todos de Lula para a direita</strong>: MG 178, RS 133, PR 91, SP 90 e GO 69.</li>
+        <li>No Nordeste a perda de Lula é pequena e ampla, e o ganho da direita aparece em muitos círculos médios e pequenos.</li>
+        <li>As maiores cidades, como São Paulo e Rio de Janeiro, ficam na faixa de −2 a +2 p.p. para os dois campos, e a mudança está nas cidades médias e pequenas ao redor.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>Em um mapa de área, regiões pouco povoadas ocupam muito espaço. No cartograma, o que pesa é onde há muitos eleitores, e a mudança fica no Sudeste e no Sul.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> O peso é o de votos válidos de 2026, não o do eleitorado apto, que está vazio em 519 municípios. Os círculos foram afastados por simulação: deslocamento mediano de 0,4 km, 90% abaixo de 63 km e máximo de 326 km.</p>
+  </div>
+</section>
+
+<section class="mapa" id="votos">
+  <h2>Em votos, não em pontos</h2>
+  <p class="pergunta">De onde vêm os 3,40 milhões de votos que Lula perdeu e os 5,01 milhões que a direita ganhou?</p>
+  <figure>
+    <button class="moldura" type="button" data-zoom><img src="img/votos.png" width="3100" height="2480" alt="Mapa de símbolos proporcionais por estado e gráficos de barras por macrorregião com a variação absoluta de votos de Lula, da direita e dos demais candidatos." loading="lazy"></button>
+    <figcaption>Variação absoluta de votos válidos por estado (círculos) e por macrorregião (barras).</figcaption>
+  </figure>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li><strong>Lula: −3,40 milhões.</strong> Sudeste −1,80 milhão e Sul −0,97 milhão. O Nordeste perde só 0,26 milhão.</li>
+        <li><strong>Direita: +5,01 milhões.</strong> Nordeste +1,61 milhão, Sudeste +1,43 milhão e Sul +0,95 milhão.</li>
+        <li><strong>Demais candidatos: −0,58 milhão.</strong> Os votos válidos totais sobem 1,03 milhão.</li>
+        <li><strong>São Paulo sozinho:</strong> Lula −985 mil, direita +682 mil, demais −471 mil.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>O Nordeste dá a Flávio 1,61 milhão de votos novos, mas quase não tira votos de Lula. Pode ser crescimento da direita sobre eleitores de terceiros ou sobre novos votantes, e não derrota de Lula na região; os dados do TSE por município não permitem separar os casos.</p>
+      <p>Em São Paulo, o maior colégio, a queda de Lula é maior que o ganho da direita porque os terceiros também encolhem.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> A variação absoluta mistura mudança de voto com crescimento do eleitorado e do comparecimento. Votos válidos subiram 1,03 milhão.</p>
+  </div>
+</section>
+
+<section class="sintese" id="sintese">
+  <h2>O que os cinco mapas indicam para o 2º turno</h2>
+  <p class="aviso">Leituras possíveis a partir dos mapas. Os mapas mostram padrões; as explicações abaixo são hipóteses e precisam de pesquisa de opinião para serem testadas.</p>
+  <div class="cols">
+    <div class="col"><h3>Sudeste e Sul decidem</h3><p>É onde Lula perdeu 2,77 milhões dos 3,40 milhões de votos, e onde a troca com a direita é quase de um para um. A disputa principal é por eleitores que votaram nele em 2022.</p></div>
+    <div class="col"><h3>Terceiros são o reservatório</h3><p>Os demais candidatos somam 7,8% dos votos válidos. Em Goiás e no Ceará, o voto em Caiado (GO) e o voto regional em Ciro em 2022 (CE) mostram eleitores que não estavam fixados em nenhum dos dois campos.</p></div>
+    <div class="col"><h3>Comparecimento é secundário</h3><p>A correlação de 0,09 entre abstenção e perda de Lula indica que levar eleitores às urnas não recupera, sozinho, o que foi perdido. Pesa mais o voto de quem compareceu.</p></div>
+  </div>
+</section>
+
+<section class="limites" id="limites">
+  <h2>Dados e limites</h2>
+  <ul>
+    <li><strong>Fonte dos votos:</strong> TSE, 1º turno por município, 2022 e 2026. Variações em pontos percentuais de votos válidos. “Direita” é só Jair (2022) ou Flávio (2026) Bolsonaro; “esquerda” é só Lula.</li>
+    <li><strong>Malha:</strong> municípios do IBGE de 2022, simplificados (tolerância de 300 m). Boa Esperança do Norte (MT) foi criada depois e fica fora da comparação.</li>
+    <li><strong>Abstenção:</strong> sem dado em 519 municípios, o que também impede ponderar o cartograma pelo eleitorado apto.</li>
+    <li><strong>Inferência:</strong> todos os resultados são agregados por município e não dizem como cada eleitor votou.</li>
+  </ul>
+</section>
+</main>
+<footer>Elaborado em 11 de outubro de 2026.</footer>
+</div>
+
+<dialog id="zoom" aria-label="Mapa ampliado">
+  <div class="caixa"><img alt=""></div>
+  <button type="button" id="fechar">Fechar</button>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('zoom'), big=dlg.querySelector('img');
+  function abrir(img){big.src=img.src;big.alt=img.alt;if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}}
+  function fechar(){if(dlg.close){dlg.close()}else{dlg.removeAttribute('open')}}
+  document.querySelectorAll('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){abrir(b.querySelector('img'))})});
+  dlg.addEventListener('click',function(e){if(e.target!==dlg.querySelector('#fechar')&&(e.target===big||e.target.classList.contains('caixa')||e.target===dlg))fechar()});
+  document.getElementById('fechar').addEventListener('click',fechar);
+  var links=[].slice.call(document.querySelectorAll('nav.indice a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
