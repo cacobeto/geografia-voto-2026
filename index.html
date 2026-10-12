@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Cinco mapas do swing eleitoral de 2022 para 2026 nos 5.570 municípios brasileiros, com leitura e cuidados de interpretação.">
+<meta name="description" content="Mapas do swing eleitoral e da participação (abstenção, brancos e nulos) de 2022 para 2026 nos 5.570 municípios brasileiros, com leitura e cuidados de interpretação.">
 <title>Geografia do Voto 2026</title>
 <style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,7 +97,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
 <header class="top">
   <p class="kicker">Eleições presidenciais · 1º turno 2022 → 2026</p>
   <h1>Onde Lula perdeu votos e onde a direita os ganhou</h1>
-  <p class="lede">Cinco mapas comparam o resultado de 2022 com o de 2026 nos 5.570 municípios. A perda de Lula se concentra no Sudeste e no Sul. Em Goiás e no Ceará, candidatos regionais mudam o desenho do mapa. A abstenção quase não explica a queda.</p>
+  <p class="lede">Os mapas comparam o resultado de 2022 com o de 2026 nos 5.570 municípios. A perda de Lula se concentra no Sudeste e no Sul. Em Goiás e no Ceará, candidatos regionais mudam o desenho do mapa. A abstenção ficou estável no país e quase não explica a queda; brancos e nulos subiram, sobretudo no Norte e no Nordeste.</p>
 
   <div class="numeros">
     <div class="num p"><b>−3,28</b><span>p.p. de votos válidos de Lula</span></div>
@@ -112,6 +112,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
   <ul>
     <li><a href="#diferenca">Troca direta ou terceiros</a></li>
     <li><a href="#abstencao">Abstenção</a></li>
+    <li><a href="#brancos">Brancos e nulos</a></li>
     <li><a href="#dispersao">Dispersão</a></li>
     <li><a href="#cartograma">Cartograma</a></li>
     <li><a href="#votos">Votos absolutos</a></li>
@@ -150,24 +151,53 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
   <h2>A abstenção explica a perda?</h2>
   <p class="pergunta">Se eleitores de Lula deixaram de votar, a abstenção deveria subir onde ele mais perdeu.</p>
   <figure>
-    <button class="moldura" type="button" data-zoom><img src="img/abstencao.png" width="2000" height="1920" alt="Mapa da variação da abstenção por município. Azul no Nordeste e no Mato Grosso, vermelho no Sul e em Mato Grosso do Sul. Maranhão, Pará, Acre, Amapá, Rondônia, Roraima e quase todo o Amazonas aparecem hachurados, sem dado." loading="lazy"></button>
-    <figcaption>Variação da abstenção, em p.p. do eleitorado apto. Áreas hachuradas não têm dado no arquivo de origem.</figcaption>
+    <button class="moldura" type="button" data-zoom><img src="img/abstencao.png" width="2000" height="1920" alt="Mapa da variação da abstenção por município entre 2022 e 2026. Azul, queda, em boa parte do Norte e do Nordeste; vermelho claro, alta, no Sul, em Mato Grosso do Sul e em partes do Sudeste e de Goiás." loading="lazy"></button>
+    <figcaption>Variação da abstenção, em p.p. do eleitorado apto, nos 5.570 municípios. Vermelho: subiu; azul: caiu.</figcaption>
+  </figure>
+  <figure>
+    <button class="moldura" type="button" data-zoom><img src="img/abstencao_niveis.png" width="3200" height="1800" alt="Dois mapas lado a lado com a abstenção por município em 2022 e em 2026, nas mesmas seis classes. Os tons mais escuros ficam na Amazônia, no Centro-Oeste e em Minas Gerais nos dois anos." loading="lazy"></button>
+    <figcaption>Abstenção em 2022 e em 2026, em % dos aptos. Mesmas classes nos dois anos (quantis do conjunto), para a comparação ser honesta.</figcaption>
   </figure>
   <div class="texto">
     <div>
       <h3>O que mostra</h3>
       <ul>
-        <li>Nos 5.051 municípios com dado, a abstenção vai de <strong>20,71% para 20,99%</strong> (+0,29 p.p.).</li>
-        <li>Ela <strong>sobe no Sul (+1,12 p.p.) e no Sudeste (+0,75)</strong> e <strong>cai no Nordeste (−0,96)</strong>.</li>
-        <li>A correlação entre a variação da abstenção e o swing de Lula é de <strong>0,09</strong>. Onde Lula perdeu mais, a abstenção não subiu de forma sistemática.</li>
+        <li>Nos 5.570 municípios, a abstenção fica <strong>praticamente estável: de 20,82% para 20,87%</strong> (+0,05 p.p.). Sobe em 2.598 municípios e cai nos outros 2.972.</li>
+        <li>Ela <strong>sobe no Sul (+1,12 p.p.), no Sudeste (+0,75) e no Centro-Oeste (+0,37)</strong> e <strong>cai no Norte (−1,51) e no Nordeste (−1,14)</strong>. Por estado, as maiores altas são MS, RS, DF e PR; as maiores quedas, RO, MA, PA e AP.</li>
+        <li>A correlação entre a variação da abstenção e o swing de Lula é <strong>fraca</strong>: −0,24 entre municípios e +0,12 ponderando pelo eleitorado. O sinal muda conforme o peso; em nenhum caso a abstenção acompanha de perto a perda de Lula.</li>
       </ul>
     </div>
     <div>
       <h3>Por que importa</h3>
       <p>A perda de Lula está mais ligada a mudança de voto do que a ausência de eleitores. Isso reduz o peso de uma estratégia baseada só em levar de volta quem não compareceu.</p>
-      <p>O padrão regional é nítido: a abstenção subiu no Sul e no Sudeste, onde Lula mais perdeu votos, e caiu no Nordeste.</p>
+      <p>O padrão regional é nítido: a abstenção subiu no Sul e no Sudeste, onde Lula mais perdeu votos, e caiu no Norte e no Nordeste. Os dois movimentos quase se anulam no total do país.</p>
     </div>
-    <p class="cuidado"><b>Cuidado.</b> Faltam eleitorado apto e abstenção em <b>519 municípios</b> (MA, PA, AC, AP, RO, RR e 53 do AM), cerca de 11% dos votos válidos. A leitura vale para os 89% restantes.</p>
+    <p class="cuidado"><b>Cuidado.</b> A abstenção também conta eleitores mortos ou que mudaram de domicílio sem baixa no cadastro; onde o cadastro está desatualizado, ela é inflada. A versão anterior desta página deixava 519 municípios (MA, PA, AC, AP, RO, RR e parte do AM) sem dado; os números acima usam o arquivo completo do TSE.</p>
+  </div>
+</section>
+
+<section class="mapa" id="brancos">
+  <h2>Quem foi votar e não escolheu</h2>
+  <p class="pergunta">Brancos e nulos medem o eleitor que compareceu, mas recusou os candidatos. Onde eles cresceram?</p>
+  <figure>
+    <button class="moldura" type="button" data-zoom><img src="img/brancos_nulos.png" width="2000" height="1920" alt="Mapa da variação de brancos e nulos por município entre 2022 e 2026. Vermelho em quase todo o Pará, no Ceará, em Alagoas, na Paraíba e em partes do Rio Grande do Sul; cinza na maior parte do Centro-Sul." loading="lazy"></button>
+    <figcaption>Variação de brancos e nulos, em p.p. do comparecimento. Vermelho: subiu; azul: caiu.</figcaption>
+  </figure>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>No país, brancos e nulos passam de <strong>4,41% para 4,77%</strong> do comparecimento (+0,36 p.p.). Sobem em 3.796 dos 5.570 municípios.</li>
+        <li>A alta é maior no <strong>Norte (+0,90 p.p.)</strong> e no <strong>Nordeste (+0,64)</strong>; no Sul (+0,07) e no Centro-Oeste (+0,17) quase não mudam.</li>
+        <li>Em 547 municípios a alta passa de 1,5 p.p., sobretudo no <strong>Pará (115), Ceará (99), Alagoas (89) e Paraíba (69)</strong>. No Pará, a alta cobre quase todo o estado.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>No Norte e no Nordeste, a abstenção caiu e brancos e nulos subiram: mais eleitores foram às urnas, mas parte deles não escolheu ninguém para presidente. No Sul o movimento é o inverso: mais ausência, quase nenhuma mudança no voto em branco ou nulo.</p>
+      <p>A correlação entre a variação de brancos e nulos e o swing de Lula é praticamente nula (0,02). O voto que Lula perdeu não foi, no agregado, para o branco ou o nulo.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> Nulos incluem erros de digitação e votos anulados por decisão judicial. A alta quase uniforme no Pará sugere um fator estadual, ainda não investigado.</p>
   </div>
 </section>
 
@@ -217,7 +247,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
       <h3>Por que importa</h3>
       <p>Em um mapa de área, regiões pouco povoadas ocupam muito espaço. No cartograma, o que pesa é onde há muitos eleitores, e a mudança fica no Sudeste e no Sul.</p>
     </div>
-    <p class="cuidado"><b>Cuidado.</b> O peso é o de votos válidos de 2026, não o do eleitorado apto, que está vazio em 519 municípios. Os círculos foram afastados por simulação: deslocamento mediano de 0,4 km, 90% abaixo de 63 km e máximo de 326 km.</p>
+    <p class="cuidado"><b>Cuidado.</b> O peso é o de votos válidos de 2026, não o do eleitorado apto. Os círculos foram afastados por simulação: deslocamento mediano de 0,4 km, 90% abaixo de 63 km e máximo de 326 km.</p>
   </div>
 </section>
 
@@ -248,12 +278,12 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
 </section>
 
 <section class="sintese" id="sintese">
-  <h2>O que os cinco mapas indicam para o 2º turno</h2>
+  <h2>O que os mapas indicam para o 2º turno</h2>
   <p class="aviso">Leituras possíveis a partir dos mapas. Os mapas mostram padrões; as explicações abaixo são hipóteses e precisam de pesquisa de opinião para serem testadas.</p>
   <div class="cols">
     <div class="col"><h3>Sudeste e Sul decidem</h3><p>É onde Lula perdeu 2,77 milhões dos 3,40 milhões de votos, e onde a troca com a direita é quase de um para um. A disputa principal é por eleitores que votaram nele em 2022.</p></div>
     <div class="col"><h3>Terceiros são o reservatório</h3><p>Os demais candidatos somam 7,8% dos votos válidos. Em Goiás e no Ceará, o voto em Caiado (GO) e o voto regional em Ciro em 2022 (CE) mostram eleitores que não estavam fixados em nenhum dos dois campos.</p></div>
-    <div class="col"><h3>Comparecimento é secundário</h3><p>A correlação de 0,09 entre abstenção e perda de Lula indica que levar eleitores às urnas não recupera, sozinho, o que foi perdido. Pesa mais o voto de quem compareceu.</p></div>
+    <div class="col"><h3>Comparecimento é secundário</h3><p>A abstenção ficou estável no país (+0,05 p.p.) e sua relação com a perda de Lula é fraca. Brancos e nulos subiram no Norte e no Nordeste, mas não acompanham a perda. Levar eleitores às urnas não recupera, sozinho, o que foi perdido; pesa mais o voto de quem compareceu.</p></div>
   </div>
 </section>
 
@@ -262,12 +292,12 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
   <ul>
     <li><strong>Fonte dos votos:</strong> TSE, 1º turno por município, 2022 e 2026. Variações em pontos percentuais de votos válidos. “Direita” é só Jair (2022) ou Flávio (2026) Bolsonaro; “esquerda” é só Lula.</li>
     <li><strong>Malha:</strong> municípios do IBGE de 2022, simplificados (tolerância de 300 m). Boa Esperança do Norte (MT) foi criada depois e fica fora da comparação.</li>
-    <li><strong>Abstenção:</strong> sem dado em 519 municípios, o que também impede ponderar o cartograma pelo eleitorado apto.</li>
+    <li><strong>Abstenção, brancos e nulos:</strong> TSE, detalhe da apuração por município e zona, 1º turno, 2022 e 2026 (arquivos gerados em 11/10/2026), com os 5.570 municípios. Abstenção sobre o eleitorado apto; brancos e nulos sobre o comparecimento; médias regionais e nacionais somam as contagens. Exterior excluído. Voto em trânsito somado ao município da seção.</li>
     <li><strong>Inferência:</strong> todos os resultados são agregados por município e não dizem como cada eleitor votou.</li>
   </ul>
 </section>
 </main>
-<footer>Elaborado em 11 de outubro de 2026.</footer>
+<footer>Elaborado em 11 de outubro de 2026. Abstenção, brancos e nulos revistos em 12 de outubro de 2026.</footer>
 </div>
 
 <dialog id="zoom" aria-label="Mapa ampliado">
