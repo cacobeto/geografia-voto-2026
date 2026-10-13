@@ -140,6 +140,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
     <li><a href="#margem">Geografia da mudança</a></li>
     <li><a href="#abstencao">Abstenção</a></li>
     <li><a href="#cidades">Dezesseis cidades</a></li>
+    <li><a href="#antecipacao">Antecipação de 2026</a></li>
     <li><a href="#limites">Limites</a></li>
   </ul>
 </nav>
@@ -314,6 +315,52 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
     <figure><button class="moldura" type="button" data-zoom><img src="img/t22/ssa_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação de Salvador com a variação da margem entre os turnos." loading="lazy"></button><figcaption>Salvador.</figcaption></figure>
   </div>
   <p class="aviso">Vermelho: Lula ampliou a margem; azul: Bolsonaro ampliou. Tamanho do ponto: eleitorado do local.</p>
+</section>
+
+<section class="mapa" id="antecipacao">
+  <h2>A mudança entre os turnos antecipa 2026</h2>
+  <p class="pergunta">Os locais em que Bolsonaro mais cresceu entre os turnos de 2022 são os mesmos em que Lula mais perdeu de 2022 para 2026?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Em cada local de votação com duas ou mais seções, as seções foram alternadas em duas metades, com eleitores diferentes. A metade A mede a variação da margem entre os turnos de 2022; a metade B é a base da variação de Lula de 2022 para 2026 (1º turno). Assim, o acaso do 1º turno de 2022 não entra nas duas medidas. Efeito: p.p. de variação de Lula por 1 desvio-padrão da variação da margem, modelo de erro espacial, com voto no 1º turno (metade B) e Censo no modelo. n.s.: p ≥ 0,10; "limite": 0,05 ≤ p &lt; 0,10.</caption>
+      <thead><tr><th>Cidade</th><th>Locais</th><th>Correlação</th><th>Efeito com controles</th></tr></thead>
+      <tbody>
+        <tr><td>São Paulo</td><td>1.737</td><td>0,36</td><td class="g">+0,59</td></tr>
+        <tr><td>Guarulhos</td><td>225</td><td>0,20</td><td class="g">+0,30</td></tr>
+        <tr><td>São Bernardo</td><td>146</td><td>0,27</td><td class="g">+0,48</td></tr>
+        <tr><td>Osasco</td><td>116</td><td>0,26</td><td class="g">+0,43</td></tr>
+        <tr><td>Rio de Janeiro</td><td>1.080</td><td>0,49</td><td class="g">+0,40</td></tr>
+        <tr><td>Belo Horizonte</td><td>364</td><td>0,47</td><td class="g">+0,46</td></tr>
+        <tr><td>Goiânia</td><td>265</td><td>0,24</td><td class="n">n.s.</td></tr>
+        <tr><td>Brasília</td><td>409</td><td>0,43</td><td class="g">+0,43</td></tr>
+        <tr><td>Salvador</td><td>267</td><td>0,15</td><td>+0,21 (limite)</td></tr>
+        <tr><td>Recife</td><td>264</td><td>0,21</td><td class="g">+0,29</td></tr>
+        <tr><td>Fortaleza</td><td>454</td><td>0,36</td><td class="g">+0,36</td></tr>
+        <tr><td>Curitiba</td><td>303</td><td>0,43</td><td class="g">+0,45</td></tr>
+        <tr><td>Porto Alegre</td><td>250</td><td>0,58</td><td class="g">+0,52</td></tr>
+        <tr><td>Santa Maria (RS)</td><td>61</td><td>0,41</td><td class="n">n.s.</td></tr>
+        <tr><td>Manaus</td><td>287</td><td>0,38</td><td class="g">+0,27</td></tr>
+        <tr><td>Belém</td><td>174</td><td>0,08</td><td class="n">n.s.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O resultado</h3>
+      <ul>
+        <li><strong>Em 12 de 16 cidades, sim:</strong> onde Bolsonaro ampliou mais a margem entre os turnos de 2022, Lula perdeu mais, ou ganhou menos, de 2022 para 2026, mesmo comparando locais de mesmo voto e mesmo perfil no Censo. Salvador fica no limite.</li>
+        <li><strong>Entre cidades também:</strong> onde a diferença racial do voto caiu mais entre os turnos de 2022, caiu mais de 2022 para 2026 (correlação de postos de 0,65). São Paulo tem a maior queda nas duas comparações; Belém, a menor.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Leitura</h3>
+      <ul>
+        <li><strong>O deslocamento de 2026 já estava em curso no 2º turno de 2022.</strong> É a mesma geografia, não necessariamente o mesmo eleitor.</li>
+        <li><strong>Exceções:</strong> em Goiânia, a mudança de 2026 foi marcada pelo voto em Caiado, ausente do 2º turno de 2022; em Belém, Lula ganhou em quase toda a cidade em 2026; Santa Maria tem poucos locais.</li>
+        <li><strong>Cuidado:</strong> sem as metades, os efeitos eram maiores (0,4 a 0,9); parte deles vinha do acaso comum às duas medidas.</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section class="limites" id="limites">
