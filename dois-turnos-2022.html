@@ -127,7 +127,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
   <p class="nota-num">TSE, votação por partido e detalhe por município e zona, Presidente, 1º turno (2/10/2022) e 2º turno (30/10/2022), 5.570 municípios, sem o voto no exterior. Censo 2022 somado por município.</p>
 
   <div class="ponte">
-    <p>Primeira etapa, por município. A comparação entre os turnos dentro das dezesseis cidades vem a seguir.</p>
+    <p>Por município e, mais abaixo, por local de votação dentro das dezesseis cidades do estudo.</p>
     <span class="botoes"><a class="botao" href="quinze-cidades.html">Dezesseis cidades →</a><a class="botao" href="segundo-turno.html">Segundo turno de 2026 →</a><a class="botao" href="./">Estudo nacional →</a></span>
   </div>
 </header>
@@ -139,6 +139,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
     <li><a href="#transferencia">De onde vieram os votos</a></li>
     <li><a href="#margem">Geografia da mudança</a></li>
     <li><a href="#abstencao">Abstenção</a></li>
+    <li><a href="#cidades">Dezesseis cidades</a></li>
     <li><a href="#limites">Limites</a></li>
   </ul>
 </nav>
@@ -260,12 +261,66 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
   </div>
 </section>
 
+<section class="mapa" id="cidades">
+  <h2>Dentro das dezesseis cidades, o sinal se inverte</h2>
+  <p class="pergunta">Por local de votação, com o perfil do Censo 2022 de cada local: onde Bolsonaro cresceu mais entre os turnos?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Lula em % dos válidos, nos locais com perfil do Censo. Δ margem: (Lula − Bolsonaro) no 2º turno menos no 1º, p.p. Diferença racial: Lula no décimo de eleitorado mais negro menos no mais branco. Cor ou raça: modelo de erro espacial da Δ margem, p.p. por 1 desvio-padrão de pretos e pardos, com renda (proxy) e favela no modelo; n.s.: p ≥ 0,05. Reforço: correlação entre o voto em Lula no 1º turno e a Δ margem.</caption>
+      <thead><tr><th>Cidade</th><th>Lula 1º → 2º t.</th><th>Δ margem</th><th>Diferença racial</th><th>Cor ou raça</th><th>Reforço</th></tr></thead>
+      <tbody>
+        <tr><td><a href="sao-paulo.html">São Paulo</a></td><td>47,5 → 53,5</td><td class="p">−2,5</td><td>+23,9 → +17,8</td><td class="p">−0,35</td><td>0,01</td></tr>
+        <tr><td><a href="guarulhos.html">Guarulhos</a></td><td>42,8 → 46,3</td><td class="p">−4,8</td><td>+20,3 → +16,7</td><td class="p">−0,40</td><td>−0,25</td></tr>
+        <tr><td><a href="sao-bernardo.html">São Bernardo</a></td><td>49,0 → 53,7</td><td class="p">−3,6</td><td>+26,7 → +21,8</td><td class="p">−0,36</td><td>−0,16</td></tr>
+        <tr><td><a href="osasco.html">Osasco</a></td><td>45,8 → 50,5</td><td class="p">−3,7</td><td>+19,7 → +15,2</td><td class="p">−0,50</td><td>−0,15</td></tr>
+        <tr><td><a href="rio-de-janeiro.html">Rio de Janeiro</a></td><td>43,4 → 47,3</td><td class="p">−1,7</td><td>−2,9 → −7,8</td><td class="p">−0,45</td><td class="g">0,51</td></tr>
+        <tr><td><a href="belo-horizonte.html">Belo Horizonte</a></td><td>42,5 → 45,7</td><td class="p">−4,5</td><td>+9,4 → +6,2</td><td class="p">−0,86</td><td>−0,10</td></tr>
+        <tr><td><a href="goiania.html">Goiânia</a></td><td>32,9 → 35,9</td><td class="p">−4,9</td><td>+10,2 → +8,1</td><td class="n">n.s.</td><td>0,15</td></tr>
+        <tr><td><a href="brasilia.html">Brasília</a></td><td>36,8 → 41,1</td><td class="p">−2,8</td><td>−0,2 → −3,7</td><td class="p">−0,77</td><td class="g">0,40</td></tr>
+        <tr><td><a href="salvador.html">Salvador</a></td><td>66,9 → 70,7</td><td class="p">−1,6</td><td>+19,3 → +16,8</td><td class="n">n.s.</td><td>0,11</td></tr>
+        <tr><td><a href="recife.html">Recife</a></td><td>53,7 → 56,1</td><td class="p">−2,2</td><td>+14,1 → +10,7</td><td class="n">n.s.</td><td>−0,02</td></tr>
+        <tr><td><a href="fortaleza.html">Fortaleza</a></td><td>53,1 → 58,1</td><td class="p">−1,7</td><td>+12,1 → +9,5</td><td class="p">−0,44</td><td>−0,22</td></tr>
+        <tr><td><a href="curitiba.html">Curitiba</a></td><td>31,2 → 35,0</td><td class="p">−5,8</td><td>+11,3 → +7,5</td><td class="p">−0,42</td><td>−0,04</td></tr>
+        <tr><td><a href="porto-alegre.html">Porto Alegre</a></td><td>49,5 → 53,2</td><td class="p">−3,7</td><td>+25,4 → +21,0</td><td class="p">−0,45</td><td>−0,16</td></tr>
+        <tr><td><a href="santa-maria.html">Santa Maria (RS)</a></td><td>44,6 → 47,1</td><td class="p">−4,7</td><td>+12,6 → +9,8</td><td class="p">−0,76</td><td>−0,35</td></tr>
+        <tr><td><a href="manaus.html">Manaus</a></td><td>36,7 → 38,5</td><td class="p">−6,0</td><td>+8,3 → +5,3</td><td class="p">−0,56</td><td class="p">−0,53</td></tr>
+        <tr><td><a href="belem.html">Belém</a></td><td>45,4 → 49,9</td><td class="p">−1,9</td><td>+8,3 → +7,6</td><td class="n">n.s.</td><td>0,03</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que se repete</h3>
+      <ul>
+        <li><strong>Bolsonaro ampliou a margem nas dezesseis cidades</strong>, e a diferença racial do voto em Lula caiu nas dezesseis, de 0,7 ponto em Belém a 6,1 em São Paulo.</li>
+        <li><strong>Em 12 de 16, Bolsonaro cresceu mais nos locais mais negros</strong>, com renda e favela no modelo. Não há efeito em Goiânia, Salvador, Recife e Belém.</li>
+        <li><strong>É a mesma direção da mudança de 2022 para 2026</strong> (<a href="quinze-cidades.html">dezesseis cidades</a>), já presente entre os turnos de 2022.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Escalas e exceções</h3>
+      <ul>
+        <li><strong>Entre municípios,</strong> a margem andou para Lula nos mais negros, sobretudo no Nordeste e no Norte. <strong>Dentro das metrópoles,</strong> andou para Bolsonaro nas periferias negras. As duas escalas não se contradizem.</li>
+        <li><strong>Rio e Brasília</strong> são as únicas cidades em que Lula ampliou mais onde já era forte, como de 2022 para 2026. No Rio, Lula avançou na Zona Sul e Bolsonaro na Zona Oeste.</li>
+        <li><strong>A abstenção</strong> caiu em 15 cidades e subiu só em Manaus.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/sp_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação de São Paulo com a variação da margem entre os turnos. Azul em quase toda a cidade, mais forte na Zona Leste e no extremo sul; tons claros no centro expandido." loading="lazy"></button><figcaption>São Paulo.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/rio_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação do Rio de Janeiro. Azul forte na Zona Oeste; vermelho, ganho de Lula, na Zona Sul e no Centro." loading="lazy"></button><figcaption>Rio de Janeiro.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/bsb_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação de Brasília com a variação da margem entre os turnos." loading="lazy"></button><figcaption>Brasília.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/ssa_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação de Salvador com a variação da margem entre os turnos." loading="lazy"></button><figcaption>Salvador.</figcaption></figure>
+  </div>
+  <p class="aviso">Vermelho: Lula ampliou a margem; azul: Bolsonaro ampliou. Tamanho do ponto: eleitorado do local.</p>
+</section>
+
 <section class="limites" id="limites">
   <h2>Dados e limites</h2>
   <ul>
     <li><strong>Dados:</strong> TSE, votação por partido e detalhe por município e zona, Presidente 2022, dois turnos, sem o exterior; IBGE, Censo 2022 por setor somado por município (cor ou raça, alfabetização, idade, banheiros); malha IBGE 2022 via geobr.</li>
     <li><strong>Inferência ecológica:</strong> municípios, não eleitores; as transferências são indicativas.</li>
-    <li><strong>Escala:</strong> o município mistura áreas urbanas e rurais e esconde as diferenças internas das cidades, que vêm na próxima etapa.</li>
+    <li><strong>Escala:</strong> o município mistura áreas urbanas e rurais; dentro das cidades, a unidade é o local de votação, com o perfil do Censo por Voronoi e sem controles de escolaridade e idade.</li>
     <li><strong>Renda:</strong> só a proxy de domicílios com 3 ou mais banheiros, enquanto o IBGE não publicar renda por setor do Censo 2022.</li>
   </ul>
 </section>
