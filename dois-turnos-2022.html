@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Do 1º para o 2º turno de 2022, por município: Bolsonaro levou 70% do acréscimo de votos, a margem andou para Lula onde ele já era forte e a abstenção subiu no Norte.">
+<title>Geografia do Voto 2026: dois turnos de 2022</title>
+<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Mesmo sistema visual da página nacional (index.html); acréscimos: pares de mapas, tabela e caixa de ligação. */
+:root{
+  --bg:#f1f3f4; --surface:#ffffff; --ink:#13181c; --ink2:#4b5761; --rule:#d3d9dd;
+  --perdeu:#8c510a; --ganhou:#01665e; --neutro:#6f7b84; --link:#01665e; --tint:#e8eef0;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;padding-inline:16px}
+.wrap{max-width:1080px;margin-inline:auto}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+
+header.top{padding-block:40px 28px;border-bottom:1px solid var(--rule)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin:0 0 12px}
+.kicker a{color:inherit}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,58px);line-height:1.04;margin:0 0 16px;max-width:18ch;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.45;color:var(--ink2);max-width:62ch;margin:0}
+
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-block:28px 0}
+.num{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;min-width:0}
+.num b{display:block;font-family:var(--display);font-size:clamp(26px,3.4vw,36px);line-height:1.1;font-variant-numeric:tabular-nums;font-weight:700}
+.num span{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
+.num.p b{color:var(--perdeu)} .num.g b{color:var(--ganhou)} .num.n b{color:var(--neutro)}
+.nota-num{font-size:13px;color:var(--ink2);margin:12px 0 0;max-width:80ch}
+
+.ponte{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--ganhou);border-radius:6px;padding:14px 18px;margin-top:24px}
+.ponte p{margin:0;font-size:15px;max-width:64ch}
+.ponte a.botao{font-weight:600;text-decoration:none;white-space:nowrap}
+.ponte .botoes{display:flex;gap:18px;flex-wrap:wrap}
+.ponte a.botao:hover{text-decoration:underline}
+
+nav.indice{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+nav.indice ul{list-style:none;margin:0 auto;max-width:1080px;padding:0;display:flex;gap:4px;overflow-x:auto}
+nav.indice a{display:block;padding:12px 12px;font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.indice a:hover,nav.indice a.on{color:var(--ink);border-bottom-color:var(--ganhou)}
+
+section.mapa{padding-block:44px 8px;border-bottom:1px solid var(--rule);scroll-margin-top:52px}
+section.mapa h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 8px;text-wrap:balance;max-width:26ch}
+.pergunta{font-size:15px;color:var(--ink2);margin:0 0 20px;max-width:70ch}
+figure{margin:0 0 28px}
+.par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.par figure{margin:0}
+.moldura{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:6px;cursor:zoom-in;display:block;width:100%}
+.moldura img{display:block;width:100%;height:auto;border-radius:3px}
+figure.larga .moldura{max-width:860px}
+figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
+
+.texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;margin-bottom:36px}
+.texto h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px;font-weight:600}
+.texto ul{margin:0;padding-left:1.1em}
+.texto li{margin-bottom:10px;max-width:62ch}
+.texto p{margin:0 0 10px;max-width:62ch}
+.texto strong{font-weight:600}
+.cuidado{background:var(--tint);border-radius:6px;padding:14px 16px;font-size:14px;color:var(--ink2);grid-column:1/-1;margin-top:4px}
+.cuidado b{color:var(--ink)}
+
+.tabela{overflow-x:auto;margin-bottom:24px}
+table{border-collapse:collapse;width:100%;min-width:520px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+td.p{color:var(--perdeu);font-weight:600} td.g{color:var(--ganhou);font-weight:600} td.n{color:var(--neutro)}
+
+section.sintese{padding-block:48px 24px}
+section.sintese h2,section.limites h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.col{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.col h3{font-family:var(--display);font-size:20px;margin:0 0 8px;line-height:1.2}
+.col p{margin:0;font-size:15px}
+.aviso{font-size:14px;color:var(--ink2);max-width:72ch;margin:0 0 12px}
+section.limites{padding-block:32px 56px;border-top:1px solid var(--rule)}
+section.limites ul{padding-left:1.1em;margin:0;max-width:78ch}
+section.limites li{margin-bottom:10px;font-size:15px}
+footer{font-size:13px;color:var(--ink2);padding-block:0 40px}
+
+dialog#zoom{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
+#zoom .caixa{width:100%;height:100%;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+#zoom img{background:#fff;width:min(1400px,160%);max-width:none;height:auto;border-radius:4px;cursor:zoom-out}
+#zoom button{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;font:600 14px var(--ui);padding:8px 14px;border-radius:6px;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+
+@media (max-width:820px){
+  .numeros{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .texto{grid-template-columns:minmax(0,1fr)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .par{grid-template-columns:minmax(0,1fr)}
+  #zoom img{width:200%}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <p class="kicker"><a href="./">Geografia do Voto 2026</a> · Presidente 2022 · 1º e 2º turno</p>
+  <h1>Entre os dois turnos de 2022</h1>
+  <p class="lede">Do 1º para o 2º turno de 2022, Bolsonaro somou mais que o dobro dos votos novos de Lula. Lula venceu pela vantagem que trouxe do 1º turno. A mudança entre os turnos reforçou as bases de cada um, e a abstenção subiu justamente no Norte.</p>
+
+  <div class="numeros">
+    <div class="num p"><b>+7,11 mi</b><span>votos a mais para Bolsonaro do 1º para o 2º turno</span></div>
+    <div class="num g"><b>+3,07 mi</b><span>votos a mais para Lula</span></div>
+    <div class="num"><b>6,17 → 2,13 mi</b><span>vantagem de Lula no 1º e no 2º turno</span></div>
+    <div class="num n"><b>0,72</b><span>I de Moran da variação da margem: mudança muito concentrada</span></div>
+  </div>
+  <p class="nota-num">TSE, votação por partido e detalhe por município e zona, Presidente, 1º turno (2/10/2022) e 2º turno (30/10/2022), 5.570 municípios, sem o voto no exterior. Censo 2022 somado por município.</p>
+
+  <div class="ponte">
+    <p>Primeira etapa, por município. A comparação entre os turnos dentro das dezesseis cidades vem a seguir.</p>
+    <span class="botoes"><a class="botao" href="quinze-cidades.html">Dezesseis cidades →</a><a class="botao" href="segundo-turno.html">Segundo turno de 2026 →</a><a class="botao" href="./">Estudo nacional →</a></span>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Seções">
+  <ul>
+    <li><a href="#resultado">Resultado</a></li>
+    <li><a href="#regioes">Por região</a></li>
+    <li><a href="#transferencia">De onde vieram os votos</a></li>
+    <li><a href="#margem">Geografia da mudança</a></li>
+    <li><a href="#abstencao">Abstenção</a></li>
+    <li><a href="#limites">Limites</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="mapa" id="resultado">
+  <h2>O que mudou de um turno para o outro</h2>
+  <p class="pergunta">Quanto cada finalista ganhou, e quanto sobrou da vantagem de Lula?</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th></th><th>1º turno</th><th>2º turno</th><th>Variação</th></tr></thead>
+      <tbody>
+        <tr><td>Lula</td><td>57,12 mi (48,43%)</td><td>60,19 mi (50,90%)</td><td class="g">+3,07 mi</td></tr>
+        <tr><td>Bolsonaro</td><td>50,95 mi (43,20%)</td><td>58,06 mi (49,10%)</td><td class="p">+7,11 mi</td></tr>
+        <tr><td>Vantagem de Lula</td><td>+6,17 mi</td><td>+2,13 mi</td><td class="p">−4,04 mi</td></tr>
+        <tr><td>Terceiros (Ciro, Tebet e outros)</td><td>9,86 mi</td><td>—</td><td></td></tr>
+        <tr><td>Abstenção</td><td>20,8%</td><td>20,4%</td><td>−0,56 mi</td></tr>
+        <tr><td>Brancos e nulos</td><td>5,44 mi</td><td>5,69 mi</td><td>+0,25 mi</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="aviso">Bolsonaro ficou com cerca de <strong>70% do acréscimo</strong> de votos dos dois finalistas entre os turnos.</p>
+</section>
+
+<section class="mapa" id="regioes">
+  <h2>Bolsonaro levou a maior parte em todas as regiões</h2>
+  <p class="pergunta">Onde a vantagem de Lula encolheu?</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Região</th><th>Vantagem de Lula, 1º t.</th><th>Vantagem de Lula, 2º t.</th><th>Parcela de Lula no acréscimo</th><th>Abstenção, 1º → 2º t.</th></tr></thead>
+      <tbody>
+        <tr><td>Nordeste</td><td class="g">+13,0 mi</td><td class="g">+12,6 mi</td><td>40%</td><td>19,5% → 19,3%</td></tr>
+        <tr><td>Sudeste</td><td class="p">−2,43 mi</td><td class="p">−4,25 mi</td><td>33%</td><td>22,0% → 21,2%</td></tr>
+        <tr><td>Centro-Oeste</td><td class="p">−1,40 mi</td><td class="p">−1,81 mi</td><td>25%</td><td>21,3% → 20,6%</td></tr>
+        <tr><td>Sul</td><td class="p">−3,12 mi</td><td class="p">−4,19 mi</td><td>18%</td><td>19,3% → 18,6%</td></tr>
+        <tr><td>Norte</td><td class="g">+0,16 mi</td><td class="p">−0,19 mi</td><td>8%</td><td>20,9% → 22,9%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="aviso">No Norte, onde a abstenção subiu, Lula passou de vencedor a perdedor por pouco.</p>
+</section>
+
+<section class="mapa" id="transferencia">
+  <h2>De onde vieram os votos</h2>
+  <p class="pergunta">Para onde foram os eleitores de Ciro, Tebet e dos outros candidatos? (Estimativa com dados por município, não por eleitor.)</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Regressão ecológica com restrições: cada opção do 1º turno reparte 100% dos eleitores entre Lula, Bolsonaro e "fora" (abstenção, brancos e nulos) no 2º turno. Duas especificações: o Brasil num só modelo e a soma de modelos por UF.</caption>
+      <thead><tr><th>Origem no 1º turno</th><th>Brasil num só modelo (Lula / Bolsonaro / fora)</th><th>Soma de modelos por UF</th></tr></thead>
+      <tbody>
+        <tr><td>Lula</td><td>98 / 0 / 2</td><td>97 / 0 / 3</td></tr>
+        <tr><td>Bolsonaro</td><td>0 / 100 / 0</td><td>0 / 100 / 0</td></tr>
+        <tr><td>Ciro</td><td>77 / 23 / 0</td><td>52 / 40 / 8</td></tr>
+        <tr><td>Tebet</td><td>17 / 70 / 13</td><td>34 / 54 / 13</td></tr>
+        <tr><td>Outros</td><td>1 / 99 / 0</td><td>35 / 60 / 5</td></tr>
+        <tr><td>Fora</td><td>2 / 4 / 94</td><td>2 / 6 / 93</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div><h3>Robusto</h3><p>Os dois finalistas conservaram quase todos os seus eleitores. O voto de Ciro pendeu para Lula e o de Tebet para Bolsonaro, nas duas especificações.</p></div>
+    <div><h3>Frágil</h3><p>As proporções. Elas mudam muito de uma especificação para outra e, por região, chegam a se inverter. Tebet foi mais forte em áreas de agronegócio que votaram em Bolsonaro, e o modelo não separa o eleitor do lugar em que ele mora. Valem como direção, não como taxa.</p></div>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/pct_ciro_1t.png" width="1600" height="1600" alt="Mapa do Brasil por município com o voto em Ciro Gomes no 1º turno de 2022." loading="lazy"></button><figcaption>Ciro Gomes no 1º turno, % dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/pct_tebet_1t.png" width="1600" height="1600" alt="Mapa do Brasil por município com o voto em Simone Tebet no 1º turno de 2022." loading="lazy"></button><figcaption>Simone Tebet no 1º turno, % dos válidos.</figcaption></figure>
+  </div>
+</section>
+
+<section class="mapa" id="margem">
+  <h2>A mudança reforçou as bases</h2>
+  <p class="pergunta">Onde cada finalista ampliou a margem entre os turnos?</p>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/d_margem.png" width="1600" height="1600" alt="Mapa do Brasil por município com a variação da margem Lula menos Bolsonaro entre os turnos. Azul, Bolsonaro ampliou, no Sul, no Centro-Oeste, em Rondônia, no Acre e em Roraima; Nordeste quase estável, com manchas vermelhas de ganho de Lula." loading="lazy"></button><figcaption>Variação da margem Lula − Bolsonaro, p.p. dos válidos. Vermelho: Lula ampliou; azul: Bolsonaro ampliou.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/lisa_margem.png" width="1600" height="1600" alt="Mapa de agrupamentos LISA da variação da margem. Alto-Alto, vermelho, em quase todo o Nordeste e no oeste do Amazonas; Baixo-Baixo, azul, no Sul, no Triângulo e oeste de Minas, no Centro-Oeste, em Rondônia e em Roraima." loading="lazy"></button><figcaption>Agrupamentos (LISA, p &lt; 0,05). Alto-Alto: Lula ampliou mais; Baixo-Baixo: Bolsonaro ampliou mais.</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O mapa</h3>
+      <ul>
+        <li><strong>Lula ampliou</strong> em blocos de 1.115 municípios do Nordeste, no oeste do Amazonas e no nordeste do Pará.</li>
+        <li><strong>Bolsonaro ampliou</strong> em 717 municípios do Sul, em 150 do Sudeste (sobretudo Triângulo e oeste de Minas e norte do Espírito Santo), em 80 do Centro-Oeste e em Rondônia e Roraima.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>O modelo espacial</h3>
+      <ul>
+        <li><strong>A margem andou para Lula onde ele já era forte</strong> (+1,11 p.p. por desvio-padrão do voto no 1º turno), onde há mais analfabetismo (+0,67) e mais pretos e pardos (+0,34).</li>
+        <li><strong>Voto em Ciro</strong> no 1º turno ajudou Lula (+0,21); <strong>em Tebet</strong> e nos outros, Bolsonaro (−0,20 e −0,17).</li>
+        <li><strong>Contraste:</strong> de 2022 para 2026, Lula perdeu mais onde era mais forte. Entre os turnos de 2022, ocorreu o inverso.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="abstencao">
+  <h2>A abstenção subiu no Norte</h2>
+  <p class="pergunta">Onde mais eleitores deixaram de votar no 2º turno, e por quê?</p>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/d_abst.png" width="1600" height="1600" alt="Mapa da variação da abstenção entre os turnos. Alta forte, vermelho, em Roraima, Amapá, Acre e partes do Amazonas, Pará, Tocantins e Maranhão; queda leve, azul, no Centro-Sul." loading="lazy"></button><figcaption>Variação da abstenção, p.p. dos aptos. Vermelho: subiu; azul: caiu.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t22/lisa_abst.png" width="1600" height="1600" alt="Mapa de agrupamentos LISA da variação da abstenção. Alto-Alto no Norte e no Meio-Norte; Baixo-Baixo no Sul e no Sudeste." loading="lazy"></button><figcaption>Agrupamentos (LISA, p &lt; 0,05). Alto-Alto: a abstenção mais subiu.</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>Onde</h3>
+      <ul>
+        <li><strong>Caiu no país</strong>, mas subiu no Amapá (+7,7 p.p.), no Acre (+6,0), em Roraima (+5,2) e, menos, no Tocantins, Amazonas, Pará, Maranhão e Piauí.</li>
+        <li><strong>Subiu mais</strong> onde há mais pretos e pardos, mais analfabetismo e mais voto em Lula: um custo para ele.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por quê, em parte</h3>
+      <ul>
+        <li><strong>Sem disputa local, menos mobilização:</strong> no Norte, a abstenção subiu 2,35 p.p. nas UFs sem 2º turno para governador e 1,20 nas com disputa; no Nordeste, +0,31 e −0,58. No Centro-Sul, a relação some.</li>
+        <li>É o que previa uma análise do BTG Pactual citada pela <a href="https://www.moneytimes.com.br/eleicoes-2022-abstencao-pode-tirar-700-mil-votos-de-lula-diz-btg-pactual/">Money Times</a> (21/10/2022), com dados de 2002 a 2018.</li>
+        <li><strong>Blitze da PRF:</strong> concentradas no Nordeste no dia do 2º turno (<a href="https://movimentoeconomico.com.br/geral/2023/04/20/nordeste-concentra-quase-metade-dos-onibus-fiscalizados-no-2o-turno/">dados da CGU</a>), onde a abstenção ainda assim caiu um pouco. Os dados por município não medem seu efeito.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="limites" id="limites">
+  <h2>Dados e limites</h2>
+  <ul>
+    <li><strong>Dados:</strong> TSE, votação por partido e detalhe por município e zona, Presidente 2022, dois turnos, sem o exterior; IBGE, Censo 2022 por setor somado por município (cor ou raça, alfabetização, idade, banheiros); malha IBGE 2022 via geobr.</li>
+    <li><strong>Inferência ecológica:</strong> municípios, não eleitores; as transferências são indicativas.</li>
+    <li><strong>Escala:</strong> o município mistura áreas urbanas e rurais e esconde as diferenças internas das cidades, que vêm na próxima etapa.</li>
+    <li><strong>Renda:</strong> só a proxy de domicílios com 3 ou mais banheiros, enquanto o IBGE não publicar renda por setor do Censo 2022.</li>
+  </ul>
+</section>
+</main>
+<footer>Elaborado em 13 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="quinze-cidades.html">Dezesseis cidades</a> · <a href="segundo-turno.html">Segundo turno de 2026</a>.</footer>
+</div>
+
+<dialog id="zoom" aria-label="Imagem ampliada">
+  <div class="caixa"><img alt=""></div>
+  <button type="button" id="fechar">Fechar</button>
+</dialog>
+<script>
+(function(){
+  var dlg=document.getElementById('zoom'), big=dlg.querySelector('img');
+  function abrir(img){big.src=img.src;big.alt=img.alt;if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}}
+  function fechar(){if(dlg.close){dlg.close()}else{dlg.removeAttribute('open')}}
+  document.querySelectorAll('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){abrir(b.querySelector('img'))})});
+  dlg.addEventListener('click',function(e){if(e.target!==dlg.querySelector('#fechar')&&(e.target===big||e.target.classList.contains('caixa')||e.target===dlg))fechar()});
+  document.getElementById('fechar').addEventListener('click',fechar);
+  var links=[].slice.call(document.querySelectorAll('nav.indice a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
