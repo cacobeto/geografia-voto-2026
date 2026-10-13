@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Síntese do voto para presidente de 2022 para 2026 em quinze cidades brasileiras, por local de votação e com o Censo 2022: o mesmo deslocamento, com força e forma diferentes.">
+<title>Geografia do Voto 2026: quinze cidades</title>
+<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Mesmo sistema visual da página nacional (index.html); acréscimos: pares de mapas, tabela e caixa de ligação. */
+:root{
+  --bg:#f1f3f4; --surface:#ffffff; --ink:#13181c; --ink2:#4b5761; --rule:#d3d9dd;
+  --perdeu:#8c510a; --ganhou:#01665e; --neutro:#6f7b84; --link:#01665e; --tint:#e8eef0;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;padding-inline:16px}
+.wrap{max-width:1080px;margin-inline:auto}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+
+header.top{padding-block:40px 28px;border-bottom:1px solid var(--rule)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin:0 0 12px}
+.kicker a{color:inherit}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,58px);line-height:1.04;margin:0 0 16px;max-width:18ch;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.45;color:var(--ink2);max-width:62ch;margin:0}
+
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-block:28px 0}
+.num{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;min-width:0}
+.num b{display:block;font-family:var(--display);font-size:clamp(26px,3.4vw,36px);line-height:1.1;font-variant-numeric:tabular-nums;font-weight:700}
+.num span{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
+.num.p b{color:var(--perdeu)} .num.g b{color:var(--ganhou)} .num.n b{color:var(--neutro)}
+.nota-num{font-size:13px;color:var(--ink2);margin:12px 0 0;max-width:80ch}
+
+.ponte{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--ganhou);border-radius:6px;padding:14px 18px;margin-top:24px}
+.ponte p{margin:0;font-size:15px;max-width:64ch}
+.ponte a.botao{font-weight:600;text-decoration:none;white-space:nowrap}
+.ponte .botoes{display:flex;gap:18px;flex-wrap:wrap}
+.ponte a.botao:hover{text-decoration:underline}
+
+nav.indice{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+nav.indice ul{list-style:none;margin:0 auto;max-width:1080px;padding:0;display:flex;gap:4px;overflow-x:auto}
+nav.indice a{display:block;padding:12px 12px;font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.indice a:hover,nav.indice a.on{color:var(--ink);border-bottom-color:var(--ganhou)}
+
+section.mapa{padding-block:44px 8px;border-bottom:1px solid var(--rule);scroll-margin-top:52px}
+section.mapa h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 8px;text-wrap:balance;max-width:26ch}
+.pergunta{font-size:15px;color:var(--ink2);margin:0 0 20px;max-width:70ch}
+figure{margin:0 0 28px}
+.par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.par figure{margin:0}
+.moldura{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:6px;cursor:zoom-in;display:block;width:100%}
+.moldura img{display:block;width:100%;height:auto;border-radius:3px}
+figure.larga .moldura{max-width:860px}
+figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
+
+.texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;margin-bottom:36px}
+.texto h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px;font-weight:600}
+.texto ul{margin:0;padding-left:1.1em}
+.texto li{margin-bottom:10px;max-width:62ch}
+.texto p{margin:0 0 10px;max-width:62ch}
+.texto strong{font-weight:600}
+.cuidado{background:var(--tint);border-radius:6px;padding:14px 16px;font-size:14px;color:var(--ink2);grid-column:1/-1;margin-top:4px}
+.cuidado b{color:var(--ink)}
+
+.tabela{overflow-x:auto;margin-bottom:24px}
+table{border-collapse:collapse;width:100%;min-width:520px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+td.p{color:var(--perdeu);font-weight:600} td.g{color:var(--ganhou);font-weight:600} td.n{color:var(--neutro)}
+
+section.sintese{padding-block:48px 24px}
+section.sintese h2,section.limites h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.col{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.col h3{font-family:var(--display);font-size:20px;margin:0 0 8px;line-height:1.2}
+.col p{margin:0;font-size:15px}
+.aviso{font-size:14px;color:var(--ink2);max-width:72ch;margin:0 0 12px}
+section.limites{padding-block:32px 56px;border-top:1px solid var(--rule)}
+section.limites ul{padding-left:1.1em;margin:0;max-width:78ch}
+section.limites li{margin-bottom:10px;font-size:15px}
+footer{font-size:13px;color:var(--ink2);padding-block:0 40px}
+
+dialog#zoom{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
+#zoom .caixa{width:100%;height:100%;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+#zoom img{background:#fff;width:min(1400px,160%);max-width:none;height:auto;border-radius:4px;cursor:zoom-out}
+#zoom button{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;font:600 14px var(--ui);padding:8px 14px;border-radius:6px;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+
+@media (max-width:820px){
+  .numeros{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .texto{grid-template-columns:minmax(0,1fr)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .par{grid-template-columns:minmax(0,1fr)}
+  #zoom img{width:200%}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <p class="kicker"><a href="./">Geografia do Voto 2026</a> · Síntese · Presidente, 1º turno</p>
+  <h1>Quinze cidades, a mesma direção</h1>
+  <p class="lede">De 2022 para 2026, o voto em Lula se deslocou para as áreas mais brancas, mais escolarizadas e mais velhas em todas as quinze cidades estudadas, das que ele perdeu às que ele ganhou. O que muda de cidade para cidade é a força desse deslocamento e o que ele produz no mapa.</p>
+
+  <div class="numeros">
+    <div class="num p"><b>15 de 15</b><span>cidades em que a diferença racial do voto em Lula caiu</span></div>
+    <div class="num"><b>−4,5</b><span>pontos: queda mediana dessa diferença (de −1,6 a −7,8)</span></div>
+    <div class="num"><b>14 de 15</b><span>cidades em que Lula perdeu mais onde era mais forte</span></div>
+    <div class="num n"><b>2 de 15</b><span>cidades com efeito dos templos evangélicos</span></div>
+  </div>
+  <p class="nota-num">Diferença racial: voto em Lula no décimo de eleitorado mais negro menos no mais branco, por local de votação, com o Censo 2022. São onze das doze capitais mais populosas (falta Brasília), três cidades da Grande São Paulo e uma cidade média.</p>
+
+  <div class="ponte">
+    <p>Cada cidade tem página própria, com mapas, modelos e limites.</p>
+    <span class="botoes"><a class="botao" href="sao-paulo.html">São Paulo →</a><a class="botao" href="guarulhos.html">Guarulhos →</a><a class="botao" href="sao-bernardo.html">São Bernardo →</a><a class="botao" href="osasco.html">Osasco →</a><a class="botao" href="rio-de-janeiro.html">Rio →</a><a class="botao" href="belo-horizonte.html">Belo Horizonte →</a><a class="botao" href="goiania.html">Goiânia →</a><a class="botao" href="salvador.html">Salvador →</a><a class="botao" href="recife.html">Recife →</a><a class="botao" href="fortaleza.html">Fortaleza →</a><a class="botao" href="curitiba.html">Curitiba →</a><a class="botao" href="porto-alegre.html">Porto Alegre →</a><a class="botao" href="santa-maria.html">Santa Maria (RS) →</a><a class="botao" href="manaus.html">Manaus →</a><a class="botao" href="belem.html">Belém →</a><a class="botao" href="https://cacobeto.github.io/geografia-voto-2026/">Estudo nacional →</a></span>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Seções">
+  <ul>
+    <li><a href="#tabela">As quinze cidades</a></li>
+    <li><a href="#conclusoes">Conclusões</a></li>
+    <li><a href="#variacoes">Cidade a cidade</a></li>
+    <li><a href="#hipoteses">O que não se confirmou</a></li>
+    <li><a href="#limites">Limites</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="mapa" id="tabela">
+  <h2>As quinze cidades lado a lado</h2>
+  <p class="pergunta">Quanto Lula mudou em cada cidade, quanto a diferença racial do voto caiu e o que os modelos dizem?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Δ Lula: variação no município, em p.p. dos válidos. Efeitos: modelo de erro espacial, em p.p. da variação de Lula por 1 desvio-padrão do indicador, com escolaridade e idade no modelo. "Limite": significativo num dos dois métodos de atribuição do Censo, não no outro. n.s.: não significativo.</caption>
+      <thead><tr><th>Cidade</th><th>Δ Lula</th><th>Diferença racial</th><th>Cor ou raça</th><th>Analfabetismo</th><th>% 70+</th><th>I de Moran</th></tr></thead>
+      <tbody>
+        <tr><td><a href="sao-paulo.html">São Paulo</a></td><td class="p">−0,96</td><td>+23,7 → +15,9</td><td class="p">−1,66</td><td class="n">n.s.</td><td class="g">+0,41</td><td>0,71</td></tr>
+        <tr><td><a href="guarulhos.html">Guarulhos</a></td><td class="p">−2,58</td><td>+20,5 → +15,2</td><td class="p">−0,92</td><td class="p">−0,52</td><td class="g">+0,73</td><td>0,56</td></tr>
+        <tr><td><a href="sao-bernardo.html">São Bernardo</a></td><td class="p">−2,40</td><td>+26,6 → +20,0</td><td class="p">−1,86</td><td class="n">n.s.</td><td class="g">+0,82</td><td>0,63</td></tr>
+        <tr><td><a href="osasco.html">Osasco</a></td><td class="p">−2,40</td><td>+19,0 → +14,1</td><td class="p">−1,16</td><td class="n">n.s.</td><td class="g">+0,60</td><td>0,49</td></tr>
+        <tr><td><a href="rio-de-janeiro.html">Rio de Janeiro</a></td><td class="g">+0,44</td><td>−3,3 → −7,7</td><td class="p">−0,50</td><td class="p">−0,31</td><td class="g">+0,32</td><td>0,62</td></tr>
+        <tr><td><a href="belo-horizonte.html">Belo Horizonte</a></td><td class="p">−1,14</td><td>+10,0 → +4,7</td><td class="p">−1,03</td><td class="p">−0,45</td><td class="g">+0,55</td><td>0,52</td></tr>
+        <tr><td><a href="goiania.html">Goiânia</a></td><td class="p">−4,86</td><td>+10,0 → +5,2</td><td>−0,39 (limite)</td><td class="p">−1,00</td><td class="g">+0,67</td><td>0,61</td></tr>
+        <tr><td><a href="salvador.html">Salvador</a></td><td class="p">−1,73</td><td>+18,4 → +16,0</td><td class="p">−0,42</td><td class="n">n.s.</td><td class="g">+0,53</td><td>0,29</td></tr>
+        <tr><td><a href="recife.html">Recife</a></td><td class="g">+1,25</td><td>+13,3 → +11,2</td><td class="n">n.s.</td><td class="p">−0,45</td><td class="n">n.s.</td><td>0,16</td></tr>
+        <tr><td><a href="fortaleza.html">Fortaleza</a></td><td class="g">+0,28</td><td>+11,8 → +7,7</td><td class="n">n.s.</td><td class="p">−0,58</td><td class="g">+0,67</td><td>0,47</td></tr>
+        <tr><td><a href="curitiba.html">Curitiba</a></td><td class="p">−1,05</td><td>+11,1 → +3,7</td><td>−0,38 (limite)</td><td class="p">−0,64</td><td class="g">+0,61</td><td>0,69</td></tr>
+        <tr><td><a href="porto-alegre.html">Porto Alegre</a></td><td class="p">−1,26</td><td>+25,4 → +20,9</td><td class="n">n.s.</td><td class="p">−0,88</td><td class="g">+0,48</td><td>0,60</td></tr>
+        <tr><td><a href="santa-maria.html">Santa Maria (RS)</a></td><td class="p">−3,59</td><td>+11,7 → +8,2</td><td class="n">n.s.</td><td>−0,71 (p = 0,08)</td><td class="n">n.s.</td><td>0,43</td></tr>
+        <tr><td><a href="manaus.html">Manaus</a></td><td class="n">+0,11</td><td>+7,9 → +5,7</td><td class="n">n.s.</td><td class="p">−0,52</td><td class="g">+0,26</td><td>0,32</td></tr>
+        <tr><td><a href="belem.html">Belém</a></td><td class="g">+2,26</td><td>+7,6 → +6,0</td><td class="n">n.s.</td><td class="n">n.s.</td><td>+0,39 (p = 0,06)</td><td>0,26</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sintese" id="conclusoes">
+  <h2>O que se repete</h2>
+  <div class="cols">
+    <div class="col"><h3>A mesma direção</h3><p>Nas quinze cidades, a diferença de voto em Lula entre as áreas mais negras e as mais brancas caiu, de 1,6 ponto em Belém a 7,8 em São Paulo. Vale onde Lula perdeu e onde ganhou, em todas as regiões.</p></div>
+    <div class="col"><h3>O ponto de partida</h3><p>Onde as áreas negras eram a base de Lula, a mudança achatou o mapa. No Rio, onde elas já pendiam para o PL, a mesma direção aprofundou a polarização entre Zona Sul e Zona Oeste.</p></div>
+    <div class="col"><h3>Perder onde era forte</h3><p>Em catorze das quinze cidades, quanto mais forte Lula era numa área em 2022, mais perdeu ou menos ganhou. A exceção é o Rio.</p></div>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Força e desenho no espaço</h3><p>Onde a diferença racial caiu mais, a mudança é mais concentrada num desenho centro × periferia (correlação de postos de −0,89 entre as quinze cidades). São Paulo, Curitiba e São Bernardo são os casos fortes; Belém, Recife, Manaus e Salvador, os fracos.</p></div>
+    <div class="col"><h3>Raça, escolaridade, idade</h3><p>A cor ou raça resiste aos controles no Sudeste e em Salvador, fica no limite em Curitiba e Goiânia e é absorvida pela escolaridade em cinco cidades. A idade pesa em doze. A formulação mais segura: Lula se afastou das áreas negras, de menor escolaridade e mais jovens, que se sobrepõem.</p></div>
+    <div class="col"><h3>Para o PL, mais que para a abstenção</h3><p>Dentro dos blocos de perda, onde Lula perdeu mais foi o PL que subiu mais. A exceção é Goiânia, onde o voto perdido foi para Caiado, ex-governador do estado.</p></div>
+  </div>
+</section>
+
+<section class="mapa" id="variacoes">
+  <h2>Cidade a cidade</h2>
+  <p class="pergunta">Onde o padrão geral ganha uma forma própria?</p>
+  <div class="texto">
+    <div>
+      <h3>Casos que se destacam</h3>
+      <ul>
+        <li><strong><a href="rio-de-janeiro.html">Rio</a>:</strong> áreas negras já pró-PL em 2022; Lula subiu na Zona Sul e no Centro e perdeu na Zona Oeste.</li>
+        <li><strong><a href="goiania.html">Goiânia</a>:</strong> a maior perda de Lula (−4,9) e queda também do PL, com o voto para Caiado.</li>
+        <li><strong><a href="belem.html">Belém</a>:</strong> o maior ganho de Lula (+2,3), em quase toda a cidade, sem efeito de cor ou raça.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Outros traços locais</h3>
+      <ul>
+        <li><strong><a href="fortaleza.html">Fortaleza</a>:</strong> a abstenção caiu e os aptos diminuíram 4%; possível exclusão de títulos, a confirmar.</li>
+        <li><strong><a href="santa-maria.html">Santa Maria</a>:</strong> a primeira cidade média; o PL passou Lula; amostra pequena.</li>
+        <li><strong><a href="belo-horizonte.html">BH</a> e <a href="fortaleza.html">Fortaleza</a>:</strong> o nível do voto é organizado mais pela renda que pela cor ou raça.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="hipoteses">
+  <h2>O que não se confirmou</h2>
+  <p class="pergunta">Quais explicações os dados não sustentam?</p>
+  <div class="texto">
+    <div>
+      <ul>
+        <li><strong>Desmobilização:</strong> a abstenção subiu em quase todas as cidades, mas a diferença entre áreas acompanha o PL, não a abstenção.</li>
+        <li><strong>Igrejas evangélicas:</strong> a densidade de templos pesa na mudança só em Guarulhos e São Bernardo. Não pesa em Manaus nem em Belém, as cidades com mais templos por habitante.</li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li><strong>Negros escolarizados (De Micheli, 2023):</strong> a interação entre cor ou raça e escolaridade é nula na maioria das cidades, contrária à tese em três e no sentido dela só em Manaus.</li>
+        <li><strong>"O padrão enfraquece onde Lula ganhou":</strong> entre as quinze cidades, a associação é fraca e não significativa. Fica como hipótese.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="limites" id="limites">
+  <h2>Dados e limites</h2>
+  <ul>
+    <li><strong>Dados:</strong> TSE, votação por seção e locais de votação, Presidente, 1º turno, 2022 e 2026; IBGE, Censo 2022 por setor (cor ou raça, domicílios, alfabetização, idade, favelas) e CNEFE.</li>
+    <li><strong>Método:</strong> o mesmo em todas as cidades, descrito na <a href="sao-paulo.html">página de São Paulo</a>: perfil do Censo por local de votação, modelos espaciais, LISA e saldos por opção.</li>
+    <li><strong>Inferência:</strong> todos os resultados descrevem áreas, não indivíduos. As correlações entre cidades, com quinze casos, são descritivas.</li>
+    <li><strong>Lacunas:</strong> renda real por setor ainda não publicada; religião medida pela oferta de templos, não pelos fiéis; só o 1º turno; Brasília fora do estudo.</li>
+  </ul>
+</section>
+</main>
+<footer>Elaborado em 13 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="sao-paulo.html">São Paulo</a> · <a href="guarulhos.html">Guarulhos</a> · <a href="sao-bernardo.html">São Bernardo</a> · <a href="osasco.html">Osasco</a> · <a href="rio-de-janeiro.html">Rio de Janeiro</a> · <a href="belo-horizonte.html">Belo Horizonte</a> · <a href="goiania.html">Goiânia</a> · <a href="salvador.html">Salvador</a> · <a href="recife.html">Recife</a> · <a href="fortaleza.html">Fortaleza</a> · <a href="curitiba.html">Curitiba</a> · <a href="porto-alegre.html">Porto Alegre</a> · <a href="santa-maria.html">Santa Maria (RS)</a> · <a href="manaus.html">Manaus</a> · <a href="belem.html">Belém</a>.</footer>
+</div>
+
+<dialog id="zoom" aria-label="Imagem ampliada">
+  <div class="caixa"><img alt=""></div>
+  <button type="button" id="fechar">Fechar</button>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('zoom'), big=dlg.querySelector('img');
+  function abrir(img){big.src=img.src;big.alt=img.alt;if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}}
+  function fechar(){if(dlg.close){dlg.close()}else{dlg.removeAttribute('open')}}
+  document.querySelectorAll('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){abrir(b.querySelector('img'))})});
+  dlg.addEventListener('click',function(e){if(e.target!==dlg.querySelector('#fechar')&&(e.target===big||e.target.classList.contains('caixa')||e.target===dlg))fechar()});
+  document.getElementById('fechar').addEventListener('click',fechar);
+  var links=[].slice.call(document.querySelectorAll('nav.indice a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
