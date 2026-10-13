@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="O voto para presidente em São Bernardo do Campo, de 2022 para 2026, por bairro e por local de votação, cruzado com o Censo 2022 e comparado com São Paulo e Guarulhos.">
+<title>Geografia do Voto 2026: São Bernardo</title>
+<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Mesmo sistema visual da página nacional (index.html); acréscimos: pares de mapas, tabela e caixa de ligação. */
+:root{
+  --bg:#f1f3f4; --surface:#ffffff; --ink:#13181c; --ink2:#4b5761; --rule:#d3d9dd;
+  --perdeu:#8c510a; --ganhou:#01665e; --neutro:#6f7b84; --link:#01665e; --tint:#e8eef0;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;padding-inline:16px}
+.wrap{max-width:1080px;margin-inline:auto}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+
+header.top{padding-block:40px 28px;border-bottom:1px solid var(--rule)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin:0 0 12px}
+.kicker a{color:inherit}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,58px);line-height:1.04;margin:0 0 16px;max-width:18ch;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.45;color:var(--ink2);max-width:62ch;margin:0}
+
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-block:28px 0}
+.num{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;min-width:0}
+.num b{display:block;font-family:var(--display);font-size:clamp(26px,3.4vw,36px);line-height:1.1;font-variant-numeric:tabular-nums;font-weight:700}
+.num span{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
+.num.p b{color:var(--perdeu)} .num.g b{color:var(--ganhou)} .num.n b{color:var(--neutro)}
+.nota-num{font-size:13px;color:var(--ink2);margin:12px 0 0;max-width:80ch}
+
+.ponte{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--ganhou);border-radius:6px;padding:14px 18px;margin-top:24px}
+.ponte p{margin:0;font-size:15px;max-width:64ch}
+.ponte a.botao{font-weight:600;text-decoration:none;white-space:nowrap}
+.ponte .botoes{display:flex;gap:18px;flex-wrap:wrap}
+.ponte a.botao:hover{text-decoration:underline}
+
+nav.indice{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+nav.indice ul{list-style:none;margin:0 auto;max-width:1080px;padding:0;display:flex;gap:4px;overflow-x:auto}
+nav.indice a{display:block;padding:12px 12px;font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.indice a:hover,nav.indice a.on{color:var(--ink);border-bottom-color:var(--ganhou)}
+
+section.mapa{padding-block:44px 8px;border-bottom:1px solid var(--rule);scroll-margin-top:52px}
+section.mapa h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 8px;text-wrap:balance;max-width:26ch}
+.pergunta{font-size:15px;color:var(--ink2);margin:0 0 20px;max-width:70ch}
+figure{margin:0 0 28px}
+.par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.par figure{margin:0}
+.moldura{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:6px;cursor:zoom-in;display:block;width:100%}
+.moldura img{display:block;width:100%;height:auto;border-radius:3px}
+figure.larga .moldura{max-width:860px}
+figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
+
+.texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;margin-bottom:36px}
+.texto h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px;font-weight:600}
+.texto ul{margin:0;padding-left:1.1em}
+.texto li{margin-bottom:10px;max-width:62ch}
+.texto p{margin:0 0 10px;max-width:62ch}
+.texto strong{font-weight:600}
+.cuidado{background:var(--tint);border-radius:6px;padding:14px 16px;font-size:14px;color:var(--ink2);grid-column:1/-1;margin-top:4px}
+.cuidado b{color:var(--ink)}
+
+.tabela{overflow-x:auto;margin-bottom:24px}
+table{border-collapse:collapse;width:100%;min-width:520px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+td.p{color:var(--perdeu);font-weight:600} td.g{color:var(--ganhou);font-weight:600} td.n{color:var(--neutro)}
+
+section.sintese{padding-block:48px 24px}
+section.sintese h2,section.limites h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.col{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.col h3{font-family:var(--display);font-size:20px;margin:0 0 8px;line-height:1.2}
+.col p{margin:0;font-size:15px}
+.aviso{font-size:14px;color:var(--ink2);max-width:72ch;margin:0 0 12px}
+section.limites{padding-block:32px 56px;border-top:1px solid var(--rule)}
+section.limites ul{padding-left:1.1em;margin:0;max-width:78ch}
+section.limites li{margin-bottom:10px;font-size:15px}
+footer{font-size:13px;color:var(--ink2);padding-block:0 40px}
+
+dialog#zoom{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
+#zoom .caixa{width:100%;height:100%;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+#zoom img{background:#fff;width:min(1400px,160%);max-width:none;height:auto;border-radius:4px;cursor:zoom-out}
+#zoom button{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;font:600 14px var(--ui);padding:8px 14px;border-radius:6px;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+
+@media (max-width:820px){
+  .numeros{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .texto{grid-template-columns:minmax(0,1fr)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .par{grid-template-columns:minmax(0,1fr)}
+  #zoom img{width:200%}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <p class="kicker"><a href="./">Geografia do Voto 2026</a> · São Bernardo do Campo · Presidente, 1º turno</p>
+  <h1>Em São Bernardo, o sul se afastou de Lula</h1>
+  <p class="lede">Na cidade do ABC onde Lula começou a carreira política, ele venceu de novo, mas perdeu terreno nos bairros periféricos do sul, ao longo da Represa Billings. O norte urbano, junto a São Paulo e Santo André, ficou estável ou se aproximou dele. Como na capital e em Guarulhos, a mudança acompanha a composição racial dos bairros. Como em Guarulhos, a presença de igrejas evangélicas também pesa.</p>
+
+  <div class="numeros">
+    <div class="num p"><b>−2,40</b><span>p.p. de votos válidos de Lula (49,17% → 46,77%)</span></div>
+    <div class="num g"><b>+3,81</b><span>p.p. de Jair → Flávio Bolsonaro (38,02% → 41,83%)</span></div>
+    <div class="num n"><b>+2,59</b><span>p.p. de abstenção (19,20% → 21,78% dos aptos)</span></div>
+    <div class="num"><b>627 mil</b><span>eleitores aptos em 2026</span></div>
+  </div>
+  <p class="nota-num">Resultado do município, conferido com a totalização oficial do TSE. Lula venceu nos dois anos. Em 2022, Tebet e Ciro somaram 11,1% dos válidos; em 2026, Renan Santos, Cury e Caiado somaram 10,6%.</p>
+
+  <div class="ponte">
+    <p>Terceira cidade do estudo, depois da capital e de Guarulhos.</p>
+    <span class="botoes"><a class="botao" href="sao-paulo.html">São Paulo →</a><a class="botao" href="guarulhos.html">Guarulhos →</a><a class="botao" href="https://cacobeto.github.io/geografia-voto-2026/">Estudo nacional →</a></span>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Seções">
+  <ul>
+    <li><a href="#bairros">Bairros</a></li>
+    <li><a href="#locais">Locais de votação</a></li>
+    <li><a href="#perfil">Raça e renda</a></li>
+    <li><a href="#modelos">O que pesa mais</a></li>
+    <li><a href="#clusters">Clusters</a></li>
+    <li><a href="#destino">Para onde foi o voto</a></li>
+    <li><a href="#templos">Templos</a></li>
+    <li><a href="#comparacao">Três cidades</a></li>
+    <li><a href="#limites">Limites</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="mapa" id="bairros">
+  <h2>Sul contra norte</h2>
+  <p class="pergunta">Em quais bairros Lula perdeu e onde o PL mais cresceu?</p>
+  <div class="par">
+    <figure>
+      <button class="moldura" type="button" data-zoom><img src="img/sbc/var_lula.png" width="1600" height="1500" alt="Mapa dos bairros de São Bernardo do Campo com a variação de Lula. Vermelho forte numa faixa ao sul da área urbana, junto à Represa Billings; tons claros e azul-claro no norte, junto a São Paulo e Santo André. O sul do município, de represa e mata, aparece em cinza-claro, sem local de votação." loading="eager"></button>
+      <figcaption>Variação de Lula, em p.p. dos válidos, por bairro. Azul: ganhou; vermelho: perdeu.</figcaption>
+    </figure>
+    <figure>
+      <button class="moldura" type="button" data-zoom><img src="img/sbc/var_pl.png" width="1600" height="1500" alt="Mapa dos bairros com a variação do PL. Todos em vermelho, alta; tons mais fortes na faixa sul da área urbana e num bairro central; mais claros no norte." loading="eager"></button>
+      <figcaption>Variação do PL (Jair → Flávio Bolsonaro), em p.p. dos válidos.</figcaption>
+    </figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>Lula <strong>perdeu no sul</strong>, ao longo da Represa Billings: Batistini −6,4 p.p., Montanhão −5,8 (62 mil aptos), Cooperativa −5,3, Dos Alvarenga −5,1.</li>
+        <li><strong>Ganhou no norte urbano:</strong> Anchieta +3,1, Rudge Ramos +1,6. Centro, Jordanópolis e Nova Petrópolis ficaram estáveis.</li>
+        <li>Bairros com o PL à frente: 7 de 25 em 2022 e 12 em 2026.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>Entre bairros, quanto mais forte Lula era em 2022, mais perdeu (correlação de <strong>−0,89</strong>) e mais subiu a abstenção (+0,75). É o mesmo desenho de Guarulhos (−0,91), mais nítido que o da capital (−0,60).</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> A unidade são os bairros do IBGE. O sul do município, de represa e mata, tem poucos locais de votação.</p>
+  </div>
+</section>
+
+<section class="mapa" id="locais">
+  <h2>Na escala do local de votação</h2>
+  <p class="pergunta">Como fica a cidade quando cada local de votação vira um ponto?</p>
+  <div class="par">
+    <figure>
+      <button class="moldura" type="button" data-zoom><img src="img/sbc/locais_pct_lula_2022.png" width="1600" height="1500" alt="Mapa de pontos dos cerca de 165 locais de votação em 2022, coloridos pelo percentual de Lula. Pontos azuis, Lula acima de 50%, no sul da área urbana; pontos rosados e vermelhos no norte." loading="lazy"></button>
+      <figcaption>2022: % de Lula nos válidos por local. Área do ponto proporcional aos aptos.</figcaption>
+    </figure>
+    <figure>
+      <button class="moldura" type="button" data-zoom><img src="img/sbc/locais_pct_lula_2026.png" width="1600" height="1500" alt="O mesmo mapa para 2026, na mesma escala. O azul do sul fica mais claro; o norte continua rosado e vermelho." loading="lazy"></button>
+      <figcaption>2026: mesma escala de cor (de 15% a 85%, centro em 50%).</figcaption>
+    </figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>Em 2022, o sul dava ampla maioria a Lula.</li>
+        <li>Em 2026, esse azul <strong>clareia</strong>; o norte quase não muda.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>Em São Bernardo, 44 locais mudaram de número entre as eleições sem mudar de endereço. Para comparar os dois anos, os locais foram pareados pela posição (até 50 m), e não pelo número.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> O eleitor vota onde está inscrito, que nem sempre é perto de casa.</p>
+  </div>
+</section>
+
+<section class="mapa" id="perfil">
+  <h2>A maior queda da diferença racial</h2>
+  <p class="pergunta">Como votam as áreas mais negras e as mais brancas, as mais pobres e as mais ricas?</p>
+  <div class="par">
+    <figure>
+      <button class="moldura" type="button" data-zoom><img src="img/sbc/decimo_pretos_pardos.png" width="1600" height="1100" alt="Gráfico por décimo de eleitorado segundo a proporção de pretos e pardos. A linha de Lula sobe das áreas mais brancas para as mais negras; em 2026 ela baixa nos décimos mais negros e sobe um pouco nos mais brancos." loading="lazy"></button>
+      <figcaption>Voto por décimo de % de pretos e pardos. Linha cheia: 2022; tracejada: 2026.</figcaption>
+    </figure>
+    <figure>
+      <button class="moldura" type="button" data-zoom><img src="img/sbc/decimo_banheiros.png" width="1600" height="1100" alt="Gráfico por décimo de eleitorado segundo a proporção de domicílios com três ou mais banheiros. Lula desce das áreas mais pobres para as mais ricas; a distância diminui em 2026." loading="lazy"></button>
+      <figcaption>Voto por décimo de % de domicílios com 3 ou mais banheiros (substituto de renda).</figcaption>
+    </figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>A diferença de voto em Lula entre o décimo mais negro e o mais branco caiu de <strong>26,6 para 20,0 pontos</strong>, a maior queda das três cidades.</li>
+        <li>No décimo mais negro, Lula foi de 61,6% para 56,1%. No mais branco, de 35,0% para 36,1%.</li>
+        <li>Pelo substituto de renda, a diferença caiu de 20,4 para 16,5 pontos.</li>
+        <li>Nas áreas de favela, Lula foi de 60,4% para 54,9%, e a abstenção subiu 3,5 p.p.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>Como em São Paulo, a abstenção subiu mais nas áreas negras (+3,7 p.p. no décimo mais negro, contra +2,7 no mais branco).</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> O IBGE ainda não publicou renda por setor do Censo 2022. "3 ou mais banheiros" mede padrão habitacional.</p>
+  </div>
+</section>
+
+<section class="mapa" id="modelos">
+  <h2>O que pesa mais</h2>
+  <p class="pergunta">Separados num mesmo modelo, quais características dos bairros explicam a mudança?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Modelo de erro espacial (SEM) num painel de 145 locais (95% dos aptos). Variação 2022→2026, em p.p., para 1 desvio-padrão do indicador. n.s.: não significativo.</caption>
+      <thead><tr><th>Indicador do bairro</th><th>Δ Lula</th><th>Δ PL</th><th>Δ Abstenção</th></tr></thead>
+      <tbody>
+        <tr><td>% pretos e pardos</td><td class="p">−1,3</td><td class="g">+0,5</td><td>+0,3 (p = 0,06)</td></tr>
+        <tr><td>% domicílios com 3+ banheiros</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>% população em favela</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td colspan="4"><strong>Com analfabetismo e idade no modelo:</strong></td></tr>
+        <tr><td>% pretos e pardos</td><td class="p">−1,9</td><td class="g">+0,5</td><td class="n">n.s.</td></tr>
+        <tr><td>Analfabetismo 15+</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>% 70 anos ou mais</td><td class="g">+0,8</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>A perda de Lula é maior nas áreas mais negras, e o efeito <strong>aumenta</strong> com os controles de escolaridade e idade, como em São Paulo.</li>
+        <li>Lula perdeu menos onde há mais idosos, como nas outras duas cidades.</li>
+        <li>A perda racial é maior nas áreas negras de <strong>menor</strong> analfabetismo: o oposto do que a tese de que negros mais escolarizados ficam mais fiéis à esquerda faria esperar.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>A abstenção acompanha a perda de Lula (correlação de −0,49), mas controlar a abstenção não reduz o efeito racial. Como nas outras cidades, o principal parece ser troca de voto.</p>
+      <p>Os resultados se mantêm com a interpolação por área.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> São áreas, não pessoas. Com 145 locais, os coeficientes são menos precisos que os de São Paulo.</p>
+  </div>
+</section>
+
+<section class="mapa" id="clusters">
+  <h2>Um bloco de perda no sul</h2>
+  <p class="pergunta">As mudanças formam agrupamentos no espaço?</p>
+  <figure class="larga">
+    <button class="moldura" type="button" data-zoom><img src="img/sbc/lisa_d_lula.png" width="1600" height="1500" alt="Mapa LISA da variação de Lula por local de votação. Pontos vermelhos (Alto-Alto, ganho) concentrados no norte, junto a São Paulo e Santo André; pontos azuis (Baixo-Baixo, perda) no sul da área urbana e ao longo da represa; o centro em cinza, não significativo." loading="lazy"></button>
+    <figcaption>LISA da variação de Lula. Vermelho (Alto-Alto): agrupamento de ganho; azul (Baixo-Baixo): agrupamento de perda.</figcaption>
+  </figure>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>A variação de Lula é agrupada (I de Moran = 0,63).</li>
+        <li><strong>Ganho:</strong> 36 locais, 150 mil aptos, +0,8 p.p. Centro, Rudge Ramos, Baeta Neves, Jordanópolis, Anchieta. Bairros com 21% de pretos e pardos e sem favela.</li>
+        <li><strong>Perda:</strong> 38 locais, 154 mil aptos, −5,4 p.p. Dos Alvarenga, Batistini, Montanhão, Ferrazópolis, Riacho Grande. Bairros com 51% de pretos e pardos e 30% da população em favela.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>Os dois blocos têm quase o mesmo eleitorado e andaram em sentidos opostos. A alta do PL e a da abstenção são pouco agrupadas.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> Agrupamentos com p &lt; 0,05 (999 permutações) e vizinhança dos 8 locais mais próximos.</p>
+  </div>
+</section>
+
+<section class="mapa" id="destino">
+  <h2>Para onde foi o voto que Lula perdeu</h2>
+  <p class="pergunta">No sul, o voto perdido foi para o PL, para outros candidatos ou para a abstenção?</p>
+  <figure class="larga">
+    <button class="moldura" type="button" data-zoom><img src="img/sbc/destino_clusters.png" width="1700" height="1200" alt="Gráfico de barras com o saldo de cada opção, em pontos do eleitorado apto. No grupo de perda, Lula cai 6,2, a abstenção sobe 3,3 e o PL 2,1. No grupo de ganho, Lula fica estável, os outros candidatos caem 3,2, a abstenção sobe 1,9 e o PL 1,4." loading="lazy"></button>
+    <figcaption>Saldo de cada opção, em p.p. do eleitorado apto (as cinco parcelas somam zero).</figcaption>
+  </figure>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li><strong>Sul (perda):</strong> Lula −6,2; abstenção +3,3; PL +2,1; brancos e nulos +0,6.</li>
+        <li><strong>Norte (ganho):</strong> Lula −0,2; outros candidatos −3,2; abstenção +1,9; PL +1,4.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>No sul, a perda se divide entre abstenção e PL. Dentro do bloco de perda, onde Lula perdeu mais, o PL subiu mais (correlação de −0,53) e a abstenção, um pouco (−0,22).</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> São saldos por área, não fluxos de eleitores.</p>
+  </div>
+</section>
+
+<section class="mapa" id="templos">
+  <h2>As igrejas evangélicas também pesam aqui</h2>
+  <p class="pergunta">A presença de templos evangélicos no bairro ajuda a explicar a mudança?</p>
+  <div class="texto">
+    <div>
+      <h3>O que mostra</h3>
+      <ul>
+        <li>O Censo 2022 registrou <strong>1.135 estabelecimentos religiosos</strong>, dos quais cerca de <strong>750 evangélicos</strong> pelo nome: 9,4 por 10 mil habitantes.</li>
+        <li>Com cor ou raça, renda, favela, escolaridade e idade no modelo, Lula perdeu mais onde há mais templos (<strong>−0,42</strong> p.p. por desvio-padrão) e o PL subiu mais (<strong>+0,27</strong>).</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Por que importa</h3>
+      <p>Guarulhos dá o mesmo resultado; a capital, não (−0,07, não significativo, com 1.728 locais). A densidade de templos parece um marcador territorial nas cidades do entorno que se dilui na metrópole.</p>
+    </div>
+    <p class="cuidado"><b>Cuidado.</b> Densidade de templos mede oferta religiosa, não a proporção de fiéis. Cerca de 23% dos estabelecimentos não puderam ser classificados pelo nome.</p>
+  </div>
+</section>
+
+<section class="sintese" id="comparacao">
+  <h2>Três cidades, o mesmo movimento</h2>
+  <p class="aviso">São Paulo, Guarulhos e São Bernardo do Campo, com os mesmos dados e métodos.</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th></th><th>São Paulo</th><th>Guarulhos</th><th>São Bernardo</th></tr></thead>
+      <tbody>
+        <tr><td>Variação de Lula no município</td><td class="p">−0,96</td><td class="p">−2,58</td><td class="p">−2,40</td></tr>
+        <tr><td>Eixo da mudança</td><td>periferia × centro</td><td>leste × oeste</td><td>sul × norte</td></tr>
+        <tr><td>Diferença racial do voto em Lula (pontos)</td><td>23,7 → 15,9</td><td>20,5 → 15,2</td><td>26,6 → 20,0</td></tr>
+        <tr><td>Efeito racial na perda de Lula, com controles</td><td class="p">−1,7</td><td class="p">−0,9</td><td class="p">−1,9</td></tr>
+        <tr><td>% de 70+ na variação de Lula</td><td class="g">+0,4</td><td class="g">+0,7</td><td class="g">+0,8</td></tr>
+        <tr><td>Abstenção</td><td>sobe mais nas áreas negras</td><td>sobe por igual</td><td>sobe mais nas áreas negras</td></tr>
+        <tr><td>Templos evangélicos na variação de Lula</td><td class="n">sem efeito</td><td class="p">−0,43</td><td class="p">−0,42</td></tr>
+        <tr><td>Locais comparados</td><td>1.728</td><td>223</td><td>145</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>O mesmo movimento</h3><p>Nas três cidades, Lula perdeu nas periferias negras onde era mais forte e ficou estável ou ganhou nas áreas mais brancas e centrais.</p></div>
+    <div class="col"><h3>Raça e idade</h3><p>O efeito racial resiste em todas. Em todas, Lula perdeu menos onde há mais idosos. Só em Guarulhos a escolaridade divide a explicação.</p></div>
+    <div class="col"><h3>Igrejas no entorno</h3><p>A densidade de templos evangélicos pesa em Guarulhos e São Bernardo, mas não na capital. É uma hipótese a testar em outras cidades.</p></div>
+  </div>
+</section>
+
+<section class="limites" id="limites">
+  <h2>Dados e limites</h2>
+  <ul>
+    <li><strong>Votos:</strong> TSE, votação e detalhe por seção e locais de votação, Presidente, 1º turno, 2022 e 2026, São Bernardo do Campo (código TSE 70750). Totais conferidos com o resultado oficial.</li>
+    <li><strong>Censo:</strong> IBGE, Censo 2022: agregados por setor (cor ou raça, domicílios, alfabetização), favelas e comunidades urbanas, bairros e CNEFE (estabelecimentos religiosos).</li>
+    <li><strong>Método:</strong> o mesmo da <a href="sao-paulo.html">página de São Paulo</a>, com uma diferença: os locais de votação foram pareados entre os anos pela posição (até 50 m), porque 44 deles mudaram de número.</li>
+    <li><strong>Amostra:</strong> 145 locais comparados. Há menos poder estatístico que na capital.</li>
+    <li><strong>Inferência:</strong> todos os resultados descrevem áreas, não indivíduos.</li>
+  </ul>
+</section>
+</main>
+<footer>Elaborado em 12 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="sao-paulo.html">São Paulo</a> · <a href="guarulhos.html">Guarulhos</a>.</footer>
+</div>
+
+<dialog id="zoom" aria-label="Imagem ampliada">
+  <div class="caixa"><img alt=""></div>
+  <button type="button" id="fechar">Fechar</button>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('zoom'), big=dlg.querySelector('img');
+  function abrir(img){big.src=img.src;big.alt=img.alt;if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}}
+  function fechar(){if(dlg.close){dlg.close()}else{dlg.removeAttribute('open')}}
+  document.querySelectorAll('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){abrir(b.querySelector('img'))})});
+  dlg.addEventListener('click',function(e){if(e.target!==dlg.querySelector('#fechar')&&(e.target===big||e.target.classList.contains('caixa')||e.target===dlg))fechar()});
+  document.getElementById('fechar').addEventListener('click',fechar);
+  var links=[].slice.call(document.querySelectorAll('nav.indice a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
