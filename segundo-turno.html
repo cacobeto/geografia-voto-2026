@@ -127,7 +127,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
   <p class="nota-num">TSE, votação por seção, Presidente, 1º turno de 2026, todos os municípios. Sem o voto no exterior: os totais podem diferir um pouco do resultado oficial, que o inclui.</p>
 
   <div class="ponte">
-    <p><strong>Resultado (25/10/2026):</strong> Lula 51,79%, Flávio Bolsonaro 48,21% (TSE). A conta abaixo foi feita antes da eleição; a análise do resultado está em <a href="dois-turnos-2026.html">dois turnos de 2026</a>. O estudo intraurbano que sustenta a última seção está na síntese das quinze cidades.</p>
+    <p><strong>Resultado (25/10/2026):</strong> Lula 51,79%, Flávio Bolsonaro 48,21% (TSE). A conta abaixo foi feita antes da eleição; o confronto com o resultado está em <a href="#resultado">O resultado</a>, e a análise completa em <a href="dois-turnos-2026.html">dois turnos de 2026</a>. O estudo intraurbano que sustenta a última seção está na síntese das quinze cidades.</p>
     <span class="botoes"><a class="botao" href="dois-turnos-2026.html">Dois turnos de 2026 →</a><a class="botao" href="quinze-cidades.html">Quinze cidades →</a><a class="botao" href="./">Estudo nacional →</a></span>
   </div>
 </header>
@@ -142,6 +142,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
     <li><a href="#quaest">A Quaest</a></li>
     <li><a href="#datafolha">O Datafolha</a></li>
     <li><a href="#cidades">O que as cidades dizem</a></li>
+    <li><a href="#resultado">O resultado</a></li>
     <li><a href="#limites">Limites</a></li>
   </ul>
 </nav>
@@ -398,17 +399,86 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
   </div>
 </section>
 
+<section class="mapa" id="resultado">
+  <h2>O resultado diante da conta</h2>
+  <p class="pergunta">Lula venceu com 51,8% dos válidos. O que a conta e as pesquisas acertaram, e o que não previram?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">TSE, resultado por município do site de divulgação, 25/10/2026, sem o voto no exterior (com ele, Lula teve 51,79%).</caption>
+      <thead><tr><th></th><th>Antes (1º turno)</th><th>Resultado do 2º turno</th></tr></thead>
+      <tbody>
+        <tr><td>Válidos</td><td>118,97 mi</td><td>123,71 mi (+4,74 mi)</td></tr>
+        <tr><td>Meta de Lula (metade dos válidos)</td><td>59,48 mi</td><td>61,86 mi</td></tr>
+        <tr><td>Lula</td><td>53,72 mi</td><td class="g">64,06 mi (+10,33 mi)</td></tr>
+        <tr><td>Flávio</td><td>55,96 mi</td><td class="p">59,65 mi (+3,69 mi)</td></tr>
+        <tr><td>Saldo de Lula</td><td class="p">−2,24 mi</td><td class="g">+4,40 mi</td></tr>
+        <tr><td>Abstenção</td><td>32,89 mi</td><td>29,97 mi (−2,92 mi)</td></tr>
+        <tr><td>Brancos e nulos</td><td>5,96 mi</td><td>4,14 mi (−1,82 mi)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>A conta</h3>
+      <ul>
+        <li><strong>A suposição de comparecimento igual não valeu.</strong> Os válidos cresceram 4,74 mi, e a meta subiu 2,4 mi. Lula passou da meta original em 4,6 mi e da real em 2,2 mi.</li>
+        <li><strong>O ganho de Lula (10,33 mi) passou de todo o voto dos outros candidatos (9,29 mi).</strong> Parte veio de quem não votou no 1º turno ou votou em branco ou nulo: pela regressão ecológica, cerca de 13% desses eleitores votaram em Lula e 3% em Flávio. Cury foi para Lula (72%), Zema para Flávio (90%), Caiado se dividiu (42% a 49%); para Renan Santos não há estimativa confiável.</li>
+        <li><strong>Lula ficou com 74% do acréscimo dos dois finalistas,</strong> contra cerca de 30% em 2022, acima de todos os cenários de "A conta".</li>
+      </ul>
+    </div>
+    <div>
+      <h3>As regiões</h3>
+      <ul>
+        <li><strong>O Sudeste, que concentrava a desvantagem, deu 4,8 mi dos 10,3 mi de Lula</strong> e reduziu a diferença pela metade (−5,66 → −2,81 mi).</li>
+        <li><strong>O Nordeste ampliou a vantagem em 2,6 mi</strong> (+11,09 → +13,65 mi), com a abstenção caindo 1,9 p.p. A mobilização rendeu mais do que a conta previa, mas não sozinha.</li>
+        <li><strong>O Norte empatou;</strong> Sul e Centro-Oeste reduziram pouco a desvantagem.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Lula em % dos válidos no resultado; nas pesquisas, Lula ÷ (Lula + Flávio). Regiões do Datafolha de 13–14/10.</caption>
+      <thead><tr><th>Pesquisa ou recorte</th><th>Campo</th><th>Lula na pesquisa</th><th>Resultado</th><th>Diferença</th></tr></thead>
+      <tbody>
+        <tr><td>Agregador BBC/PollingData</td><td>até 13/10</td><td>48,4%</td><td>51,8%</td><td class="p">−3,4</td></tr>
+        <tr><td>PoderData/Aya</td><td>10–12/10</td><td>49,0%</td><td>51,8%</td><td class="p">−2,8</td></tr>
+        <tr><td>Quaest</td><td>10–13/10</td><td>48,9%</td><td>51,8%</td><td class="p">−2,9</td></tr>
+        <tr><td>Datafolha</td><td>13–14/10</td><td>48,9%</td><td>51,8%</td><td class="p">−2,9</td></tr>
+        <tr><td>Datafolha, Nordeste</td><td>13–14/10</td><td>65,6%</td><td>69,4%</td><td class="p">−3,8</td></tr>
+        <tr><td>Datafolha, Sul</td><td>13–14/10</td><td>31,9%</td><td>37,4%</td><td class="p">−5,5</td></tr>
+        <tr><td>Datafolha, Sudeste</td><td>13–14/10</td><td>44,6%</td><td>47,2%</td><td class="p">−2,6</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>As pesquisas</h3>
+      <ul>
+        <li><strong>Todas as registradas aqui davam Flávio à frente, e todas ficaram cerca de 3 pontos abaixo de Lula,</strong> fora da margem de cada uma (1,8 a 2 p.p.).</li>
+        <li><strong>A transferência da Quaest,</strong> aplicada aos votos do 1º turno, dava Flávio +3,32 mi; o resultado foi Lula +4,40 mi.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Erro ou movimento tardio</h3>
+      <ul>
+        <li><strong>As pesquisas aqui terminam em 14/10,</strong> onze dias antes da eleição. As da última semana não foram consultadas; sem elas, não dá para separar erro de mudança na reta final.</li>
+        <li>Análise completa, com mapas, em <a href="dois-turnos-2026.html">dois turnos de 2026</a>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="limites" id="limites">
   <h2>Limites</h2>
   <ul>
     <li><strong>Segunda preferência desconhecida:</strong> não há aqui dados sobre como votarão no 2º turno os eleitores de Cury, Renan Santos, Caiado ou Zema. As frações da tabela são cenários; a pesquisa PoderData/Aya e o agregador da BBC dão estimativas indiretas (cerca de 49% e 41% para Lula), sem recorte publicado por voto no 1º turno. A Quaest publicou a transferência por voto no 1º turno (acima), com subamostras pequenas.</li>
-    <li><strong>Comparecimento:</strong> a conta supõe válidos iguais aos do 1º turno; o comparecimento no 2º turno pode subir ou cair, e mudar a meta absoluta.</li>
+    <li><strong>Comparecimento:</strong> a conta supõe válidos iguais aos do 1º turno; no resultado, os válidos cresceram 4,74 mi e a meta subiu para 61,86 mi (ver <a href="#resultado">O resultado</a>).</li>
     <li><strong>Inferência ecológica:</strong> o estudo intraurbano descreve áreas, não eleitores.</li>
-    <li><strong>Próximo passo:</strong> refazer a conta com o resultado do 2º turno e comparar com estes cenários.</li>
+    <li><strong>Próximos passos:</strong> levantar as pesquisas da última semana (19 a 24/10) e compará-las com o resultado; repetir dentro das quinze cidades quando o TSE publicar os dados por seção do 2º turno.</li>
   </ul>
 </section>
 </main>
-<footer>Elaborado em 13 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="quinze-cidades.html">Quinze cidades</a> · <a href="dois-turnos-2026.html">Dois turnos de 2026</a>.</footer>
+<footer>Elaborado em 13 de outubro de 2026; resultado incluído em 26 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="quinze-cidades.html">Quinze cidades</a> · <a href="dois-turnos-2026.html">Dois turnos de 2026</a>.</footer>
 </div>
 
 </body>
