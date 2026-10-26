@@ -143,6 +143,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
     <li><a href="#datafolha">O Datafolha</a></li>
     <li><a href="#cidades">O que as cidades dizem</a></li>
     <li><a href="#resultado">O resultado</a></li>
+    <li><a href="#ultima-semana">A última semana</a></li>
     <li><a href="#limites">Limites</a></li>
   </ul>
 </nav>
@@ -461,11 +462,63 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
     <div>
       <h3>Erro ou movimento tardio</h3>
       <ul>
-        <li><strong>As pesquisas aqui terminam em 14/10,</strong> onze dias antes da eleição. As da última semana não foram consultadas; sem elas, não dá para separar erro de mudança na reta final.</li>
+        <li><strong>As pesquisas da última semana</strong> (20 institutos, campo até 24/10) também ficaram abaixo de Lula, em média 2,9 pontos, sem tendência nas duas últimas semanas (ver <a href="#ultima-semana">a última semana</a>).</li>
         <li>Análise completa, com mapas, em <a href="dois-turnos-2026.html">dois turnos de 2026</a>.</li>
       </ul>
     </div>
   </div>
+</section>
+
+<section class="mapa" id="ultima-semana">
+  <h2>As pesquisas da última semana</h2>
+  <p class="pergunta">As pesquisas terminadas às vésperas da eleição captaram a virada?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Última pesquisa de cada instituto com campo terminado de 18 a 24/10/2026, pela tabela do agregador da BBC News Brasil com a PollingData, extraída em 26/10/2026 (pesquisas estimuladas nacionais registradas no TSE). Lula nos válidos = Lula ÷ (Lula + Flávio). Diferença em relação ao resultado (51,78%, sem o exterior).</caption>
+      <thead><tr><th>Instituto</th><th>Campo</th><th>Modo</th><th>Entrevistas</th><th>Flávio × Lula (totais)</th><th>Lula nos válidos</th><th>Diferença</th></tr></thead>
+      <tbody>
+        <tr><td>Datafolha</td><td>23–24/10</td><td>presencial (ponto de fluxo)</td><td>4.050</td><td>48 × 47</td><td>49,5%</td><td class="p">−2,3</td></tr>
+        <tr><td>Quaest</td><td>23–24/10</td><td>presencial (domiciliar)</td><td>3.702</td><td>46 × 45</td><td>49,5%</td><td class="p">−2,3</td></tr>
+        <tr><td>PoderData</td><td>23–24/10</td><td>telefone (URA)</td><td>4.000</td><td>49 × 47</td><td>49,0%</td><td class="p">−2,8</td></tr>
+        <tr><td>Nexus</td><td>23–24/10</td><td>telefone</td><td>2.000</td><td>40,6 × 36,8</td><td>47,5%</td><td class="p">−4,2</td></tr>
+        <tr><td>Palver</td><td>22–24/10</td><td>online</td><td>5.000</td><td>50 × 49</td><td>49,5%</td><td class="p">−2,3</td></tr>
+        <tr><td>GERP</td><td>21–24/10</td><td>presencial (domiciliar)</td><td>2.400</td><td>49 × 46</td><td>48,4%</td><td class="p">−3,4</td></tr>
+        <tr><td>AtlasIntel</td><td>18–23/10</td><td>online</td><td>5.000</td><td>49,9 × 48,4</td><td>49,2%</td><td class="p">−2,5</td></tr>
+        <tr><td>Colectta</td><td>23/10</td><td>presencial (domiciliar)</td><td>3.000</td><td>46 × 46,5</td><td>50,3%</td><td class="p">−1,5</td></tr>
+        <tr><td>MDA</td><td>21–23/10</td><td>presencial (domiciliar)</td><td>2.002</td><td>46,3 × 45</td><td>49,3%</td><td class="p">−2,5</td></tr>
+        <tr><td>Veritá</td><td>19–23/10</td><td>telefone (URA)</td><td>15.554</td><td>49,4 × 46,5</td><td>48,5%</td><td class="p">−3,3</td></tr>
+        <tr><td>Vetor Arrow</td><td>22–23/10</td><td>telefone (URA)</td><td>3.000</td><td>50 × 44,9</td><td>47,3%</td><td class="p">−4,5</td></tr>
+        <tr><td>Instituto França</td><td>21–23/10</td><td>telefone</td><td>1.537</td><td>45,6 × 43,1</td><td>48,6%</td><td class="p">−3,2</td></tr>
+        <tr><td>Vox Brasil</td><td>20–22/10</td><td>presencial (domiciliar)</td><td>2.100</td><td>44,3 × 45,4</td><td>50,6%</td><td class="p">−1,2</td></tr>
+        <tr><td>IPESPE</td><td>20–22/10</td><td>telefone</td><td>1.500</td><td>48 × 47</td><td>49,5%</td><td class="p">−2,3</td></tr>
+        <tr><td>Real Time Big Data</td><td>19–22/10</td><td>presencial (domiciliar)</td><td>2.000</td><td>49 × 45</td><td>47,9%</td><td class="p">−3,9</td></tr>
+        <tr><td>Alfa Inteligência</td><td>18–22/10</td><td>telefone</td><td>1.200</td><td>49,9 × 46</td><td>48,0%</td><td class="p">−3,8</td></tr>
+        <tr><td>Indexa</td><td>20–21/10</td><td>telefone</td><td>2.000</td><td>45,2 × 44,1</td><td>49,4%</td><td class="p">−2,4</td></tr>
+        <tr><td>DataTrends</td><td>19–21/10</td><td>telefone (URA)</td><td>2.000</td><td>50 × 46</td><td>47,9%</td><td class="p">−3,9</td></tr>
+        <tr><td>Futura</td><td>19–20/10</td><td>telefone</td><td>2.000</td><td>48,9 × 46,8</td><td>48,9%</td><td class="p">−2,9</td></tr>
+        <tr><td>Ideia</td><td>15–19/10</td><td>telefone</td><td>1.500</td><td>48 × 46</td><td>48,9%</td><td class="p">−2,8</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>Todas abaixo</h3>
+      <ul>
+        <li><strong>Os 20 institutos subestimaram Lula,</strong> de 1,2 ponto (Vox Brasil) a 4,5 (Vetor Arrow); média e mediana de 48,9%, cerca de 2,9 pontos abaixo do resultado. Das 33 pesquisas da semana, 31 davam Flávio à frente.</li>
+        <li><strong>O agregador da BBC,</strong> em 25/10, dava Flávio 47% e Lula 45% (51% a 49% nos válidos).</li>
+        <li><strong>Sem separação clara por modo de coleta:</strong> os mais próximos foram presenciais (Vox Brasil, Colectta); entre os mais distantes há telefônicos e presenciais.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Sem movimento na reta final</h3>
+      <ul>
+        <li><strong>Média de Lula nos válidos por semana de término do campo:</strong> 48,0% (4 a 10/10), 48,9% (11 a 17/10), 48,9% (18 a 24/10). Datafolha, PoderData e Quaest quase não mudaram entre as rodadas da última semana.</li>
+        <li><strong>A diferença não é uma tendência perdida.</strong> Restam o erro comum às pesquisas, uma mudança nas últimas 24 horas e o comparecimento: a abstenção caiu 2,9 milhões, mais nas bases de Lula (ver <a href="dois-turnos-2026.html#abstencao">dois turnos de 2026</a>). Estes dados não separam as três.</li>
+        <li><strong>A testar:</strong> no 1º turno, o erro parece ter tido o sinal contrário (Datafolha e AtlasIntel davam Lula à frente; Flávio teve 47,0% e Lula 45,2%). Só duas pesquisas conferidas.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="aviso">Divergência: para a Nexus de 23–24/10, a tabela da BBC dá 47,5% a Lula nos válidos, e a <a href="https://cnnbrasil.com.br/eleicoes/ultimas-pesquisas-segundo-turno-eleicao">CNN Brasil</a>, 49,5%. Fontes: <a href="https://www.bbc.com/portuguese/articles/cwp848ezj61po">BBC News Brasil, tabela de pesquisas</a>; <a href="https://www.bbc.com/portuguese/articles/cm1dlv13yql9o">agregador</a>.</p>
 </section>
 
 <section class="limites" id="limites">
@@ -474,7 +527,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
     <li><strong>Segunda preferência desconhecida:</strong> não há aqui dados sobre como votarão no 2º turno os eleitores de Cury, Renan Santos, Caiado ou Zema. As frações da tabela são cenários; a pesquisa PoderData/Aya e o agregador da BBC dão estimativas indiretas (cerca de 49% e 41% para Lula), sem recorte publicado por voto no 1º turno. A Quaest publicou a transferência por voto no 1º turno (acima), com subamostras pequenas.</li>
     <li><strong>Comparecimento:</strong> a conta supõe válidos iguais aos do 1º turno; no resultado, os válidos cresceram 4,74 mi e a meta subiu para 61,86 mi (ver <a href="#resultado">O resultado</a>).</li>
     <li><strong>Inferência ecológica:</strong> o estudo intraurbano descreve áreas, não eleitores.</li>
-    <li><strong>Próximos passos:</strong> levantar as pesquisas da última semana (19 a 24/10) e compará-las com o resultado; repetir dentro das quinze cidades quando o TSE publicar os dados por seção do 2º turno.</li>
+    <li><strong>Próximos passos:</strong> levantar a série de pesquisas do 1º turno, para testar se o erro mudou de sinal; repetir dentro das quinze cidades quando o TSE publicar os dados por seção do 2º turno.</li>
   </ul>
 </section>
 </main>
