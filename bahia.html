@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Bahia por município, 2006, 2022 e 2026: Lula caiu pouco, venceu em 413 dos 417 municípios, ganhou só na região de Salvador e no Sul cacaueiro e perdeu no Oeste e no Sertão.">
+<title>Geografia do Voto 2026: Bahia</title>
+<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Mesmo sistema visual de dois-turnos-2026.html. */
+:root{
+  --bg:#f1f3f4; --surface:#ffffff; --ink:#13181c; --ink2:#4b5761; --rule:#d3d9dd;
+  --perdeu:#8c510a; --ganhou:#01665e; --neutro:#6f7b84; --link:#01665e; --tint:#e8eef0;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;padding-inline:16px}
+.wrap{max-width:1080px;margin-inline:auto}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+
+header.top{padding-block:40px 28px;border-bottom:1px solid var(--rule)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin:0 0 12px}
+.kicker a{color:inherit}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,58px);line-height:1.04;margin:0 0 16px;max-width:18ch;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.45;color:var(--ink2);max-width:62ch;margin:0}
+
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-block:28px 0}
+.num{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;min-width:0}
+.num b{display:block;font-family:var(--display);font-size:clamp(26px,3.4vw,36px);line-height:1.1;font-variant-numeric:tabular-nums;font-weight:700}
+.num span{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
+.num.p b{color:var(--perdeu)} .num.g b{color:var(--ganhou)} .num.n b{color:var(--neutro)}
+.nota-num{font-size:13px;color:var(--ink2);margin:12px 0 0;max-width:80ch}
+
+.ponte{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--ganhou);border-radius:6px;padding:14px 18px;margin-top:24px}
+.ponte p{margin:0;font-size:15px;max-width:64ch}
+.ponte a.botao{font-weight:600;text-decoration:none;white-space:nowrap}
+.ponte .botoes{display:flex;gap:18px;flex-wrap:wrap}
+.ponte a.botao:hover{text-decoration:underline}
+
+nav.indice{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+nav.indice ul{list-style:none;margin:0 auto;max-width:1080px;padding:0;display:flex;gap:4px;overflow-x:auto}
+nav.indice a{display:block;padding:12px 12px;font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.indice a:hover,nav.indice a.on{color:var(--ink);border-bottom-color:var(--ganhou)}
+
+section.mapa{padding-block:44px 8px;border-bottom:1px solid var(--rule);scroll-margin-top:52px}
+section.mapa h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 8px;text-wrap:balance;max-width:26ch}
+.pergunta{font-size:15px;color:var(--ink2);margin:0 0 20px;max-width:70ch}
+figure{margin:0 0 28px}
+.par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.par figure{margin:0}
+.moldura{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:6px;cursor:zoom-in;display:block;width:100%}
+.moldura img{display:block;width:100%;height:auto;border-radius:3px}
+figure.larga .moldura{max-width:860px}
+figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
+
+.texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;margin-bottom:36px}
+.texto h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px;font-weight:600}
+.texto ul{margin:0;padding-left:1.1em}
+.texto li{margin-bottom:10px;max-width:62ch}
+.texto p{margin:0 0 10px;max-width:62ch}
+.texto strong{font-weight:600}
+.cuidado{background:var(--tint);border-radius:6px;padding:14px 16px;font-size:14px;color:var(--ink2);grid-column:1/-1;margin-top:4px}
+.cuidado b{color:var(--ink)}
+
+.tabela{overflow-x:auto;margin-bottom:24px}
+table{border-collapse:collapse;width:100%;min-width:520px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+td.p{color:var(--perdeu);font-weight:600} td.g{color:var(--ganhou);font-weight:600} td.n{color:var(--neutro)}
+
+section.sintese{padding-block:48px 24px}
+section.sintese h2,section.limites h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.col{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.col h3{font-family:var(--display);font-size:20px;margin:0 0 8px;line-height:1.2}
+.col p{margin:0;font-size:15px}
+.aviso{font-size:14px;color:var(--ink2);max-width:72ch;margin:0 0 12px}
+section.limites{padding-block:32px 56px;border-top:1px solid var(--rule)}
+section.limites ul{padding-left:1.1em;margin:0;max-width:78ch}
+section.limites li{margin-bottom:10px;font-size:15px}
+footer{font-size:13px;color:var(--ink2);padding-block:0 40px}
+
+dialog#zoom{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
+#zoom .caixa{width:100%;height:100%;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+#zoom img{background:#fff;width:min(1400px,160%);max-width:none;height:auto;border-radius:4px;cursor:zoom-out}
+#zoom button{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;font:600 14px var(--ui);padding:8px 14px;border-radius:6px;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+
+@media (max-width:820px){
+  .numeros{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .texto{grid-template-columns:minmax(0,1fr)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .par{grid-template-columns:minmax(0,1fr)}
+  #zoom img{width:200%}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <p class="kicker"><a href="./">Geografia do Voto 2026</a> · Presidente 2006, 2022 e 2026 · Bahia</p>
+  <h1>Bahia, município a município</h1>
+  <p class="lede">No seu maior reduto, Lula caiu pouco do 2º turno de 2022 para o de 2026 e venceu em quase todos os municípios. Só ganhou na região de Salvador e no Sul cacaueiro; perdeu no Oeste do agronegócio e no Sertão. Desde 2006, o reduto saiu do litoral para o interior.</p>
+
+  <div class="numeros">
+    <div class="num p"><b>72,1 → 71,3%</b><span>Lula no 2º turno, 2022 → 2026, % dos válidos</span></div>
+    <div class="num n"><b>413 de 417</b><span>municípios com vitória de Lula no 2º turno de 2026 (415 em 2022)</span></div>
+    <div class="num g"><b>+2,1</b><span>p.p. na região imediata de Salvador, a de maior ganho</span></div>
+    <div class="num p"><b>0,39</b><span>correlação entre os municípios de 2006 para 2026, a mais baixa dos três estados</span></div>
+  </div>
+  <p class="nota-num">TSE, resultado por município: 2026 do site de divulgação (1º e 2º turno); 2006 e 2022 dos Dados Abertos. 417 municípios. Censo 2022 e 2010, PIB dos Municípios 2021 (IBGE).</p>
+
+  <div class="ponte">
+    <p>Escala estadual, por município. Dentro da capital, ver a página de Salvador.</p>
+    <span class="botoes"><a class="botao" href="salvador.html">Salvador →</a><a class="botao" href="estado-de-sao-paulo.html">Estado de São Paulo →</a><a class="botao" href="rio-grande-do-sul.html">Rio Grande do Sul →</a><a class="botao" href="./">Estudo nacional →</a></span>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Seções">
+  <ul>
+    <li><a href="#resultado">Resultado</a></li>
+    <li><a href="#regioes">Por região</a></li>
+    <li><a href="#inversao">2006 × 2026</a></li>
+    <li><a href="#mudanca">Onde mudou</a></li>
+    <li><a href="#perfil">Perfil</a></li>
+    <li><a href="#hipoteses">Hipóteses</a></li>
+    <li><a href="#estados">Três estados</a></li>
+    <li><a href="#limites">Limites</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="mapa" id="resultado">
+  <h2>Lula caiu pouco no seu maior reduto</h2>
+  <p class="pergunta">Como Lula se saiu no estado em 2006, 2022 e 2026?</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th></th><th>2006, 2º t.</th><th>2022, 1º t.</th><th>2022, 2º t.</th><th>2026, 1º t.</th><th>2026, 2º t.</th></tr></thead>
+      <tbody>
+        <tr><td>Lula, % dos válidos</td><td>78,1</td><td>69,7</td><td>72,1</td><td class="p">66,2</td><td class="p">71,3</td></tr>
+        <tr><td>Municípios com vitória de Lula</td><td>415</td><td></td><td>415</td><td></td><td>413</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/lula_2t26.png" width="1520" height="1600" alt="Mapa da Bahia por município com o voto em Lula no 2º turno de 2026, com as regiões geográficas intermediárias. Lula vence em quase todo o estado; os valores mais baixos ficam no Oeste, em torno de Barreiras, e no Sul e Extremo Sul." loading="lazy"></button><figcaption>Lula no 2º turno de 2026, % dos válidos, com as regiões geográficas intermediárias.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/lisa_l2t.png" width="1520" height="1600" alt="Mapa LISA do voto em Lula no 2º turno de 2026. Alto-Alto, vermelho, no Nordeste baiano em torno de Paulo Afonso, numa faixa do Recôncavo e da região de Salvador e em manchas da Chapada; Baixo-Baixo, azul, no Oeste em torno de Barreiras, no Sul e em todo o Extremo Sul." loading="lazy"></button><figcaption>Agrupamentos do voto em Lula no 2º turno de 2026 (LISA, p &lt; 0,05).</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O estado</h3>
+      <ul>
+        <li><strong>No 2º turno, Lula caiu 0,8 p.p.</strong> de 2022 para 2026, entre o país (+0,6 na média dos municípios) e o RS (−1,5). Saiu com 3,9 milhões de votos de vantagem.</li>
+        <li><strong>No 1º turno, Lula perdeu votos em 398 dos 417 municípios</strong> em relação a 2022 (−3,5 p.p. no estado). Flávio teve 28,5% e os terceiros, 5,3%.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>As derrotas</h3>
+      <ul>
+        <li><strong>Lula perdeu em quatro municípios:</strong> Luís Eduardo Magalhães (Oeste), Itamaraju e Teixeira de Freitas (Extremo Sul) e Buerarema (Sul). Itamaraju e Teixeira de Freitas tinham dado vitória a ele em 2022.</li>
+        <li><strong>Entre os turnos de 2026,</strong> a margem andou 5,0 p.p. para Lula, ponderando pelos aptos. Flávio ampliou a margem em só 15 municípios, e a variação é pouco concentrada no espaço (I de Moran 0,24).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="regioes">
+  <h2>Ganhos em Salvador e no Sul, perdas no Oeste e no Sertão</h2>
+  <p class="pergunta">Em que regiões Lula ganhou e em que regiões perdeu?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Regiões geográficas intermediárias do IBGE, % dos válidos. 2006: média dos municípios ponderada pelos aptos de 2022 (aproximação); no estado, o total do TSE.</caption>
+      <thead><tr><th>Região</th><th>Mun.</th><th>Lula 2006, 2º t.</th><th>Lula 2022, 2º t.</th><th>Lula 2026, 1º t.</th><th>Lula 2026, 2º t.</th><th>2026 − 2022, 2º t.</th></tr></thead>
+      <tbody>
+        <tr><td>Paulo Afonso</td><td>30</td><td>77,8</td><td>82,0</td><td>76,4</td><td>80,0</td><td class="p">−2,0</td></tr>
+        <tr><td>Irecê</td><td>29</td><td>75,3</td><td>79,7</td><td>72,7</td><td>75,8</td><td class="p">−3,8</td></tr>
+        <tr><td>Salvador</td><td>33</td><td>84,5</td><td>72,3</td><td>67,0</td><td>74,1</td><td class="g">+1,9</td></tr>
+        <tr><td>Guanambi</td><td>31</td><td>74,2</td><td>77,6</td><td>70,5</td><td>74,0</td><td class="p">−3,7</td></tr>
+        <tr><td>Juazeiro</td><td>18</td><td>73,9</td><td>74,5</td><td>69,2</td><td>73,4</td><td class="p">−1,0</td></tr>
+        <tr><td>Santo Antônio de Jesus</td><td>41</td><td>77,5</td><td>75,0</td><td>68,6</td><td>73,2</td><td class="p">−1,7</td></tr>
+        <tr><td>Feira de Santana</td><td>83</td><td>78,8</td><td>74,3</td><td>67,9</td><td>72,6</td><td class="p">−1,6</td></tr>
+        <tr><td>Vitória da Conquista</td><td>77</td><td>70,6</td><td>69,6</td><td>63,5</td><td>67,7</td><td class="p">−1,9</td></tr>
+        <tr><td>Barreiras</td><td>24</td><td>73,9</td><td>66,5</td><td>57,2</td><td>61,8</td><td class="p">−4,7</td></tr>
+        <tr><td>Ilhéus – Itabuna</td><td>51</td><td>74,7</td><td>59,7</td><td>54,7</td><td>59,7</td><td class="n">−0,1</td></tr>
+        <tr><td><strong>BA</strong></td><td>417</td><td>78,1</td><td>72,1</td><td>66,2</td><td>71,3</td><td class="p">−0,8</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Aptos no município</th><th>Municípios</th><th>Lula 2022, 2º t.</th><th>Lula 2026, 2º t.</th><th>Variação</th></tr></thead>
+      <tbody>
+        <tr><td>até 10 mil</td><td>118</td><td>76,7</td><td>74,0</td><td class="p">−2,7</td></tr>
+        <tr><td>10 a 20 mil</td><td>173</td><td>76,9</td><td>74,1</td><td class="p">−2,8</td></tr>
+        <tr><td>20 a 50 mil</td><td>96</td><td>76,5</td><td>74,3</td><td class="p">−2,2</td></tr>
+        <tr><td>50 a 100 mil</td><td>17</td><td>68,9</td><td>68,1</td><td class="p">−0,8</td></tr>
+        <tr><td>mais de 100 mil</td><td>13</td><td>66,4</td><td>67,9</td><td class="g">+1,5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>Onde ganhou</h3>
+      <ul>
+        <li><strong>Por região imediata:</strong> Salvador +2,1, Ilhéus – Itabuna +1,9, Itapetinga +0,9 e Nazaré – Maragogipe +0,2.</li>
+        <li><strong>Entre as maiores cidades:</strong> Itabuna +3,4, Salvador +2,5, Ilhéus +2,5, Alagoinhas +2,5, Camaçari +1,5 e Juazeiro +1,4.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Onde perdeu</h3>
+      <ul>
+        <li><strong>Por região imediata:</strong> Santa Maria da Vitória −5,0, Barreiras −4,6, Jeremoabo −4,5, Seabra −4,1, Irecê −3,9, Xique-Xique – Barra −3,8, Bom Jesus da Lapa −3,7 e Guanambi −3,7.</li>
+        <li><strong>Por município:</strong> a cidade de Barreiras perdeu 2,7, e Formosa do Rio Preto, com 77% do VAB na agropecuária, 9,0. Lajedão (Extremo Sul) −18,2 e Laje −13,8; Lajedinho, isolado, +19,2. Os extremos pedem checagem local.</li>
+        <li><strong>O tamanho conta menos que em SP e no RS:</strong> só os municípios com mais de 100 mil aptos ganharam, e a diferença some nos modelos.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="inversao">
+  <h2>O reduto saiu do litoral para o interior</h2>
+  <p class="pergunta">A geografia do voto em Lula no estado é a mesma de vinte anos atrás?</p>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/lula_2t06.png" width="1520" height="1600" alt="Mapa da Bahia com o voto em Lula no 2º turno de 2006, por município: valores acima de 80% na região de Salvador, no Recôncavo, no Extremo Sul e em partes do Sertão." loading="lazy"></button><figcaption>Lula no 2º turno de 2006 (contra Alckmin), % dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/lula_2t22.png" width="1520" height="1600" alt="Mapa da Bahia com o voto em Lula no 2º turno de 2022, por município." loading="lazy"></button><figcaption>Lula no 2º turno de 2022, % dos válidos.</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>A mudança</h3>
+      <ul>
+        <li><strong>Em 2006,</strong> os valores mais altos de Lula, acima de 80%, estavam na região de Salvador e no Recôncavo (84,5% na região intermediária), no Extremo Sul e em partes do Sertão.</li>
+        <li><strong>Em 2026,</strong> os mais altos estão no Nordeste baiano (Paulo Afonso 80%, Irecê 76%), e a região de Salvador fica em 74%. O Extremo Sul passou para a faixa de 45% a 70%, com as derrotas de Itamaraju e Teixeira de Freitas.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Quando mudou</h3>
+      <ul>
+        <li><strong>Correlação entre os municípios:</strong> 0,39 de 2006 para 2026 (0,62 em SP, 0,69 no RS) e 0,94 de 2022 para 2026. A virada aconteceu antes de 2022.</li>
+        <li><strong>Concentração espacial (I de Moran):</strong> 0,35 em 2006, 0,49 em 2022 e 0,50 em 2026.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="mudanca">
+  <h2>Onde Lula mais ganhou e mais perdeu de 2022 para 2026</h2>
+  <p class="pergunta">A variação se concentra em blocos de municípios vizinhos?</p>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/d_2t.png" width="1520" height="1600" alt="Mapa da variação de Lula no 2º turno de 2022 para 2026, por município da Bahia." loading="lazy"></button><figcaption>Lula no 2º turno, 2026 − 2022, p.p. dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/lisa_d2t.png" width="1520" height="1600" alt="Mapa LISA da variação no 2º turno. Alto-Alto, vermelho, na região de Salvador e no Sul cacaueiro em torno de Ilhéus e Itabuna; Baixo-Baixo, azul, no Oeste em torno de Barreiras, na borda da Chapada e em manchas do Sudoeste e do Extremo Sul." loading="lazy"></button><figcaption>Agrupamentos (LISA, p &lt; 0,05). Alto-Alto: Lula ganhou mais; Baixo-Baixo: ganhou menos ou perdeu.</figcaption></figure>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/d_1t.png" width="1520" height="1600" alt="Mapa da variação de Lula no 1º turno de 2022 para 2026, por município da Bahia." loading="lazy"></button><figcaption>Lula no 1º turno, 2026 − 2022, p.p. dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/d_margem.png" width="1520" height="1600" alt="Mapa da variação da margem Lula menos Flávio entre os turnos de 2026, por município da Bahia." loading="lazy"></button><figcaption>Margem Lula − Flávio, 1º → 2º turno de 2026, p.p. dos válidos.</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>Os blocos</h3>
+      <ul>
+        <li><strong>Alto-Alto, onde Lula ganhou mais:</strong> a região de Salvador e o Sul cacaueiro (Ilhéus – Itabuna, Camacan).</li>
+        <li><strong>Baixo-Baixo, onde ganhou menos ou perdeu:</strong> o Oeste, em torno de Barreiras e no vale do rio Grande; a borda da Chapada entre Irecê, Seabra e Bom Jesus da Lapa; manchas no Sudoeste e no Extremo Sul.</li>
+        <li><strong>A variação é concentrada no espaço:</strong> I de Moran de 0,31, menos que em SP (0,42).</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Entre os turnos de 2026</h3>
+      <ul>
+        <li><strong>A margem andou para Lula em 402 dos 417 municípios,</strong> com pouca concentração espacial (I de Moran 0,24, λ 0,21). Andou mais nos municípios maiores e menos nos mais rurais.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="perfil">
+  <h2>O perfil da mudança</h2>
+  <p class="pergunta">O que distingue os municípios onde Lula ganhou mais? (Modelos de erro espacial, 417 municípios, sem ponderação.)</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Efeito em p.p. por 1 desvio-padrão; n.s.: p ≥ 0,10. Pentecostais: Censo 2010. Renda: % de domicílios com 3+ banheiros. Região de Salvador: região imediata do IBGE (16 municípios), aproximação da Região Metropolitana.</caption>
+      <thead><tr><th>Variável</th><th>Lula 2026, 2º t. (nível)</th><th>2022 → 2026, 2º t.</th><th>2022 → 2026, 1º t.</th><th>Margem 1º → 2º t., 2026</th></tr></thead>
+      <tbody>
+        <tr><td>Lula 2006</td><td>+2,62</td><td class="n">n.s.</td><td class="n">n.s.</td><td>+0,14 (p = 0,09)</td></tr>
+        <tr><td>Pretos e pardos</td><td>+1,07</td><td class="g">+0,38</td><td class="g">+0,47</td><td>+0,17 (p = 0,10)</td></tr>
+        <tr><td>Analfabetismo 15+</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>70 anos ou mais</td><td>−0,61 (p = 0,09)</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>3+ banheiros (renda)</td><td>−0,71 (p = 0,09)</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>População rural</td><td>+1,81</td><td class="n">n.s.</td><td class="n">n.s.</td><td>−0,43</td></tr>
+        <tr><td>Pentecostais (2010)</td><td>−1,97</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>Quilombolas</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>Agropecuária no VAB</td><td>−0,54 (p = 0,10)</td><td class="p">−0,48</td><td class="p">−0,42</td><td class="n">n.s.</td></tr>
+        <tr><td>PIB per capita (log)</td><td>−0,56 (p = 0,08)</td><td class="n">n.s.</td><td class="n">n.s.</td><td>+0,20 (p = 0,05)</td></tr>
+        <tr><td>Eleitorado (log)</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td>+0,37</td></tr>
+        <tr><td>Região de Salvador</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>λ (erro espacial)</td><td>0,63</td><td>0,39</td><td>0,42</td><td>0,21</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que se vê</h3>
+      <ul>
+        <li><strong>O modelo explica pouco da variação.</strong> Com o Censo fixo, só dois efeitos aparecem: Lula perdeu mais nos municípios agrícolas (−0,48) e menos nos mais negros (+0,38).</li>
+        <li><strong>O tamanho, a escolaridade, a idade e o voto de 2006,</strong> que pesavam em SP e no RS, não têm efeito. A diferença entre cidades grandes e pequenas se dilui nos controles.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>O nível do voto</h3>
+      <ul>
+        <li><strong>Lula é mais forte</strong> nos municípios rurais, nos mais negros e nos que já eram fortes em 2006.</li>
+        <li><strong>É mais fraco onde havia mais pentecostais</strong> (−1,97, o maior efeito pentecostal dos três estados).</li>
+        <li><strong>Os quilombolas não têm efeito próprio,</strong> depois do controle de cor ou raça e de população rural.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/agro.png" width="1520" height="1600" alt="Mapa do peso da agropecuária no valor adicionado de 2021, por município da Bahia." loading="lazy"></button><figcaption>Peso da agropecuária no valor adicionado, 2021.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/pp.png" width="1520" height="1600" alt="Mapa de pretos e pardos no Censo 2022, por município da Bahia." loading="lazy"></button><figcaption>Pretos e pardos, Censo 2022.</figcaption></figure>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/pentec.png" width="1520" height="1600" alt="Mapa de evangélicos pentecostais no Censo 2010, por município da Bahia." loading="lazy"></button><figcaption>Evangélicos pentecostais, Censo 2010, % da população.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/ba/quil.png" width="1520" height="1600" alt="Mapa da população quilombola no Censo 2022, por município da Bahia." loading="lazy"></button><figcaption>População quilombola, Censo 2022, %.</figcaption></figure>
+  </div>
+</section>
+
+<section class="sintese" id="hipoteses">
+  <h2>Hipóteses para a diferenciação espacial</h2>
+  <p class="aviso">Cada hipótese separa o que os dados mostram do que falta testar. Nenhuma está confirmada só com estes dados municipais.</p>
+  <div class="cols">
+    <div class="col"><h3>H1. Fronteira do agronegócio no Oeste</h3><p>As maiores perdas regionais estão no Oeste (Barreiras, Santa Maria da Vitória, Formosa do Rio Preto), e Luís Eduardo Magalhães é um dos quatro municípios que Lula perdeu. A agropecuária é o efeito mais robusto na variação, mas o VAB mistura grãos e agricultura de sequeiro. Teste: área em soja, milho e algodão (PAM/IBGE) e migração do Sul e do Centro-Oeste (Censo 2022).</p></div>
+    <div class="col"><h3>H2. Erosão no Sertão, depois de um pico em 2022</h3><p>Irecê, Seabra, Jeremoabo, Xique-Xique e Bom Jesus da Lapa perderam de 3,7 a 4,5 pontos, partindo de 78% a 83% em 2022. Lula continua acima de 74% nessas regiões. Teste: Bolsa Família, BPC e aposentadoria rural por município.</p></div>
+    <div class="col"><h3>H3. Convergência urbana e litorânea</h3><p>Lula só ganhou na região de Salvador e no Sul cacaueiro, que eram as áreas onde estava mais fraco em 2022 (Ilhéus – Itabuna 59,7%). Parece mais convergência para a média do estado do que mobilização urbana: no modelo, o tamanho não tem efeito. Teste: intraurbano do 2º turno em <a href="salvador.html">Salvador</a>.</p></div>
+    <div class="col"><h3>H4. Extremo Sul em transição</h3><p>Em 2006, a região estava entre os redutos de Lula, acima de 80%. Em 2026, tem as derrotas de Itamaraju e Teixeira de Freitas e a maior queda municipal (Lajedão). A testar: eucalipto e pecuária, e a ligação com o Espírito Santo e o Norte de Minas, com a série 2010–2018.</p></div>
+    <div class="col"><h3>H5. Cor ou raça na mesma direção de SP</h3><p>Entre os municípios baianos, Lula perdeu menos nos mais negros (+0,38). É o sinal de SP e do país, e o contrário do que se viu dentro de Salvador e das outras <a href="quinze-cidades.html">cidades</a> no 1º turno. O descompasso de escalas se repete pela terceira vez.</p></div>
+    <div class="col"><h3>H6. Religião</h3><p>Os pentecostais pesam contra Lula no nível, mais do que em SP, e não afetam a variação. É coerente com a leitura de efeito-teto. A medida é de 2010 e de oferta religiosa, não de fiéis votando.</p></div>
+  </div>
+</section>
+
+<section class="mapa" id="estados">
+  <h2>Três estados, um efeito comum</h2>
+  <p class="pergunta">O que se repete entre Bahia, São Paulo e Rio Grande do Sul?</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th></th><th>BA</th><th>SP</th><th>RS</th></tr></thead>
+      <tbody>
+        <tr><td>Lula 2º t., 2022 → 2026</td><td class="p">72,1 → 71,3 (−0,8)</td><td class="g">44,8 → 46,2 (+1,4)</td><td class="p">43,7 → 42,2 (−1,5)</td></tr>
+        <tr><td>Municípios com vitória de Lula, 2022 → 2026</td><td>415 → 413</td><td>97 → 72</td><td>122 → 61</td></tr>
+        <tr><td>Municípios menores</td><td class="p">−2,7 (até 10 mil)</td><td class="p">−2,4 (até 5 mil)</td><td class="p">−5,8 (até 5 mil)</td></tr>
+        <tr><td>Municípios com mais de 100 mil aptos</td><td class="g">+1,5</td><td class="g">+1,8 a +2,0</td><td class="g">+1,0</td></tr>
+        <tr><td>Correlação 2006 × 2026</td><td>0,39</td><td>0,62</td><td>0,69</td></tr>
+        <tr><td>I de Moran, Lula 2026 (2º t.)</td><td>0,50</td><td>0,48</td><td>0,66</td></tr>
+        <tr><td>Agropecuária na variação</td><td class="p">−0,48</td><td class="p">−0,20</td><td class="p">−0,57</td></tr>
+        <tr><td>Tamanho na variação</td><td class="n">n.s.</td><td class="g">+0,83</td><td class="g">+0,68</td></tr>
+        <tr><td>Cor ou raça na variação</td><td class="g">+0,38</td><td class="g">+0,54</td><td class="n">n.s.</td></tr>
+        <tr><td>Pentecostais no nível</td><td>−1,97</td><td>−0,97</td><td>+1,30</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="aviso">O efeito comum aos três estados é a agropecuária: Lula perdeu mais nos municípios agrícolas. O tamanho organiza a variação em SP e no RS, não na Bahia. A Bahia é a que mais mudou de mapa desde 2006 e a que menos variou de 2022 para 2026. Ver <a href="estado-de-sao-paulo.html">Estado de São Paulo</a> e <a href="rio-grande-do-sul.html">Rio Grande do Sul</a>.</p>
+</section>
+
+<section class="limites" id="limites">
+  <h2>Dados e limites</h2>
+  <ul>
+    <li><strong>Dados:</strong> TSE, resultado por município de 2026 (site de divulgação) e votação por município e zona de 2006 e 2022 (Dados Abertos). IBGE: Censo 2022 (setores; religião, tabela 9537; quilombolas, tabela 10089), Censo 2010 (religião, tabela 137), PIB dos Municípios 2021 (tabela 5938), regiões geográficas intermediárias e imediatas, malha municipal 2022 via geobr.</li>
+    <li><strong>Inferência ecológica:</strong> os resultados descrevem municípios, não eleitores.</li>
+    <li><strong>Teto:</strong> com Lula acima de 70% em quase todo o estado, a variação tem pouco espaço, e os efeitos tendem a ser menores.</li>
+    <li><strong>Variáveis:</strong> religião detalhada só de 2010; renda pela proxy de banheiros; não há variável de transferência de renda nem de estrutura agrária.</li>
+    <li><strong>Região de Salvador:</strong> aproximada pela região imediata do IBGE; não é a delimitação legal.</li>
+    <li><strong>Peso do tamanho:</strong> os modelos não ponderam pelo eleitorado.</li>
+  </ul>
+</section>
+</main>
+<footer>Elaborado em 27 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="dois-turnos-2026.html">Dois turnos de 2026</a> · <a href="quinze-cidades.html">Quinze cidades</a> · <a href="estado-de-sao-paulo.html">Estado de São Paulo</a> · <a href="rio-grande-do-sul.html">Rio Grande do Sul</a> · <a href="salvador.html">Salvador</a>.</footer>
+</div>
+
+<dialog id="zoom" aria-label="Imagem ampliada">
+  <div class="caixa"><img alt=""></div>
+  <button type="button" id="fechar">Fechar</button>
+</dialog>
+<script>
+(function(){
+  var dlg=document.getElementById('zoom'), big=dlg.querySelector('img');
+  function abrir(img){big.src=img.src;big.alt=img.alt;if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}}
+  function fechar(){if(dlg.close){dlg.close()}else{dlg.removeAttribute('open')}}
+  document.querySelectorAll('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){abrir(b.querySelector('img'))})});
+  dlg.addEventListener('click',function(e){if(e.target!==dlg.querySelector('#fechar')&&(e.target===big||e.target.classList.contains('caixa')||e.target===dlg))fechar()});
+  document.getElementById('fechar').addEventListener('click',fechar);
+  var links=[].slice.call(document.querySelectorAll('nav.indice a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
