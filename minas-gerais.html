@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Minas Gerais por município, 2006, 2022 e 2026: Lula ficou parado no estado, ganhou na Grande BH, no Vale do Aço e no Sul de Minas e perdeu no Jequitinhonha, no Mucuri, no Noroeste e no Triângulo.">
+<title>Geografia do Voto 2026: Minas Gerais</title>
+<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Mesmo sistema visual de dois-turnos-2026.html. */
+:root{
+  --bg:#f1f3f4; --surface:#ffffff; --ink:#13181c; --ink2:#4b5761; --rule:#d3d9dd;
+  --perdeu:#8c510a; --ganhou:#01665e; --neutro:#6f7b84; --link:#01665e; --tint:#e8eef0;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;padding-inline:16px}
+.wrap{max-width:1080px;margin-inline:auto}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+
+header.top{padding-block:40px 28px;border-bottom:1px solid var(--rule)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin:0 0 12px}
+.kicker a{color:inherit}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,58px);line-height:1.04;margin:0 0 16px;max-width:18ch;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.45;color:var(--ink2);max-width:62ch;margin:0}
+
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-block:28px 0}
+.num{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;min-width:0}
+.num b{display:block;font-family:var(--display);font-size:clamp(26px,3.4vw,36px);line-height:1.1;font-variant-numeric:tabular-nums;font-weight:700}
+.num span{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
+.num.p b{color:var(--perdeu)} .num.g b{color:var(--ganhou)} .num.n b{color:var(--neutro)}
+.nota-num{font-size:13px;color:var(--ink2);margin:12px 0 0;max-width:80ch}
+
+.ponte{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--ganhou);border-radius:6px;padding:14px 18px;margin-top:24px}
+.ponte p{margin:0;font-size:15px;max-width:64ch}
+.ponte a.botao{font-weight:600;text-decoration:none;white-space:nowrap}
+.ponte .botoes{display:flex;gap:18px;flex-wrap:wrap}
+.ponte a.botao:hover{text-decoration:underline}
+
+nav.indice{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+nav.indice ul{list-style:none;margin:0 auto;max-width:1080px;padding:0;display:flex;gap:4px;overflow-x:auto}
+nav.indice a{display:block;padding:12px 12px;font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.indice a:hover,nav.indice a.on{color:var(--ink);border-bottom-color:var(--ganhou)}
+
+section.mapa{padding-block:44px 8px;border-bottom:1px solid var(--rule);scroll-margin-top:52px}
+section.mapa h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 8px;text-wrap:balance;max-width:26ch}
+.pergunta{font-size:15px;color:var(--ink2);margin:0 0 20px;max-width:70ch}
+figure{margin:0 0 28px}
+.par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.par figure{margin:0}
+.moldura{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:6px;cursor:zoom-in;display:block;width:100%}
+.moldura img{display:block;width:100%;height:auto;border-radius:3px}
+figure.larga .moldura{max-width:860px}
+figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
+
+.texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;margin-bottom:36px}
+.texto h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px;font-weight:600}
+.texto ul{margin:0;padding-left:1.1em}
+.texto li{margin-bottom:10px;max-width:62ch}
+.texto p{margin:0 0 10px;max-width:62ch}
+.texto strong{font-weight:600}
+.cuidado{background:var(--tint);border-radius:6px;padding:14px 16px;font-size:14px;color:var(--ink2);grid-column:1/-1;margin-top:4px}
+.cuidado b{color:var(--ink)}
+
+.tabela{overflow-x:auto;margin-bottom:24px}
+table{border-collapse:collapse;width:100%;min-width:520px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+td.p{color:var(--perdeu);font-weight:600} td.g{color:var(--ganhou);font-weight:600} td.n{color:var(--neutro)}
+
+section.sintese{padding-block:48px 24px}
+section.sintese h2,section.limites h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.col{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.col h3{font-family:var(--display);font-size:20px;margin:0 0 8px;line-height:1.2}
+.col p{margin:0;font-size:15px}
+.aviso{font-size:14px;color:var(--ink2);max-width:72ch;margin:0 0 12px}
+section.limites{padding-block:32px 56px;border-top:1px solid var(--rule)}
+section.limites ul{padding-left:1.1em;margin:0;max-width:78ch}
+section.limites li{margin-bottom:10px;font-size:15px}
+footer{font-size:13px;color:var(--ink2);padding-block:0 40px}
+
+dialog#zoom{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
+#zoom .caixa{width:100%;height:100%;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+#zoom img{background:#fff;width:min(1400px,160%);max-width:none;height:auto;border-radius:4px;cursor:zoom-out}
+#zoom button{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;font:600 14px var(--ui);padding:8px 14px;border-radius:6px;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+
+@media (max-width:820px){
+  .numeros{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .texto{grid-template-columns:minmax(0,1fr)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .par{grid-template-columns:minmax(0,1fr)}
+  #zoom img{width:200%}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <p class="kicker"><a href="./">Geografia do Voto 2026</a> · Presidente 2006, 2022 e 2026 · Minas Gerais</p>
+  <h1>Minas Gerais, município a município</h1>
+  <p class="lede">Em Minas, Lula ficou praticamente parado do 2º turno de 2022 para o de 2026 e venceu em menos municípios. Ganhou na Grande BH, no Vale do Aço e no Sul de Minas; perdeu no Jequitinhonha, no Mucuri, no Noroeste e no Triângulo. A divisão Norte × Sul de 2006 continua no mapa, com Lula quinze pontos abaixo.</p>
+
+  <div class="numeros">
+    <div class="num n"><b>50,2 → 50,4%</b><span>Lula no 2º turno, 2022 → 2026, % dos válidos</span></div>
+    <div class="num p"><b>564 → 528</b><span>municípios com vitória de Lula no 2º turno (737 em 2006)</span></div>
+    <div class="num g"><b>15 de 15</b><span>maiores cidades em que Lula subiu, de +0,6 a +3,4 p.p.</span></div>
+    <div class="num n"><b>0,72</b><span>correlação entre os municípios de 2006 para 2026, a mais alta dos quatro estados</span></div>
+  </div>
+  <p class="nota-num">TSE, resultado por município: 2026 do site de divulgação (1º e 2º turno); 2006 e 2022 dos Dados Abertos. 853 municípios. Censo 2022 e 2010, PIB dos Municípios 2021 (IBGE).</p>
+
+  <div class="ponte">
+    <p>Escala estadual, por município. Dentro da capital, ver a página de Belo Horizonte.</p>
+    <span class="botoes"><a class="botao" href="belo-horizonte.html">Belo Horizonte →</a><a class="botao" href="estado-de-sao-paulo.html">Estado de São Paulo →</a><a class="botao" href="bahia.html">Bahia →</a><a class="botao" href="rio-grande-do-sul.html">Rio Grande do Sul →</a><a class="botao" href="./">Estudo nacional →</a></span>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Seções">
+  <ul>
+    <li><a href="#resultado">Resultado</a></li>
+    <li><a href="#regioes">Por região</a></li>
+    <li><a href="#inversao">2006 × 2026</a></li>
+    <li><a href="#mudanca">Onde mudou</a></li>
+    <li><a href="#perfil">Perfil</a></li>
+    <li><a href="#hipoteses">Hipóteses</a></li>
+    <li><a href="#estados">Quatro estados</a></li>
+    <li><a href="#limites">Limites</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="mapa" id="resultado">
+  <h2>Lula parado no estado, com menos municípios</h2>
+  <p class="pergunta">Como Lula se saiu no estado em 2006, 2022 e 2026?</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th></th><th>2006, 2º t.</th><th>2022, 1º t.</th><th>2022, 2º t.</th><th>2026, 1º t.</th><th>2026, 2º t.</th></tr></thead>
+      <tbody>
+        <tr><td>Lula, % dos válidos</td><td>65,2</td><td>48,3</td><td>50,2</td><td class="p">43,3</td><td class="n">50,4</td></tr>
+        <tr><td>Municípios com vitória de Lula</td><td>737</td><td></td><td>564</td><td></td><td class="p">528</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure class="larga"><button class="moldura" type="button" data-zoom><img src="img/mg/lula_2t26.png" width="1800" height="1480" alt="Mapa de Minas Gerais por município com o voto em Lula no 2º turno de 2026. Vermelho, vitória de Lula, no Norte, no Jequitinhonha, no Mucuri, no Rio Doce e na Zona da Mata; azul, vitória de Flávio, no Noroeste, no Alto Paranaíba, no Triângulo, no Centro-Oeste e no Sul de Minas." loading="lazy"></button><figcaption>Lula no 2º turno de 2026, % dos válidos, com as regiões geográficas intermediárias.</figcaption></figure>
+  <div class="texto">
+    <div>
+      <h3>O estado</h3>
+      <ul>
+        <li><strong>No 2º turno, Lula subiu 0,2 p.p.</strong> de 2022 para 2026, perto do país (+0,6 na média dos municípios), e venceu de novo por pouco, com 109 mil votos de vantagem.</li>
+        <li><strong>No 1º turno, Lula perdeu votos em todos os 853 municípios</strong> em relação a 2022 (−5,0 p.p. no estado), como no RS. Flávio teve 48,2% e os terceiros, 8,4%.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>As vitórias</h3>
+      <ul>
+        <li><strong>Lula perdeu 46 municípios</strong> que tinha vencido em 2022, todos com menos de 36 mil aptos. Os maiores são Monte Carmelo, Prata, Vazante, Ibiá e Rio Paranaíba, no Triângulo, no Alto Paranaíba e no Noroeste.</li>
+        <li><strong>Ganhou 10,</strong> metade na Grande BH e no entorno: Ibirité, Santa Luzia, Juatuba, Matozinhos e João Monlevade.</li>
+        <li><strong>Entre os turnos de 2026,</strong> a margem andou 5,7 p.p. para Lula, ponderando pelos aptos. Flávio ampliou a margem em só 7 municípios.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="regioes">
+  <h2>Ganhos na metrópole e no Sul, perdas no Norte e no Oeste</h2>
+  <p class="pergunta">Em que regiões Lula ganhou e em que regiões perdeu?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Regiões geográficas intermediárias do IBGE, % dos válidos. 2006: média dos municípios ponderada pelos aptos de 2022 (aproximação); no estado, o total do TSE.</caption>
+      <thead><tr><th>Região</th><th>Mun.</th><th>Lula 2006, 2º t.</th><th>Lula 2022, 2º t.</th><th>Lula 2026, 1º t.</th><th>Lula 2026, 2º t.</th><th>2026 − 2022, 2º t.</th></tr></thead>
+      <tbody>
+        <tr><td>Teófilo Otoni</td><td>86</td><td>71,5</td><td>66,4</td><td>58,7</td><td>63,8</td><td class="p">−2,6</td></tr>
+        <tr><td>Montes Claros</td><td>86</td><td>75,2</td><td>62,4</td><td>55,9</td><td>61,5</td><td class="p">−0,9</td></tr>
+        <tr><td>Juiz de Fora</td><td>146</td><td>69,6</td><td>57,4</td><td>50,4</td><td>57,0</td><td class="n">−0,4</td></tr>
+        <tr><td>Barbacena</td><td>49</td><td>67,8</td><td>56,8</td><td>47,1</td><td>55,6</td><td class="p">−1,3</td></tr>
+        <tr><td>Belo Horizonte</td><td>74</td><td>70,1</td><td>48,1</td><td>42,0</td><td>50,2</td><td class="g">+2,1</td></tr>
+        <tr><td>Governador Valadares</td><td>58</td><td>68,2</td><td>49,9</td><td>44,2</td><td>49,5</td><td class="n">−0,4</td></tr>
+        <tr><td>Uberlândia</td><td>24</td><td>62,0</td><td>48,4</td><td>40,5</td><td>47,9</td><td class="n">−0,5</td></tr>
+        <tr><td>Ipatinga</td><td>44</td><td>72,8</td><td>45,8</td><td>40,8</td><td>46,9</td><td class="g">+1,1</td></tr>
+        <tr><td>Uberaba</td><td>29</td><td>55,0</td><td>47,0</td><td>38,8</td><td>46,1</td><td class="p">−0,9</td></tr>
+        <tr><td>Varginha</td><td>82</td><td>55,8</td><td>45,5</td><td>38,2</td><td>45,5</td><td class="n">+0,1</td></tr>
+        <tr><td>Pouso Alegre</td><td>80</td><td>47,8</td><td>40,7</td><td>34,4</td><td>41,3</td><td class="n">+0,6</td></tr>
+        <tr><td>Divinópolis</td><td>61</td><td>57,6</td><td>41,6</td><td>33,6</td><td>40,8</td><td class="p">−0,8</td></tr>
+        <tr><td>Patos de Minas</td><td>34</td><td>50,0</td><td>42,9</td><td>33,5</td><td>39,9</td><td class="p">−3,0</td></tr>
+        <tr><td><strong>MG</strong></td><td>853</td><td>65,2</td><td>50,2</td><td>43,3</td><td>50,4</td><td class="n">+0,2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Aptos no município</th><th>Municípios</th><th>Lula 2022, 2º t.</th><th>Lula 2026, 2º t.</th><th>Variação</th></tr></thead>
+      <tbody>
+        <tr><td>até 5 mil</td><td>257</td><td>59,5</td><td>56,5</td><td class="p">−3,0</td></tr>
+        <tr><td>5 a 10 mil</td><td>298</td><td>57,2</td><td>54,6</td><td class="p">−2,6</td></tr>
+        <tr><td>10 a 20 mil</td><td>157</td><td>53,6</td><td>52,3</td><td class="p">−1,3</td></tr>
+        <tr><td>20 a 50 mil</td><td>83</td><td>51,4</td><td>50,8</td><td class="p">−0,6</td></tr>
+        <tr><td>50 a 100 mil</td><td>39</td><td>48,0</td><td>48,5</td><td class="g">+0,5</td></tr>
+        <tr><td>100 a 500 mil</td><td>17</td><td>45,8</td><td>47,6</td><td class="g">+1,8</td></tr>
+        <tr><td>mais de 500 mil</td><td>2</td><td>46,0</td><td>48,9</td><td class="g">+2,9</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>Onde ganhou</h3>
+      <ul>
+        <li><strong>Por região imediata:</strong> Belo Horizonte +2,6, Itajubá +2,2, Varginha +2,1, Três Corações +2,0, Poços de Caldas +1,5 e Ipatinga +1,5.</li>
+        <li><strong>Entre as maiores cidades:</strong> Belo Horizonte +3,4, Contagem +2,6, Poços de Caldas +2,6, Governador Valadares e Ipatinga +2,4. Uberlândia subiu só 0,8.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Onde perdeu</h3>
+      <ul>
+        <li><strong>Por região imediata:</strong> Capelinha −5,7, Águas Formosas −4,5, Unaí −3,9, Monte Carmelo −3,4, Iturama −3,4, Araçuaí −3,2, Guanhães −3,1, Almenara −3,0 e Patos de Minas −2,9.</li>
+        <li><strong>Por município:</strong> as maiores quedas, de 7 a 9 pontos, são de municípios pequenos: Cachoeira Dourada, Douradoquara, Aricanduva, Umburatiba, Crisólita, Carbonita e Marilac.</li>
+        <li><strong>O tamanho separa os resultados,</strong> como em SP e no RS: quanto menor o município, pior para Lula.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="inversao">
+  <h2>O desenho de 2006 ficou; o nível caiu</h2>
+  <p class="pergunta">A geografia do voto em Lula no estado é a mesma de vinte anos atrás?</p>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/lula_2t06.png" width="1800" height="1480" alt="Mapa de MG com o voto em Lula no 2º turno de 2006: vermelho em quase todo o estado, acima de 70% no Norte, no Jequitinhonha, no Mucuri, no Rio Doce e no entorno de Belo Horizonte; azul só em manchas do Sul de Minas, do Centro-Oeste e do Alto Paranaíba." loading="lazy"></button><figcaption>Lula no 2º turno de 2006 (contra Alckmin), % dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/lula_2t22.png" width="1800" height="1480" alt="Mapa de MG com o voto em Lula no 2º turno de 2022, por município." loading="lazy"></button><figcaption>Lula no 2º turno de 2022, % dos válidos.</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>A mudança</h3>
+      <ul>
+        <li><strong>Em 2006,</strong> Lula vencia em quase todo o estado e perdia só no Sul de Minas e no Centro-Oeste.</li>
+        <li><strong>Em 2026,</strong> o mapa tem a mesma divisão Norte × Sul, com Lula quinze pontos abaixo: o Norte, o Nordeste e a Zona da Mata continuam com ele; o Triângulo, o Alto Paranaíba, o Centro-Oeste e o Sul votam em Flávio.</li>
+        <li><strong>A maior queda desde 2006 foi na metrópole e no Vale do Aço:</strong> a região de Belo Horizonte passou de 70,1% para 50,2%, e a de Ipatinga, de 72,8% para 46,9%. Como na Bahia, são das poucas áreas em que Lula ganhou de 2022 para 2026.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Quando mudou</h3>
+      <ul>
+        <li><strong>Correlação entre os municípios:</strong> 0,72 de 2006 para 2026, a mais alta dos quatro estados (0,69 no RS, 0,62 em SP, 0,39 na BA), e 0,98 de 2022 para 2026.</li>
+        <li><strong>Concentração espacial (I de Moran):</strong> 0,68 em 2006, 0,74 em 2022 e 0,76 em 2026, também a mais alta dos quatro estados.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="mudanca">
+  <h2>Onde Lula mais ganhou e mais perdeu de 2022 para 2026</h2>
+  <p class="pergunta">A variação se concentra em blocos de municípios vizinhos?</p>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/d_2t.png" width="1800" height="1480" alt="Mapa da variação de Lula no 2º turno de 2022 para 2026, por município de MG: perdas em azul no Noroeste, no Alto Paranaíba, no Triângulo e no Jequitinhonha e Mucuri; ganhos em vermelho claro na Grande BH e no Sul de Minas." loading="lazy"></button><figcaption>Lula no 2º turno, 2026 − 2022, p.p. dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/lisa_d2t.png" width="1800" height="1480" alt="Mapa LISA da variação no 2º turno. Alto-Alto, vermelho, na Grande BH, no Vale do Aço e no Sul de Minas em torno de Pouso Alegre e Itajubá; Baixo-Baixo, azul, no Noroeste e no Alto Paranaíba, no alto Jequitinhonha e no Mucuri, no extremo oeste do Triângulo e em manchas no sudeste do estado." loading="lazy"></button><figcaption>Agrupamentos (LISA, p &lt; 0,05). Alto-Alto: Lula ganhou mais; Baixo-Baixo: ganhou menos ou perdeu.</figcaption></figure>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/d_1t.png" width="1800" height="1480" alt="Mapa da variação de Lula no 1º turno de 2022 para 2026, por município de MG." loading="lazy"></button><figcaption>Lula no 1º turno, 2026 − 2022, p.p. dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/d_margem.png" width="1800" height="1480" alt="Mapa da variação da margem Lula menos Flávio entre os turnos de 2026, por município de MG." loading="lazy"></button><figcaption>Margem Lula − Flávio, 1º → 2º turno de 2026, p.p. dos válidos.</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>Os blocos</h3>
+      <ul>
+        <li><strong>Alto-Alto, onde Lula ganhou mais:</strong> a Grande BH (30 municípios da região intermediária), o Vale do Aço em torno de Ipatinga, o Sul de Minas em torno de Pouso Alegre e Itajubá e uma mancha a oeste de Varginha.</li>
+        <li><strong>Baixo-Baixo, onde ganhou menos ou perdeu:</strong> o Noroeste e o Alto Paranaíba (Unaí, Patos de Minas), o alto Jequitinhonha e o Mucuri (Capelinha, Guanhães), o extremo oeste do Triângulo e manchas entre Barbacena e Juiz de Fora e na Mantiqueira.</li>
+        <li><strong>A variação é concentrada no espaço:</strong> I de Moran de 0,36.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Entre os turnos de 2026</h3>
+      <ul>
+        <li><strong>A margem andou para Lula em 846 dos 853 municípios</strong> (I de Moran 0,33, λ 0,43). Andou mais nos maiores, nos mais negros e nos que eram fortes em 2006, e menos nos mais rurais, menos escolarizados e mais pentecostais.</li>
+      </ul>
+    </div>
+  </div>
+  <figure class="larga"><button class="moldura" type="button" data-zoom><img src="img/mg/lisa_l2t.png" width="1800" height="1480" alt="Mapa LISA do voto em Lula no 2º turno de 2026. Alto-Alto, vermelho, em todo o Norte, no Jequitinhonha, no Mucuri e numa mancha da Zona da Mata; Baixo-Baixo, azul, do Alto Paranaíba ao Sul de Minas, passando pelo Centro-Oeste." loading="lazy"></button><figcaption>Agrupamentos do voto em Lula no 2º turno de 2026 (LISA, p &lt; 0,05).</figcaption></figure>
+</section>
+
+<section class="mapa" id="perfil">
+  <h2>O perfil da mudança</h2>
+  <p class="pergunta">O que distingue os municípios onde Lula ganhou mais? (Modelos de erro espacial, 853 municípios, sem ponderação.)</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Efeito em p.p. por 1 desvio-padrão; n.s.: p ≥ 0,10. Pentecostais: Censo 2010. Renda: % de domicílios com 3+ banheiros. Região de BH: região imediata do IBGE (29 municípios), aproximação da Região Metropolitana.</caption>
+      <thead><tr><th>Variável</th><th>Lula 2026, 2º t. (nível)</th><th>2022 → 2026, 2º t.</th><th>2022 → 2026, 1º t.</th><th>Margem 1º → 2º t., 2026</th></tr></thead>
+      <tbody>
+        <tr><td>Lula 2006</td><td>+4,73</td><td class="p">−0,34</td><td class="p">−0,43</td><td>+0,43</td></tr>
+        <tr><td>Pretos e pardos</td><td>+3,31</td><td class="n">n.s.</td><td class="n">n.s.</td><td>+0,37</td></tr>
+        <tr><td>Analfabetismo 15+</td><td>+2,11</td><td class="p">−0,63</td><td class="n">n.s.</td><td>−0,54</td></tr>
+        <tr><td>70 anos ou mais</td><td>+0,85</td><td class="g">+0,32</td><td class="g">+0,46</td><td class="n">n.s.</td></tr>
+        <tr><td>3+ banheiros (renda)</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>População rural</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="g">+0,24</td><td>−0,35</td></tr>
+        <tr><td>Pentecostais (2010)</td><td>−1,71</td><td class="g">+0,22</td><td class="g">+0,24</td><td>−0,25</td></tr>
+        <tr><td>Quilombolas</td><td>+0,49</td><td>+0,13 (p = 0,07)</td><td class="g">+0,23</td><td class="n">n.s.</td></tr>
+        <tr><td>Agropecuária no VAB</td><td class="n">n.s.</td><td class="p">−0,22</td><td class="p">−0,35</td><td class="n">n.s.</td></tr>
+        <tr><td>PIB per capita (log)</td><td>−0,54</td><td class="p">−0,21</td><td class="p">−0,28</td><td>+0,17</td></tr>
+        <tr><td>Eleitorado (log)</td><td class="n">n.s.</td><td class="g">+0,79</td><td class="g">+0,67</td><td>+0,26</td></tr>
+        <tr><td>Região de BH</td><td class="n">n.s.</td><td>+0,94 (p = 0,09)</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>λ (erro espacial)</td><td>0,76</td><td>0,56</td><td>0,61</td><td>0,43</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que se repete de SP e do RS</h3>
+      <ul>
+        <li><strong>Lula ganhou mais nos municípios maiores</strong> (+0,79) e nos de população mais velha (+0,32).</li>
+        <li><strong>Perdeu mais nos menos escolarizados</strong> (−0,63), nos agrícolas (−0,22) e onde era mais forte em 2006 (−0,34).</li>
+        <li><strong>Pentecostais:</strong> contra Lula no nível (−1,71) e a favor na variação (+0,22), o sinal de SP, coerente com um efeito-teto.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>O que muda</h3>
+      <ul>
+        <li><strong>A cor ou raça não tem efeito na variação,</strong> como no RS e ao contrário de SP e da Bahia. No nível do voto, é o segundo efeito mais forte (+3,31), depois do voto de 2006.</li>
+        <li><strong>O PIB per capita pesa contra Lula na variação</strong> (−0,21), com renda e escolaridade fixas. Pode marcar os municípios mais ricos do agronegócio e da mineração; falta uma variável de atividade para separar os dois.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/agro.png" width="1800" height="1480" alt="Mapa do peso da agropecuária no valor adicionado de 2021, por município de MG." loading="lazy"></button><figcaption>Peso da agropecuária no valor adicionado, 2021.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/pp.png" width="1800" height="1480" alt="Mapa de pretos e pardos no Censo 2022, por município de MG: acima de 70% no Norte, no Jequitinhonha, no Mucuri e no Rio Doce; abaixo de 40% em boa parte do Sul de Minas." loading="lazy"></button><figcaption>Pretos e pardos, Censo 2022.</figcaption></figure>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/pentec.png" width="1800" height="1480" alt="Mapa de evangélicos pentecostais no Censo 2010, por município de MG." loading="lazy"></button><figcaption>Evangélicos pentecostais, Censo 2010, % da população.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/mg/quil.png" width="1800" height="1480" alt="Mapa da população quilombola no Censo 2022, por município de MG." loading="lazy"></button><figcaption>População quilombola, Censo 2022, %.</figcaption></figure>
+  </div>
+</section>
+
+<section class="sintese" id="hipoteses">
+  <h2>Hipóteses para a diferenciação espacial</h2>
+  <p class="aviso">Cada hipótese separa o que os dados mostram do que falta testar. Nenhuma está confirmada só com estes dados municipais.</p>
+  <div class="cols">
+    <div class="col"><h3>H1. Metropolização, com o Vale do Aço</h3><p>Lula subiu nas quinze maiores cidades e nos blocos da Grande BH e do Vale do Aço, e ganhou cinco municípios na Grande BH e no entorno. Belo Horizonte, com 1,97 milhão de aptos, teve +3,4. Teste: intraurbano do 2º turno em <a href="belo-horizonte.html">Belo Horizonte</a>.</p></div>
+    <div class="col"><h3>H2. Erosão no Jequitinhonha e no Mucuri</h3><p>Capelinha, Águas Formosas, Araçuaí, Almenara e Guanhães perderam de 3,0 a 5,7 pontos, partindo de 66% a 72% em 2022. Lula continua acima de 61% nessas regiões. É o desenho do Sertão baiano. Teste: Bolsa Família, BPC e aposentadoria rural por município.</p></div>
+    <div class="col"><h3>H3. Fronteira agrícola no Noroeste e no Triângulo</h3><p>As perdas de Unaí, Patos de Minas, Monte Carmelo, Iturama e Ituiutaba somam-se às vitórias de Flávio em municípios que Lula tinha em 2022 (Monte Carmelo, Prata, Vazante, Ibiá). Teste: área em soja, milho, cana e café (PAM/IBGE) e migração (Censo 2022).</p></div>
+    <div class="col"><h3>H4. Convergência no Sul de Minas</h3><p>O Sul de Minas, onde Lula é mais fraco desde 2006, está entre os blocos de maior ganho (Itajubá +2,2, Varginha +2,1, Três Corações +2,0). Como no Sul cacaueiro da Bahia, Lula ganhou onde tinha menos. Falta separar convergência e efeito das cidades médias.</p></div>
+    <div class="col"><h3>H5. Escala e cor ou raça</h3><p>Entre os municípios mineiros, a cor ou raça organiza o nível do voto, mas não a variação. Dentro de BH, no 1º turno, Lula recuou nas áreas mais negras. A escala estadual não repete aqui o sinal de SP e da Bahia.</p></div>
+    <div class="col"><h3>H6. Religião</h3><p>Os pentecostais pesam contra Lula no nível e a favor na variação, como em SP. A medida é de 2010 e de oferta religiosa, não de fiéis votando.</p></div>
+  </div>
+</section>
+
+<section class="mapa" id="estados">
+  <h2>Quatro estados, um efeito comum</h2>
+  <p class="pergunta">O que se repete entre Minas Gerais, Bahia, São Paulo e Rio Grande do Sul?</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th></th><th>MG</th><th>BA</th><th>SP</th><th>RS</th></tr></thead>
+      <tbody>
+        <tr><td>Lula 2º t., 2022 → 2026</td><td class="n">50,2 → 50,4 (+0,2)</td><td class="p">72,1 → 71,3 (−0,8)</td><td class="g">44,8 → 46,2 (+1,4)</td><td class="p">43,7 → 42,2 (−1,5)</td></tr>
+        <tr><td>Municípios com vitória de Lula, 2022 → 2026</td><td>564 → 528</td><td>415 → 413</td><td>97 → 72</td><td>122 → 61</td></tr>
+        <tr><td>Municípios menores</td><td class="p">−3,0 (até 5 mil)</td><td class="p">−2,7 (até 10 mil)</td><td class="p">−2,4 (até 5 mil)</td><td class="p">−5,8 (até 5 mil)</td></tr>
+        <tr><td>Municípios com mais de 100 mil aptos</td><td class="g">+1,8 a +2,9</td><td class="g">+1,5</td><td class="g">+1,8 a +2,0</td><td class="g">+1,0</td></tr>
+        <tr><td>Correlação 2006 × 2026</td><td>0,72</td><td>0,39</td><td>0,62</td><td>0,69</td></tr>
+        <tr><td>I de Moran, Lula 2026 (2º t.)</td><td>0,76</td><td>0,50</td><td>0,48</td><td>0,66</td></tr>
+        <tr><td>Agropecuária na variação</td><td class="p">−0,22</td><td class="p">−0,48</td><td class="p">−0,20</td><td class="p">−0,57</td></tr>
+        <tr><td>Tamanho na variação</td><td class="g">+0,79</td><td class="n">n.s.</td><td class="g">+0,83</td><td class="g">+0,68</td></tr>
+        <tr><td>Cor ou raça na variação</td><td class="n">n.s.</td><td class="g">+0,38</td><td class="g">+0,54</td><td class="n">n.s.</td></tr>
+        <tr><td>Pentecostais no nível</td><td>−1,71</td><td>−1,97</td><td>−0,97</td><td>+1,30</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="aviso">A agropecuária segue como o único efeito comum aos quatro estados. O tamanho do município se repete em MG, SP e RS e falha na Bahia. A cor ou raça na variação separa SP e Bahia (positiva) de MG e RS (nula). Minas é o estado de mapa mais estável desde 2006. Ver <a href="estado-de-sao-paulo.html">Estado de São Paulo</a>, <a href="bahia.html">Bahia</a> e <a href="rio-grande-do-sul.html">Rio Grande do Sul</a>.</p>
+</section>
+
+<section class="limites" id="limites">
+  <h2>Dados e limites</h2>
+  <ul>
+    <li><strong>Dados:</strong> TSE, resultado por município de 2026 (site de divulgação) e votação por município e zona de 2006 e 2022 (Dados Abertos). IBGE: Censo 2022 (setores; religião, tabela 9537; quilombolas, tabela 10089), Censo 2010 (religião, tabela 137), PIB dos Municípios 2021 (tabela 5938), regiões geográficas intermediárias e imediatas, malha municipal 2022 via geobr.</li>
+    <li><strong>Inferência ecológica:</strong> os resultados descrevem municípios, não eleitores.</li>
+    <li><strong>Variáveis:</strong> religião detalhada só de 2010; renda pela proxy de banheiros; não há variável de mineração, de transferência de renda nem de estrutura agrária.</li>
+    <li><strong>Região de BH:</strong> aproximada pela região imediata do IBGE; não é a delimitação legal da RMBH.</li>
+    <li><strong>Peso do tamanho:</strong> os modelos não ponderam pelo eleitorado.</li>
+  </ul>
+</section>
+</main>
+<footer>Elaborado em 27 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="dois-turnos-2026.html">Dois turnos de 2026</a> · <a href="quinze-cidades.html">Quinze cidades</a> · <a href="estado-de-sao-paulo.html">Estado de São Paulo</a> · <a href="bahia.html">Bahia</a> · <a href="rio-grande-do-sul.html">Rio Grande do Sul</a> · <a href="belo-horizonte.html">Belo Horizonte</a>.</footer>
+</div>
+
+<dialog id="zoom" aria-label="Imagem ampliada">
+  <div class="caixa"><img alt=""></div>
+  <button type="button" id="fechar">Fechar</button>
+</dialog>
+<script>
+(function(){
+  var dlg=document.getElementById('zoom'), big=dlg.querySelector('img');
+  function abrir(img){big.src=img.src;big.alt=img.alt;if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}}
+  function fechar(){if(dlg.close){dlg.close()}else{dlg.removeAttribute('open')}}
+  document.querySelectorAll('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){abrir(b.querySelector('img'))})});
+  dlg.addEventListener('click',function(e){if(e.target!==dlg.querySelector('#fechar')&&(e.target===big||e.target.classList.contains('caixa')||e.target===dlg))fechar()});
+  document.getElementById('fechar').addEventListener('click',fechar);
+  var links=[].slice.call(document.querySelectorAll('nav.indice a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
