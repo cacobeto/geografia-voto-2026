@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Goiás por município, 2006, 2022 e 2026: Lula caiu um ponto, venceu em 41 municípios, ganhou só no Entorno do DF e em Goiânia e perdeu no Sudoeste do agronegócio.">
+<title>Geografia do Voto 2026: Goiás</title>
+<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Mesmo sistema visual de dois-turnos-2026.html. */
+:root{
+  --bg:#f1f3f4; --surface:#ffffff; --ink:#13181c; --ink2:#4b5761; --rule:#d3d9dd;
+  --perdeu:#8c510a; --ganhou:#01665e; --neutro:#6f7b84; --link:#01665e; --tint:#e8eef0;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1417; --surface:#171d21; --ink:#e7ecee; --ink2:#9eacb4; --rule:#2a343a;
+  --perdeu:#dfc27d; --ganhou:#5ab4ac; --neutro:#8d9aa3; --link:#5ab4ac; --tint:#1c252a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;padding-inline:16px}
+.wrap{max-width:1080px;margin-inline:auto}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+
+header.top{padding-block:40px 28px;border-bottom:1px solid var(--rule)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin:0 0 12px}
+.kicker a{color:inherit}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,58px);line-height:1.04;margin:0 0 16px;max-width:18ch;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.45;color:var(--ink2);max-width:62ch;margin:0}
+
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-block:28px 0}
+.num{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;min-width:0}
+.num b{display:block;font-family:var(--display);font-size:clamp(26px,3.4vw,36px);line-height:1.1;font-variant-numeric:tabular-nums;font-weight:700}
+.num span{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
+.num.p b{color:var(--perdeu)} .num.g b{color:var(--ganhou)} .num.n b{color:var(--neutro)}
+.nota-num{font-size:13px;color:var(--ink2);margin:12px 0 0;max-width:80ch}
+
+.ponte{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--ganhou);border-radius:6px;padding:14px 18px;margin-top:24px}
+.ponte p{margin:0;font-size:15px;max-width:64ch}
+.ponte a.botao{font-weight:600;text-decoration:none;white-space:nowrap}
+.ponte .botoes{display:flex;gap:18px;flex-wrap:wrap}
+.ponte a.botao:hover{text-decoration:underline}
+
+nav.indice{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+nav.indice ul{list-style:none;margin:0 auto;max-width:1080px;padding:0;display:flex;gap:4px;overflow-x:auto}
+nav.indice a{display:block;padding:12px 12px;font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.indice a:hover,nav.indice a.on{color:var(--ink);border-bottom-color:var(--ganhou)}
+
+section.mapa{padding-block:44px 8px;border-bottom:1px solid var(--rule);scroll-margin-top:52px}
+section.mapa h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 8px;text-wrap:balance;max-width:26ch}
+.pergunta{font-size:15px;color:var(--ink2);margin:0 0 20px;max-width:70ch}
+figure{margin:0 0 28px}
+.par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.par figure{margin:0}
+.moldura{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:6px;cursor:zoom-in;display:block;width:100%}
+.moldura img{display:block;width:100%;height:auto;border-radius:3px}
+figure.larga .moldura{max-width:860px}
+figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
+
+.texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;margin-bottom:36px}
+.texto h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px;font-weight:600}
+.texto ul{margin:0;padding-left:1.1em}
+.texto li{margin-bottom:10px;max-width:62ch}
+.texto p{margin:0 0 10px;max-width:62ch}
+.texto strong{font-weight:600}
+.cuidado{background:var(--tint);border-radius:6px;padding:14px 16px;font-size:14px;color:var(--ink2);grid-column:1/-1;margin-top:4px}
+.cuidado b{color:var(--ink)}
+
+.tabela{overflow-x:auto;margin-bottom:24px}
+table{border-collapse:collapse;width:100%;min-width:520px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+td.p{color:var(--perdeu);font-weight:600} td.g{color:var(--ganhou);font-weight:600} td.n{color:var(--neutro)}
+
+section.sintese{padding-block:48px 24px}
+section.sintese h2,section.limites h2{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.col{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.col h3{font-family:var(--display);font-size:20px;margin:0 0 8px;line-height:1.2}
+.col p{margin:0;font-size:15px}
+.aviso{font-size:14px;color:var(--ink2);max-width:72ch;margin:0 0 12px}
+section.limites{padding-block:32px 56px;border-top:1px solid var(--rule)}
+section.limites ul{padding-left:1.1em;margin:0;max-width:78ch}
+section.limites li{margin-bottom:10px;font-size:15px}
+footer{font-size:13px;color:var(--ink2);padding-block:0 40px}
+
+dialog#zoom{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
+#zoom .caixa{width:100%;height:100%;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+#zoom img{background:#fff;width:min(1400px,160%);max-width:none;height:auto;border-radius:4px;cursor:zoom-out}
+#zoom button{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:16px;font:600 14px var(--ui);padding:8px 14px;border-radius:6px;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+
+@media (max-width:820px){
+  .numeros{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .texto{grid-template-columns:minmax(0,1fr)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .par{grid-template-columns:minmax(0,1fr)}
+  #zoom img{width:200%}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <p class="kicker"><a href="./">Geografia do Voto 2026</a> · Presidente 2006, 2022 e 2026 · Goiás</p>
+  <h1>Goiás, município a município</h1>
+  <p class="lede">Em Goiás, Lula caiu um ponto do 2º turno de 2022 para o de 2026 e venceu em 41 municípios, contra 70. Ganhou só no Entorno do DF e em Goiânia; perdeu no Sudoeste e no Sul do agronegócio. No 1º turno, a candidatura do governador Ronaldo Caiado ampliou a queda.</p>
+
+  <div class="numeros">
+    <div class="num p"><b>41,3 → 40,3%</b><span>Lula no 2º turno, 2022 → 2026, % dos válidos</span></div>
+    <div class="num p"><b>70 → 41</b><span>municípios com vitória de Lula no 2º turno (180 em 2006)</span></div>
+    <div class="num p"><b>−8,4</b><span>p.p. de Lula no 1º turno, a maior queda dos dez estados; Caiado teve 12,3%</span></div>
+    <div class="num g"><b>+2,5</b><span>p.p. em Luziânia, no Entorno do DF, o maior ganho entre as grandes cidades</span></div>
+  </div>
+  <p class="nota-num">TSE, resultado por município: 2026 do site de divulgação (1º e 2º turno); 2006 e 2022 dos Dados Abertos. 246 municípios. Censo 2022 e 2010, PIB dos Municípios 2021 (IBGE).</p>
+
+  <div class="ponte">
+    <p>Escala estadual, por município. Dentro da capital, ver a página de Goiânia; para o Distrito Federal, a de Brasília.</p>
+    <span class="botoes"><a class="botao" href="goiania.html">Goiânia →</a><a class="botao" href="brasilia.html">Brasília →</a><a class="botao" href="estado-de-sao-paulo.html">Estado de São Paulo →</a><a class="botao" href="minas-gerais.html">Minas Gerais →</a><a class="botao" href="estado-do-rio-de-janeiro.html">Estado do Rio →</a><a class="botao" href="bahia.html">Bahia →</a><a class="botao" href="pernambuco.html">Pernambuco →</a><a class="botao" href="ceara.html">Ceará →</a><a class="botao" href="parana.html">Paraná →</a><a class="botao" href="santa-catarina.html">Santa Catarina →</a><a class="botao" href="rio-grande-do-sul.html">Rio Grande do Sul →</a><a class="botao" href="./">Estudo nacional →</a></span>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Seções">
+  <ul>
+    <li><a href="#resultado">Resultado</a></li>
+    <li><a href="#regioes">Por região</a></li>
+    <li><a href="#caiado">Caiado</a></li>
+    <li><a href="#inversao">2006 × 2026</a></li>
+    <li><a href="#mudanca">Onde mudou</a></li>
+    <li><a href="#perfil">Perfil</a></li>
+    <li><a href="#hipoteses">Hipóteses</a></li>
+    <li><a href="#estados">Dez estados</a></li>
+    <li><a href="#limites">Limites</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="mapa" id="resultado">
+  <h2>Lula caiu e perdeu 30 municípios</h2>
+  <p class="pergunta">Como Lula se saiu no estado em 2006, 2022 e 2026?</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th></th><th>2006, 2º t.</th><th>2022, 1º t.</th><th>2022, 2º t.</th><th>2026, 1º t.</th><th>2026, 2º t.</th></tr></thead>
+      <tbody>
+        <tr><td>Lula, % dos válidos</td><td>54,8</td><td>39,5</td><td>41,3</td><td class="p">31,1</td><td class="p">40,3</td></tr>
+        <tr><td>Municípios com vitória de Lula</td><td>180</td><td></td><td>70</td><td></td><td class="p">41</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/lula_2t26.png" width="1600" height="1720" alt="Mapa de Goiás por município com o voto em Lula no 2º turno de 2026, com o Distrito Federal em branco." loading="lazy"></button><figcaption>Lula no 2º turno de 2026, % dos válidos, com as regiões geográficas intermediárias.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/lisa_l2t.png" width="1600" height="1720" alt="Mapa LISA do voto em Lula no 2º turno de 2026. Alto-Alto, vermelho, no Nordeste goiano; Baixo-Baixo, azul, em Anápolis e no Centro." loading="lazy"></button><figcaption>Agrupamentos do voto em Lula no 2º turno de 2026 (LISA, p &lt; 0,05).</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O estado</h3>
+      <ul>
+        <li><strong>No 2º turno, Lula caiu 1,0 p.p.</strong> de 2022 para 2026 e perdeu o estado por 760 mil votos.</li>
+        <li><strong>No 1º turno, Lula perdeu votos em todos os 246 municípios</strong> em relação a 2022 (−8,4 p.p. no estado), a maior queda dos dez estados. Flávio teve 53,6%; os terceiros, 15,3%, dos quais Caiado 12,3%.</li>
+        <li><strong>Entre os turnos de 2026,</strong> a margem andou 3,2 p.p. para Lula, ponderando pelos aptos. Flávio ampliou a margem em 25 municípios.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>As vitórias</h3>
+      <ul>
+        <li><strong>Lula perdeu 30 municípios</strong> que tinha vencido em 2022, todos com menos de 26 mil aptos: 12 na região de Goiânia, 7 no Norte, 4 no Entorno do DF e no Nordeste goiano (Posse, São João d'Aliança, Cabeceiras, Mimoso de Goiás) e o resto no Sul e no Sudoeste.</li>
+        <li><strong>Ganhou só Planaltina,</strong> no Entorno do DF.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="regioes">
+  <h2>Ganho no Entorno, perda no agronegócio</h2>
+  <p class="pergunta">Em que regiões Lula ganhou e em que regiões perdeu?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Regiões geográficas intermediárias do IBGE, % dos válidos. 2006: média dos municípios ponderada pelos aptos de 2022 (aproximação); no estado, o total do TSE.</caption>
+      <thead><tr><th>Região</th><th>Mun.</th><th>Lula 2006, 2º t.</th><th>Lula 2022, 2º t.</th><th>Lula 2026, 1º t.</th><th>Lula 2026, 2º t.</th><th>2026 − 2022, 2º t.</th><th>Caiado 2026, 1º t.</th></tr></thead>
+      <tbody>
+        <tr><td>Luziânia – Águas Lindas de Goiás</td><td>34</td><td>63,0</td><td>46,0</td><td>36,7</td><td>47,0</td><td class="g">+1,0</td><td>12,2</td></tr>
+        <tr><td>Porangatu – Uruaçu</td><td>46</td><td>59,2</td><td>44,9</td><td>33,5</td><td>41,9</td><td class="p">−3,0</td><td>12,2</td></tr>
+        <tr><td>Goiânia</td><td>80</td><td>54,0</td><td>39,1</td><td>29,4</td><td>38,9</td><td class="n">−0,2</td><td>13,6</td></tr>
+        <tr><td>Itumbiara</td><td>22</td><td>49,9</td><td>41,6</td><td>29,1</td><td>38,3</td><td class="p">−3,3</td><td>11,1</td></tr>
+        <tr><td>São Luís de Montes Belos – Iporá</td><td>35</td><td>54,8</td><td>40,9</td><td>30,0</td><td>37,6</td><td class="p">−3,3</td><td>10,4</td></tr>
+        <tr><td>Rio Verde</td><td>29</td><td>50,2</td><td>42,0</td><td>29,6</td><td>37,5</td><td class="p">−4,5</td><td>7,4</td></tr>
+        <tr><td><strong>GO</strong></td><td>246</td><td>54,8</td><td>41,3</td><td>31,1</td><td>40,3</td><td class="p">−1,0</td><td>12,3</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Aptos no município</th><th>Municípios</th><th>Lula 2022, 2º t.</th><th>Lula 2026, 2º t.</th><th>Variação</th></tr></thead>
+      <tbody>
+        <tr><td>até 5 mil</td><td>101</td><td>48,7</td><td>44,3</td><td class="p">−4,4</td></tr>
+        <tr><td>5 a 10 mil</td><td>68</td><td>47,4</td><td>43,7</td><td class="p">−3,7</td></tr>
+        <tr><td>10 a 20 mil</td><td>31</td><td>43,9</td><td>41,0</td><td class="p">−2,9</td></tr>
+        <tr><td>20 a 50 mil</td><td>28</td><td>42,4</td><td>40,2</td><td class="p">−2,2</td></tr>
+        <tr><td>50 a 100 mil</td><td>12</td><td>43,0</td><td>42,3</td><td class="n">−0,7</td></tr>
+        <tr><td>100 a 500 mil</td><td>5</td><td>38,2</td><td>38,5</td><td class="n">+0,3</td></tr>
+        <tr><td>mais de 500 mil</td><td>1</td><td>36,0</td><td>37,4</td><td class="g">+1,4</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>Onde ganhou</h3>
+      <ul>
+        <li><strong>Por região imediata,</strong> só três subiram: Luziânia +2,3, Águas Lindas de Goiás +1,3 e Goiânia +0,8. As outras 19 caíram.</li>
+        <li><strong>Entre as maiores cidades:</strong> Luziânia +2,5, Valparaíso de Goiás +2,4, Águas Lindas +2,2, Planaltina +2,1 e Goiânia +1,3. Aparecida de Goiânia (+0,2) e Anápolis (+0,3) ficaram paradas.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Onde perdeu</h3>
+      <ul>
+        <li><strong>Por região imediata:</strong> Quirinópolis −5,6, Piracanjuba −4,6, Rio Verde −4,4, Catalão −4,3, Itumbiara −4,2, Jataí – Mineiros −4,0 e Posse – Campos Belos −3,9.</li>
+        <li><strong>Entre as cidades médias:</strong> Rio Verde −4,1, Catalão −4,0, Itumbiara e Jataí −3,0. As maiores quedas municipais, de −7 a −10, são de municípios pequenos (Guarinos, Davinópolis, Castelândia).</li>
+        <li><strong>O tamanho separa os resultados:</strong> quanto menor o município, maior a queda.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="caiado">
+  <h2>O peso de Caiado no 1º turno</h2>
+  <p class="pergunta">A candidatura do governador explica a queda de Lula?</p>
+  <div class="texto">
+    <div>
+      <h3>No 1º turno</h3>
+      <ul>
+        <li><strong>Caiado teve 12,3% no estado,</strong> de 5,3% em Rio Verde a 32,3% em Guarani de Goiás. Foi mais votado na região de Goiânia (13,6%) e menos no Sudoeste (7,4%).</li>
+        <li><strong>Lula perdeu mais onde Caiado foi mais votado</strong> (correlação de −0,33 entre o voto em Caiado e a variação de Lula no 1º turno).</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No 2º turno</h3>
+      <ul>
+        <li><strong>A relação desaparece</strong> (correlação de 0,08): o voto em Caiado não explica onde Lula perdeu de 2022 para 2026 no 2º turno.</li>
+        <li><strong>A queda do 1º turno (−8,4) é, em parte, efeito da candidatura de Caiado;</strong> a do 2º turno (−1,0) é comparável à de outros estados.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="inversao">
+  <h2>O Sudoeste, já contra Lula em 2006</h2>
+  <p class="pergunta">A geografia do voto em Lula no estado é a mesma de vinte anos atrás?</p>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/lula_2t06.png" width="1600" height="1720" alt="Mapa de Goiás com o voto em Lula no 2º turno de 2006: vermelho no Norte, no Nordeste, no Entorno do DF e no Vale do Araguaia; azul em manchas do Sudoeste, do Leste e do eixo Goiânia – Anápolis." loading="lazy"></button><figcaption>Lula no 2º turno de 2006 (contra Alckmin), % dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/lula_2t22.png" width="1600" height="1720" alt="Mapa de Goiás com o voto em Lula no 2º turno de 2022, por município." loading="lazy"></button><figcaption>Lula no 2º turno de 2022, % dos válidos.</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>A mudança</h3>
+      <ul>
+        <li><strong>Em 2006,</strong> Lula vencia em 180 municípios, com os valores mais altos no Norte e no Nordeste goiano (Cavalcante 75,7%), no Entorno do DF (Cidade Ocidental 74,2%, Valparaíso 73,4%) e no Vale do Araguaia (Baliza 75,2%). Os mais baixos ficavam no Sudoeste (Montividiu 35,7%, Itarumã 38,3%) e no eixo Goiânia – Anápolis – Sul (Vianópolis 33,7%).</li>
+        <li><strong>Em 2026, o desenho se parece:</strong> Lula é mais forte no Nordeste goiano e no Entorno, e mais fraco no Sudoeste, em Anápolis e no Centro.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Quando mudou</h3>
+      <ul>
+        <li><strong>Correlação entre os municípios:</strong> 0,46 de 2006 para 2026 e 0,96 de 2022 para 2026.</li>
+        <li><strong>Concentração espacial (I de Moran):</strong> 0,29 em 2006, 0,47 em 2022 e 0,50 em 2026. A variação de 2022 para 2026 tem I de 0,36.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="mudanca">
+  <h2>Onde Lula mais ganhou e mais perdeu de 2022 para 2026</h2>
+  <p class="pergunta">A variação se concentra em blocos de municípios vizinhos?</p>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/d_2t.png" width="1600" height="1720" alt="Mapa da variação de Lula no 2º turno de 2022 para 2026, por município de Goiás." loading="lazy"></button><figcaption>Lula no 2º turno, 2026 − 2022, p.p. dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/lisa_d2t.png" width="1600" height="1720" alt="Mapa LISA da variação no 2º turno. Alto-Alto, vermelho, no Entorno do DF e em Goiânia e na Região Metropolitana; Baixo-Baixo, azul, no Sudoeste e no Sul e em Catalão; Alto-Baixo em Jataí, Caiapônia e Aragarças." loading="lazy"></button><figcaption>Agrupamentos (LISA, p &lt; 0,05). Alto-Alto: Lula ganhou mais; Baixo-Baixo: ganhou menos ou perdeu.</figcaption></figure>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/d_1t.png" width="1600" height="1720" alt="Mapa da variação de Lula no 1º turno de 2022 para 2026, por município de Goiás." loading="lazy"></button><figcaption>Lula no 1º turno, 2026 − 2022, p.p. dos válidos.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/d_margem.png" width="1600" height="1720" alt="Mapa da variação da margem Lula menos Flávio entre os turnos de 2026, por município de Goiás." loading="lazy"></button><figcaption>Margem Lula − Flávio, 1º → 2º turno de 2026, p.p. dos válidos.</figcaption></figure>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>Os blocos da variação</h3>
+      <ul>
+        <li><strong>Alto-Alto, onde Lula ganhou mais:</strong> o Entorno do DF (Luziânia, Valparaíso, Novo Gama, Cidade Ocidental, Santo Antônio do Descoberto, Águas Lindas, Padre Bernardo, Cristalina) e um bloco em Goiânia e na Região Metropolitana (Aparecida de Goiânia, Senador Canedo, Goianira, Nerópolis, Guapó, Aragoiânia).</li>
+        <li><strong>Baixo-Baixo, onde perdeu mais:</strong> o Sudoeste e o Sul do agronegócio (Rio Verde, Acreúna, Santa Helena, Quirinópolis, Goiatuba, Edéia) e Catalão.</li>
+        <li><strong>Alto-Baixo:</strong> Jataí, Caiapônia e Aragarças, que perderam menos que os vizinhos.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>O voto em 2026</h3>
+      <ul>
+        <li><strong>Alto-Alto</strong> no Nordeste goiano (Cavalcante, Alto Paraíso, Posse, Campos Belos, São Domingos, Flores de Goiás, Monte Alegre).</li>
+        <li><strong>Baixo-Baixo</strong> em Anápolis e no Centro (Ceres, Pirenópolis, Silvânia, São Luís de Montes Belos).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="perfil">
+  <h2>O perfil da mudança</h2>
+  <p class="pergunta">O que distingue os municípios onde Lula ganhou mais? (Modelos de erro espacial, 246 municípios, sem ponderação.)</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Efeito em p.p. por 1 desvio-padrão; n.s.: p ≥ 0,10. Pentecostais: Censo 2010. Renda: % de domicílios com 3+ banheiros. Região de Goiânia: região imediata do IBGE (19 municípios), aproximação da Região Metropolitana.</caption>
+      <thead><tr><th>Variável</th><th>Lula 2026, 2º t. (nível)</th><th>2022 → 2026, 2º t.</th><th>2022 → 2026, 1º t.</th><th>Margem 1º → 2º t., 2026</th></tr></thead>
+      <tbody>
+        <tr><td>Lula 2006</td><td>+3,30</td><td class="p">−0,28</td><td class="p">−0,53</td><td>+0,47</td></tr>
+        <tr><td>Pretos e pardos</td><td>+1,26</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>Analfabetismo 15+</td><td>+1,64</td><td class="p">−0,48</td><td>−0,44 (p = 0,08)</td><td class="n">n.s.</td></tr>
+        <tr><td>70 anos ou mais</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td>−0,35 (p = 0,10)</td></tr>
+        <tr><td>3+ banheiros (renda)</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>População rural</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>Pentecostais (2010)</td><td>−1,71</td><td class="g">+0,51</td><td class="g">+0,86</td><td>−0,56</td></tr>
+        <tr><td>Quilombolas</td><td>+0,78</td><td class="n">n.s.</td><td>+0,34 (p = 0,07)</td><td class="n">n.s.</td></tr>
+        <tr><td>Agropecuária no VAB</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>PIB per capita (log)</td><td>−0,63 (p = 0,07)</td><td class="p">−0,64</td><td class="p">−0,58</td><td class="n">n.s.</td></tr>
+        <tr><td>Eleitorado (log)</td><td>−0,75 (p = 0,07)</td><td class="g">+0,49</td><td class="g">+0,43</td><td>+0,38</td></tr>
+        <tr><td>Região de Goiânia</td><td>+4,25</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td></tr>
+        <tr><td>λ (erro espacial)</td><td>0,70</td><td>0,40</td><td>0,51</td><td>0,57</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que se vê</h3>
+      <ul>
+        <li><strong>O efeito mais forte na variação é o PIB per capita (−0,64):</strong> Lula perdeu mais nos municípios mais ricos. Em Goiás, o PIB per capita alto marca o agronegócio de grãos do Sudoeste. A agropecuária no VAB não tem efeito com o PIB per capita no modelo, mas tem correlação simples de −0,70 com a variação.</li>
+        <li><strong>O tamanho pesa a favor de Lula</strong> (+0,49) e a escolaridade baixa, contra (−0,48).</li>
+      </ul>
+    </div>
+    <div>
+      <h3>O resto</h3>
+      <ul>
+        <li><strong>Pentecostais:</strong> a favor de Lula na variação (+0,51) e contra no nível (−1,71), como em PE, SP, MG e no CE.</li>
+        <li><strong>A cor ou raça e a idade não têm efeito na variação.</strong></li>
+        <li><strong>Quilombolas:</strong> a favor de Lula no nível (+0,78), puxados pelo território Kalunga, no Nordeste goiano.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/agro.png" width="1600" height="1720" alt="Mapa do peso da agropecuária no valor adicionado de 2021, por município de Goiás." loading="lazy"></button><figcaption>Peso da agropecuária no valor adicionado, 2021.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/pp.png" width="1600" height="1720" alt="Mapa de pretos e pardos no Censo 2022, por município de Goiás." loading="lazy"></button><figcaption>Pretos e pardos, Censo 2022.</figcaption></figure>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/pentec.png" width="1600" height="1720" alt="Mapa de evangélicos pentecostais no Censo 2010, por município de Goiás." loading="lazy"></button><figcaption>Evangélicos pentecostais, Censo 2010, % da população.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/go/quil.png" width="1600" height="1720" alt="Mapa da população quilombola no Censo 2022, por município de Goiás." loading="lazy"></button><figcaption>População quilombola, Censo 2022, %.</figcaption></figure>
+  </div>
+</section>
+
+<section class="sintese" id="hipoteses">
+  <h2>Hipóteses para a diferenciação espacial</h2>
+  <p class="aviso">Cada hipótese separa o que os dados mostram do que falta testar. Nenhuma está confirmada só com estes dados municipais.</p>
+  <div class="cols">
+    <div class="col"><h3>H1. O agronegócio de grãos do Sudoeste</h3><p>As maiores perdas regionais estão em Quirinópolis, Rio Verde, Jataí e Itumbiara, num bloco contínuo. O PIB per capita é o efeito mais forte na variação, e a agropecuária tem correlação simples de −0,70. Teste: área em soja, milho e cana (PAM) e migração do Sul (Censo 2022).</p></div>
+    <div class="col"><h3>H2. O Entorno do DF</h3><p>O único bloco de ganho além da capital é o Entorno, de Águas Lindas a Luziânia e Cristalina; Planaltina foi o único município que Lula ganhou. Teste: comparar com as RAs periféricas do DF, onde Lula perdeu no 1º turno (<a href="brasilia.html">Brasília</a>).</p></div>
+    <div class="col"><h3>H3. Caiado no 1º turno</h3><p>A queda de Lula no 1º turno foi a maior dos dez estados, e foi maior onde Caiado teve mais votos. No 2º turno, o efeito desaparece. Teste: a transferência de votos de Caiado entre os turnos, por município.</p></div>
+    <div class="col"><h3>H4. O Nordeste goiano</h3><p>É o bloco mais lulista do estado, com a maior população quilombola (Kalunga, em Cavalcante, Monte Alegre e Teresina de Goiás). Mesmo assim, a região de Posse – Campos Belos perdeu 3,9 pontos.</p></div>
+    <div class="col"><h3>H5. Pentecostais e metrópole</h3><p>O sinal positivo na variação repete o de outros estados e pode marcar a Região Metropolitana e o Entorno, onde Lula ganhou.</p></div>
+  </div>
+</section>
+
+<section class="mapa" id="estados">
+  <h2>Dez estados</h2>
+  <p class="pergunta">O que se repete entre os dez estados estudados?</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th></th><th>GO</th><th>SC</th><th>PR</th><th>CE</th><th>PE</th><th>RJ</th><th>MG</th><th>BA</th><th>SP</th><th>RS</th></tr></thead>
+      <tbody>
+        <tr><td>Lula 2º t., 2022 → 2026</td><td class="p">−1,0</td><td class="n">−0,2</td><td class="n">−0,2</td><td class="p">−1,0</td><td class="g">+2,3</td><td class="g">+3,4</td><td class="n">+0,2</td><td class="p">−0,8</td><td class="g">+1,4</td><td class="p">−1,5</td></tr>
+        <tr><td>Municípios com vitória de Lula, 2022 → 2026</td><td>70 → 41</td><td>20 → 6</td><td>113 → 69</td><td>184 → 184</td><td>184 → 184</td><td>20 → 18</td><td>564 → 528</td><td>415 → 413</td><td>97 → 72</td><td>122 → 61</td></tr>
+        <tr><td>Correlação 2006 × 2026</td><td>0,46</td><td>0,56</td><td>0,72</td><td>0,00</td><td>0,51</td><td>0,33</td><td>0,72</td><td>0,39</td><td>0,62</td><td>0,69</td></tr>
+        <tr><td>Agropecuária na variação</td><td class="n">n.s.</td><td class="p">−0,61</td><td class="p">−0,38</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="p">−0,22</td><td class="p">−0,48</td><td class="p">−0,20</td><td class="p">−0,57</td></tr>
+        <tr><td>PIB per capita na variação</td><td class="p">−0,64</td><td class="n">n.s.</td><td>−0,14 (p = 0,10)</td><td class="n">n.s.</td><td class="p">−0,21</td><td class="p">−0,48</td><td class="p">−0,21</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="p">−0,26</td></tr>
+        <tr><td>Tamanho na variação</td><td class="g">+0,49</td><td class="g">+0,62</td><td class="g">+0,60</td><td class="g">+0,49</td><td class="g">+0,34</td><td class="g">+0,96</td><td class="g">+0,79</td><td class="n">n.s.</td><td class="g">+0,83</td><td class="g">+0,68</td></tr>
+        <tr><td>Cor ou raça na variação</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="g">+0,46</td><td class="g">+0,40</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="n">n.s.</td><td class="g">+0,38</td><td class="g">+0,54</td><td class="n">n.s.</td></tr>
+        <tr><td>Pentecostais na variação</td><td class="g">+0,51</td><td class="g">+0,37</td><td class="g">+0,33</td><td class="g">+0,45</td><td class="g">+1,04</td><td class="n">n.s.</td><td class="g">+0,22</td><td class="n">n.s.</td><td class="g">+0,15</td><td class="g">+1,21</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="aviso">O tamanho do município pesa a favor de Lula em nove dos dez estados; só a Bahia foge. Goiás se parece com o Sul: Lula perdeu no interior agrícola e muitos municípios, e ganhou só na capital e no Entorno. Aqui, o agronegócio aparece pelo PIB per capita. Ver <a href="santa-catarina.html">Santa Catarina</a>, <a href="parana.html">Paraná</a>, <a href="rio-grande-do-sul.html">Rio Grande do Sul</a>, <a href="estado-de-sao-paulo.html">Estado de São Paulo</a>, <a href="minas-gerais.html">Minas Gerais</a>, <a href="estado-do-rio-de-janeiro.html">Estado do Rio</a>, <a href="bahia.html">Bahia</a>, <a href="pernambuco.html">Pernambuco</a> e <a href="ceara.html">Ceará</a>.</p>
+</section>
+
+<section class="limites" id="limites">
+  <h2>Dados e limites</h2>
+  <ul>
+    <li><strong>Dados:</strong> TSE, resultado por município de 2026 (site de divulgação) e votação por município e zona de 2006 e 2022 (Dados Abertos). IBGE: Censo 2022 (setores; religião, tabela 9537; quilombolas, tabela 10089), Censo 2010 (religião, tabela 137), PIB dos Municípios 2021 (tabela 5938), regiões geográficas intermediárias e imediatas, malha municipal 2022 via geobr.</li>
+    <li><strong>Inferência ecológica:</strong> os resultados descrevem municípios, não eleitores.</li>
+    <li><strong>Caiado:</strong> o voto nele no 1º turno torna a variação do 1º turno pouco comparável com a dos outros estados.</li>
+    <li><strong>Variáveis:</strong> religião detalhada só de 2010; renda pela proxy de banheiros; não há variável de estrutura agrária nem de tipo de cultura.</li>
+    <li><strong>Região de Goiânia:</strong> aproximada pela região imediata do IBGE.</li>
+  </ul>
+</section>
+</main>
+<footer>Elaborado em 27 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="dois-turnos-2026.html">Dois turnos de 2026</a> · <a href="quinze-cidades.html">Quinze cidades</a> · <a href="estado-de-sao-paulo.html">Estado de São Paulo</a> · <a href="minas-gerais.html">Minas Gerais</a> · <a href="estado-do-rio-de-janeiro.html">Estado do Rio</a> · <a href="bahia.html">Bahia</a> · <a href="pernambuco.html">Pernambuco</a> · <a href="ceara.html">Ceará</a> · <a href="parana.html">Paraná</a> · <a href="santa-catarina.html">Santa Catarina</a> · <a href="rio-grande-do-sul.html">Rio Grande do Sul</a> · <a href="goiania.html">Goiânia</a> · <a href="brasilia.html">Brasília</a>.</footer>
+</div>
+
+<dialog id="zoom" aria-label="Imagem ampliada">
+  <div class="caixa"><img alt=""></div>
+  <button type="button" id="fechar">Fechar</button>
+</dialog>
+<script>
+(function(){
+  var dlg=document.getElementById('zoom'), big=dlg.querySelector('img');
+  function abrir(img){big.src=img.src;big.alt=img.alt;if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}}
+  function fechar(){if(dlg.close){dlg.close()}else{dlg.removeAttribute('open')}}
+  document.querySelectorAll('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){abrir(b.querySelector('img'))})});
+  dlg.addEventListener('click',function(e){if(e.target!==dlg.querySelector('#fechar')&&(e.target===big||e.target.classList.contains('caixa')||e.target===dlg))fechar()});
+  document.getElementById('fechar').addEventListener('click',fechar);
+  var links=[].slice.call(document.querySelectorAll('nav.indice a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
