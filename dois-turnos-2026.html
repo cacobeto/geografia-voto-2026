@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Do 1º para o 2º turno de 2026, por município: Lula levou 74% do acréscimo de votos e virou a eleição; a margem andou para ele em quase todo o país e a abstenção caiu, menos no Norte.">
+<meta name="description" content="Do 1º para o 2º turno de 2026, por município e dentro de quinze cidades: Lula levou 74% do acréscimo de votos e virou a eleição; a margem andou para ele em quase todo o país, e nas cidades mais nas áreas negras, o inverso de 2022.">
 <title>Geografia do Voto 2026: dois turnos de 2026</title>
 <style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,7 +126,7 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
   <p class="nota-num">TSE, resultado por município do site de divulgação (resultados.tse.jus.br), Presidente, 1º turno (4/10/2026) e 2º turno (25/10/2026), 5.571 municípios, sem o voto no exterior; com ele, Lula teve 51,79%. Baixado em 26/10/2026. Censo 2022 somado por município.</p>
 
   <div class="ponte">
-    <p>Por município. A comparação dentro das quinze cidades, por local de votação, depende dos arquivos por seção do TSE, que ainda não trazem o 2º turno.</p>
+    <p>Por município e, mais abaixo, por local de votação dentro das quinze cidades do estudo, com os arquivos por seção do TSE publicados em 26/10/2026.</p>
     <span class="botoes"><a class="botao" href="segundo-turno.html">Segundo turno de 2026 →</a><a class="botao" href="dois-turnos-2022.html">Dois turnos de 2022 →</a><a class="botao" href="rio-grande-do-sul.html">Rio Grande do Sul →</a><a class="botao" href="estado-de-sao-paulo.html">Estado de São Paulo →</a><a class="botao" href="bahia.html">Bahia →</a><a class="botao" href="minas-gerais.html">Minas Gerais →</a><a class="botao" href="estado-do-rio-de-janeiro.html">Estado do Rio →</a><a class="botao" href="pernambuco.html">Pernambuco →</a><a class="botao" href="ceara.html">Ceará →</a><a class="botao" href="parana.html">Paraná →</a><a class="botao" href="santa-catarina.html">Santa Catarina →</a><a class="botao" href="goias.html">Goiás →</a><a class="botao" href="amazonas.html">Amazonas →</a><a class="botao" href="./">Estudo nacional →</a></span>
   </div>
 </header>
@@ -139,6 +139,8 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
     <li><a href="#margem">Geografia da mudança</a></li>
     <li><a href="#abstencao">Abstenção</a></li>
     <li><a href="#comparacao">Comparação com 2022</a></li>
+    <li><a href="#cidades">Quinze cidades</a></li>
+    <li><a href="#espelho">Espelho de 2022</a></li>
     <li><a href="#limites">Limites</a></li>
   </ul>
 </nav>
@@ -309,7 +311,105 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
       <h3>Perfil e escala</h3>
       <ul>
         <li><strong>Lula ganhou, de 2022 para 2026, nos municípios mais escolarizados e de maior renda</strong> (analfabetismo −1,48 e 3+ banheiros +0,61 p.p. por desvio-padrão; R² = 0,37). Com isso fixo, também nos mais negros (+0,98), menos no Nordeste, onde o sinal se inverte (−1,26). Sem controles, a cor ou raça quase não pesa.</li>
-        <li><strong>Dentro das cidades,</strong> o 1º turno mostrou Lula indo para áreas mais brancas e mais velhas (<a href="quinze-cidades.html">quinze cidades</a>). Entre municípios, o quadro é outro, como já ocorria em 2022. A verificação por local de votação espera os dados por seção.</li>
+        <li><strong>Dentro das cidades,</strong> o 1º turno mostrou Lula indo para áreas mais brancas e mais velhas (<a href="quinze-cidades.html">quinze cidades</a>), e o 2º, Lula avançando mais nas áreas negras (<a href="#cidades">abaixo</a>). Entre municípios, o quadro é outro, como já ocorria em 2022.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="cidades">
+  <h2>Dentro das quinze cidades, Lula avançou mais nas áreas negras</h2>
+  <p class="pergunta">Por local de votação, com o perfil do Censo 2022 de cada local: onde Lula ampliou mais a margem entre os turnos? E o 2º turno desfez o deslocamento para as áreas mais brancas visto no 1º?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">TSE, votação e detalhe por seção (versão de 26/10/2026); o 2º turno de cada seção é somado no local em que ela votou no 1º. Lula em % dos válidos, nos locais com perfil do Censo (de 79% a 98% dos válidos de cada cidade). Δ margem: (Lula − Flávio) no 2º turno menos no 1º, p.p. Diferença racial: Lula no décimo de eleitorado mais negro menos no mais branco, no 2º turno de 2026 e, ao lado, no de 2022. Cor ou raça: modelo de erro espacial da Δ margem, p.p. por 1 desvio-padrão de pretos e pardos, com renda (proxy) e favela; na coluna seguinte, também com analfabetismo 15+ e % 70+. Analfabetismo: efeito no modelo completo. n.s.: p ≥ 0,10; "limite": 0,05 ≤ p &lt; 0,10. Reforço: correlação entre o voto em Lula no 1º turno e a Δ margem.</caption>
+      <thead><tr><th>Cidade</th><th>Lula 1º → 2º t.</th><th>Δ margem</th><th>Diferença racial, 1º → 2º t.</th><th>Idem, 2º t. 2022</th><th>Cor ou raça</th><th>Cor ou raça, com escolaridade e idade</th><th>Analfabetismo</th><th>Reforço</th></tr></thead>
+      <tbody>
+        <tr><td><a href="sao-paulo.html">São Paulo</a></td><td>46,5 → 55,4</td><td class="g">+6,3</td><td>+16,0 → +17,8</td><td>+17,8</td><td class="g">+1,61</td><td class="g">+1,67</td><td class="n">n.s.</td><td>0,52</td></tr>
+        <tr><td><a href="guarulhos.html">Guarulhos</a></td><td>40,2 → 48,9</td><td class="g">+6,8</td><td>+15,2 → +15,8</td><td>+16,7</td><td class="g">+1,26</td><td class="g">+1,09</td><td class="n">n.s.</td><td>0,64</td></tr>
+        <tr><td><a href="sao-bernardo.html">São Bernardo</a></td><td>46,5 → 55,1</td><td class="g">+5,6</td><td>+19,6 → +19,9</td><td>+21,8</td><td class="g">+1,30</td><td class="g">+1,45</td><td class="n">n.s.</td><td>0,64</td></tr>
+        <tr><td><a href="osasco.html">Osasco</a></td><td>43,4 → 52,4</td><td class="g">+6,7</td><td>+14,6 → +14,6</td><td>+15,2</td><td class="g">+1,20</td><td class="g">+0,78</td><td class="g">+0,48</td><td>0,53</td></tr>
+        <tr><td><a href="rio-de-janeiro.html">Rio de Janeiro</a></td><td>43,8 → 51,4</td><td class="g">+7,0</td><td>−7,7 → −5,7</td><td>−7,8</td><td class="g">+0,95</td><td class="g">+0,82</td><td class="g">+0,46</td><td>−0,05</td></tr>
+        <tr><td><a href="belo-horizonte.html">Belo Horizonte</a></td><td>41,4 → 49,2</td><td class="g">+5,3</td><td>+4,7 → +7,2</td><td>+6,2</td><td class="g">+1,44</td><td class="g">+1,04</td><td class="g">+0,52</td><td>0,41</td></tr>
+        <tr><td><a href="goiania.html">Goiânia</a></td><td>28,1 → 37,2</td><td class="g">+1,1</td><td>+4,9 → +7,8</td><td>+8,1</td><td class="g">+0,97</td><td class="g">+0,82</td><td>+0,29 (limite)</td><td>0,52</td></tr>
+        <tr><td><a href="brasilia.html">Brasília</a></td><td>38,1 → 45,7</td><td class="g">+4,7</td><td>−6,2 → −4,2</td><td>−3,7</td><td class="g">+1,17</td><td class="g">+0,65</td><td class="g">+0,96</td><td>−0,18</td></tr>
+        <tr><td><a href="salvador.html">Salvador</a></td><td>65,3 → 73,3</td><td class="g">+8,0</td><td>+16,6 → +17,4</td><td>+16,8</td><td class="g">+0,40</td><td class="n">n.s.</td><td class="n">n.s.</td><td>0,54</td></tr>
+        <tr><td><a href="recife.html">Recife</a></td><td>55,0 → 61,0</td><td class="g">+5,5</td><td>+12,0 → +12,5</td><td>+10,7</td><td class="g">+0,61</td><td>+0,31 (limite)</td><td class="g">+0,55</td><td>0,42</td></tr>
+        <tr><td><a href="fortaleza.html">Fortaleza</a></td><td>53,4 → 60,0</td><td class="g">+6,0</td><td>+8,3 → +9,5</td><td>+9,5</td><td class="g">+0,54</td><td class="g">+0,39</td><td class="n">n.s.</td><td>0,43</td></tr>
+        <tr><td><a href="curitiba.html">Curitiba</a></td><td>30,4 → 37,7</td><td class="g">+2,6</td><td>+3,9 → +5,4</td><td>+7,5</td><td class="g">+1,04</td><td class="g">+0,59</td><td class="g">+0,49</td><td>0,28</td></tr>
+        <tr><td><a href="porto-alegre.html">Porto Alegre</a></td><td>48,4 → 55,7</td><td class="g">+4,8</td><td>+21,3 → +22,8</td><td>+21,0</td><td class="g">+0,98</td><td class="g">+0,91</td><td class="g">+0,92</td><td>0,52</td></tr>
+        <tr><td><a href="manaus.html">Manaus</a></td><td>36,8 → 43,9</td><td class="g">+5,5</td><td>+5,9 → +6,5</td><td>+5,3</td><td class="g">+0,54</td><td class="g">+0,43</td><td class="g">+0,38</td><td>0,44</td></tr>
+        <tr><td><a href="belem.html">Belém</a></td><td>47,7 → 54,7</td><td class="g">+5,8</td><td>+5,9 → +8,3</td><td>+7,6</td><td class="g">+0,88</td><td class="g">+0,54</td><td class="g">+0,38</td><td>0,35</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O que se inverteu</h3>
+      <ul>
+        <li><strong>Lula ampliou a margem nas quinze cidades</strong>, de +1,1 ponto em Goiânia a +8,0 em Salvador. Entre os turnos de 2022, foi Bolsonaro quem ampliou nas quinze (<a href="dois-turnos-2022.html#cidades">dois turnos de 2022</a>).</li>
+        <li><strong>Lula cresceu mais nos locais mais negros nas quinze</strong>, com renda e favela no modelo. Com escolaridade e idade, o efeito resiste em treze; em 2022, a cor ou raça resistia em quatro, com o sinal oposto.</li>
+        <li><strong>Analfabetismo e idade também trocaram de sinal:</strong> Lula ampliou mais onde há mais analfabetismo (nove cidades) e menos onde há mais idosos (quatro). São as mesmas áreas mais negras, de menor escolaridade e mais jovens que tinham pendido para Bolsonaro em 2022.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>O que não se desfez</h3>
+      <ul>
+        <li><strong>A recuperação foi pequena.</strong> A diferença racial subiu em catorze cidades (Osasco ficou igual), no máximo 2,9 pontos. De 2022 para 2026, no 1º turno, tinha caído de 1,6 a 7,8 (<a href="quinze-cidades.html">quinze cidades</a>). Em São Paulo, o 2º turno devolveu 1,8 dos 7,9 pontos perdidos.</li>
+        <li><strong>No fim, o 2º turno de 2026 ficou parecido com o de 2022:</strong> a diferença racial é próxima nas quinze cidades. O caminho é que foi oposto.</li>
+        <li><strong>Rio e Brasília de novo como exceção:</strong> são as únicas em que Lula não ampliou mais onde já era forte.</li>
+        <li><strong>A abstenção</strong> caiu em catorze cidades e subiu só em Manaus. Caiu mais nos locais mais negros em oito, com todos os controles.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="par">
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t26/sp_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação de São Paulo com a variação da margem entre os turnos de 2026. Vermelho em quase toda a cidade, mais forte nas periferias norte, leste e sul; tons claros, perto de zero, no centro expandido." loading="lazy"></button><figcaption>São Paulo.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t26/rio_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação do Rio de Janeiro com a variação da margem entre os turnos de 2026. Vermelho em quase toda a cidade." loading="lazy"></button><figcaption>Rio de Janeiro.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t26/bsb_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação de Brasília com a variação da margem entre os turnos de 2026. Vermelho em quase todas as regiões administrativas." loading="lazy"></button><figcaption>Brasília.</figcaption></figure>
+    <figure><button class="moldura" type="button" data-zoom><img src="img/t26/ssa_d_margem.png" width="1600" height="1500" alt="Mapa de pontos dos locais de votação de Salvador com a variação da margem entre os turnos de 2026. Vermelho em quase toda a cidade." loading="lazy"></button><figcaption>Salvador.</figcaption></figure>
+  </div>
+  <p class="aviso">Vermelho: Lula ampliou a margem; azul: Flávio ampliou. Tamanho do ponto: eleitorado do local. Ao contrário dos mapas de 2022, quase todos os pontos são vermelhos; o que importa é a intensidade.</p>
+</section>
+
+<section class="mapa" id="espelho">
+  <h2>As reviravoltas finais de 2022 e 2026 se espelham</h2>
+  <p class="pergunta">Os locais em que Bolsonaro mais ampliou a margem entre os turnos de 2022 são os mesmos em que Lula mais ampliou entre os turnos de 2026?</p>
+  <div class="tabela">
+    <table>
+      <caption class="nota-num" style="caption-side:bottom;text-align:left">Locais de votação presentes nas duas análises. Correlação ponderada pelos aptos entre a Δ margem de 2022 e a de 2026: negativa quer dizer que onde Bolsonaro ampliou mais em 2022, Lula ampliou mais em 2026. Efeito: p.p. de Δ margem de 2026 por 1 desvio-padrão da Δ margem de 2022, modelo de erro espacial com o Censo (cor ou raça, renda, favela, analfabetismo, % 70+). As duas medidas vêm de eleições diferentes e não compartilham o acaso de um mesmo turno. n.s.: p ≥ 0,10; "limite": 0,05 ≤ p &lt; 0,10.</caption>
+      <thead><tr><th>Cidade</th><th>Locais</th><th>Correlação</th><th>Efeito com o Censo</th></tr></thead>
+      <tbody>
+        <tr><td>São Paulo</td><td>1.763</td><td>−0,27</td><td class="n">n.s.</td></tr>
+        <tr><td>Guarulhos</td><td>234</td><td>−0,30</td><td class="g">−0,25</td></tr>
+        <tr><td>São Bernardo</td><td>155</td><td>−0,22</td><td>−0,28 (limite)</td></tr>
+        <tr><td>Osasco</td><td>119</td><td>−0,21</td><td class="n">n.s.</td></tr>
+        <tr><td>Rio de Janeiro</td><td>1.139</td><td>−0,36</td><td class="g">−0,21</td></tr>
+        <tr><td>Belo Horizonte</td><td>378</td><td>−0,34</td><td>+0,20 (limite)</td></tr>
+        <tr><td>Goiânia</td><td>283</td><td>+0,01</td><td class="p">+0,21</td></tr>
+        <tr><td>Brasília</td><td>425</td><td>−0,36</td><td class="n">n.s.</td></tr>
+        <tr><td>Salvador</td><td>285</td><td>−0,15</td><td class="n">n.s.</td></tr>
+        <tr><td>Recife</td><td>279</td><td>−0,30</td><td>−0,21 (limite)</td></tr>
+        <tr><td>Fortaleza</td><td>494</td><td>−0,32</td><td class="g">−0,21</td></tr>
+        <tr><td>Curitiba</td><td>319</td><td>−0,29</td><td class="n">n.s.</td></tr>
+        <tr><td>Porto Alegre</td><td>266</td><td>−0,48</td><td>−0,26 (limite)</td></tr>
+        <tr><td>Manaus</td><td>320</td><td>−0,41</td><td class="g">−0,44</td></tr>
+        <tr><td>Belém</td><td>198</td><td>−0,23</td><td class="n">n.s.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="texto">
+    <div>
+      <h3>O resultado</h3>
+      <ul>
+        <li><strong>Em 14 de 15 cidades, a correlação é negativa</strong> (de −0,15 a −0,48): os locais que mais foram para Bolsonaro na reta final de 2022 tendem a ser os que mais foram para Lula na de 2026. Só Goiânia não segue o padrão.</li>
+        <li><strong>A maior parte do espelho é o perfil das áreas.</strong> Comparando locais de mesmo perfil no Censo, o efeito se mantém só em Guarulhos, no Rio, em Fortaleza e em Manaus, e fica no limite em São Bernardo, Recife e Porto Alegre.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Leitura</h3>
+      <ul>
+        <li><strong>Nas metrópoles, há uma geografia do voto que se decide no fim da campanha:</strong> áreas negras, de menor escolaridade e mais jovens. Em 2022, ela pendeu para Bolsonaro; em 2026, para Lula.</li>
+        <li><strong>Cuidado:</strong> os dados não dizem se são os mesmos eleitores mudando de lado ou eleitores diferentes, como os que não votaram no 1º turno (ver <a href="#transferencia">de onde vieram os votos</a>).</li>
       </ul>
     </div>
   </div>
@@ -318,14 +418,14 @@ dialog#zoom::backdrop{background:rgba(0,0,0,.82)}
 <section class="limites" id="limites">
   <h2>Dados e limites</h2>
   <ul>
-    <li><strong>Dados:</strong> TSE, resultado por município do site de divulgação (eleições 6257 e 6258), 100% das seções totalizadas, sem o exterior; no 1º turno, aptos, comparecimento e brancos conferem exatamente com o detalhe por município e zona dos Dados Abertos. IBGE, Censo 2022 por setor somado por município; malha IBGE 2022 via geobr. Boa Esperança do Norte (MT), criado depois do Censo, fica fora dos modelos.</li>
+    <li><strong>Dados:</strong> TSE, resultado por município do site de divulgação (eleições 6257 e 6258), 100% das seções totalizadas, sem o exterior; no 1º turno, aptos, comparecimento e brancos conferem exatamente com o detalhe por município e zona dos Dados Abertos. IBGE, Censo 2022 por setor somado por município; malha IBGE 2022 via geobr. Boa Esperança do Norte (MT), criado depois do Censo, fica fora dos modelos. Dentro das cidades: TSE, votação e detalhe por seção (Dados Abertos, versão de 26/10/2026), com o perfil do Censo por local de votação dos estudos das cidades; os totais conferem com o resultado de cada município nos dois turnos.</li>
     <li><strong>Inferência ecológica:</strong> municípios, não eleitores; as transferências são indicativas.</li>
     <li><strong>Escala:</strong> o município mistura áreas urbanas e rurais e esconde as diferenças internas das cidades.</li>
     <li><strong>Renda:</strong> só a proxy de domicílios com 3 ou mais banheiros, enquanto o IBGE não publicar renda por setor do Censo 2022.</li>
   </ul>
 </section>
 </main>
-<footer>Elaborado em 26 de outubro de 2026. <a href="./">Estudo nacional</a> · <a href="quinze-cidades.html">Quinze cidades</a> · <a href="segundo-turno.html">Segundo turno de 2026</a> · <a href="dois-turnos-2022.html">Dois turnos de 2022</a> · <a href="rio-grande-do-sul.html">Rio Grande do Sul</a> · <a href="estado-de-sao-paulo.html">Estado de São Paulo</a> · <a href="bahia.html">Bahia</a> · <a href="minas-gerais.html">Minas Gerais</a> · <a href="estado-do-rio-de-janeiro.html">Estado do Rio</a> · <a href="pernambuco.html">Pernambuco</a> · <a href="ceara.html">Ceará</a> · <a href="parana.html">Paraná</a> · <a href="santa-catarina.html">Santa Catarina</a> · <a href="goias.html">Goiás</a> · <a href="amazonas.html">Amazonas</a>.</footer>
+<footer>Elaborado em 26 de outubro de 2026; atualizado em 28 de outubro, com as quinze cidades. <a href="./">Estudo nacional</a> · <a href="quinze-cidades.html">Quinze cidades</a> · <a href="segundo-turno.html">Segundo turno de 2026</a> · <a href="dois-turnos-2022.html">Dois turnos de 2022</a> · <a href="rio-grande-do-sul.html">Rio Grande do Sul</a> · <a href="estado-de-sao-paulo.html">Estado de São Paulo</a> · <a href="bahia.html">Bahia</a> · <a href="minas-gerais.html">Minas Gerais</a> · <a href="estado-do-rio-de-janeiro.html">Estado do Rio</a> · <a href="pernambuco.html">Pernambuco</a> · <a href="ceara.html">Ceará</a> · <a href="parana.html">Paraná</a> · <a href="santa-catarina.html">Santa Catarina</a> · <a href="goias.html">Goiás</a> · <a href="amazonas.html">Amazonas</a>.</footer>
 </div>
 <dialog id="zoom" aria-label="Imagem ampliada">
   <div class="caixa"><img alt=""></div>
